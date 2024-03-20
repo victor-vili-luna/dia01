@@ -1,0 +1,3 @@
+espadaInicial = Item {nome = "Espada de ferro", ataque = 10, defesa = 0, descricao = "Se quiser espada tem, mas só usa espada quem não se garante."}
+armaduraInicial = Item {nome = "Armadura de couro", ataque = 0, defesa = 10, descricao = "Armadura que protege contra as falacias da IA."}
+pocaoInicial = Item {nome = "Mike Tyson Mentality", ataque = 20, defesa = 0, descricao = "Perfeito para deitar I.A. no soco."}
