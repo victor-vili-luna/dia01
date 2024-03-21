@@ -9,3 +9,5 @@ module Models.Player where
         equipamentos::String,
         pocoes::String
     } deriving (Show, Read)
+
+
