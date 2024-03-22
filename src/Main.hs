@@ -7,6 +7,8 @@ import SistemaGold
 import System.IO
 import System.Directory
 import qualified Models.Player
+import Combate
+
 
 main::IO()
 main = do
@@ -31,12 +33,11 @@ escolha1 escolha01 = do
         putStrLn cursoParte01
         setupInicial 
     
-        
 setupInicial::IO()
 setupInicial = do
-    --arquivo <- readFile' "src/pacote/Heroi.txt"
-    --let heanes = read arquivo :: Models.Player.Player
-    let heanes = Player {nome = "Heanes", vida = 100, gold = 0, defesa = 0, ataque = 5, equipamentos = "", pocoes = ""}  
+    heroi <- readFile' "dia01/src/pacote/Heroi.txt"
+    let heanes = read heroi :: Models.Player.Player
+    putStrLn (textoFormatado "...")
     escolha2
 
 fechaJogo::String
@@ -51,5 +52,7 @@ escolha2 = do
     escolha02 <- getLine
 
     if escolha02 == "1" then abreMapa01 ["(1) Voltar a loja do Ferreiro Ferreira para ver os itens disponíveis.", "(2) Conversar com o Ferreira.", "(3) Ir a praça da cidade.","(4) Seguir Carl Wilson." ]
-    else if escolha02 == "2" then putStrLn cursoHistoria02
+    else if escolha02 == "2" then do
+        putStrLn cursoHistoria02
+        combate
     else putStrLn "Escolha uma opção válida."

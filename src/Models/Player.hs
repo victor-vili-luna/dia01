@@ -10,4 +10,3 @@ module Models.Player where
         pocoes::String
     } deriving (Show, Read)
 
-

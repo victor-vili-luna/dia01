@@ -17,7 +17,6 @@ sistemaGoldPassivoAux = do
 
 sistemaGoldAtivoAux::IO()
 sistemaGoldAtivoAux = do
-    putStrLn "Leia a pergunta a seguir e responda:"
     putStrLn questao01
     input <- getLine
     if input == "animals" then do
