@@ -1,1 +1,1 @@
-Pocao {nome = "Café", vida = 40, preco = 20, defesa = 0, ataque = 0, quantidade = 0}
+Pocao {nome = "Cafe", vida = 40, preco = 20, defesa = 0, ataque = 0, quantidade = 0}

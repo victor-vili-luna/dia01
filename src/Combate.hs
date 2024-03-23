@@ -14,6 +14,6 @@ preCombate02 = do
     clearScreen
     putStrLn "Parece que voce nao quis trabalhar ein hahaha, vai sem item nenhum e sem pocoes, acerte tudo e mesmo assim morrerá!"
 
-combate::IO()
-combate = do
+combate01::IO()
+combate01 = do
     putStrLn "antierro"

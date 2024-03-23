@@ -56,8 +56,11 @@ escolha2 = do
     putStrLn (textoFormatado menuInicial)
     escolha02 <- getLine
 
-    if escolha02 == "1" then abreMapa01 ["(1) Voltar a loja do Ferreiro Ferreira para ver os itens disponíveis.", "(2) Conversar com o Ferreira.", "(3) Ir a praça da cidade.","(4) Seguir Carl Wilson." ]
+    if escolha02 == "1" then abreMapa01 ["(1) Voltar a loja do Ferreiro Ferreira para *ver* os itens disponíveis.", "(2) Conversar com o Ferreira.", "(3) Ir a praça da cidade.","(4) Seguir Carl Wilson." ]
     else if escolha02 == "2" then do
         putStrLn cursoHistoria02
+        putStrLn "Heanes repentinamente é sumonado em um...TRABALHO???"
+        putStrLn dialogoTrabalho01
         sistemaGold
+        historiaPrincipal ["(1)Ganhar dinheiro","(2)Comprar poções com C.W.","(3)Visitar o ferreiro Ferreira","(4)Me garanto em enfrentar a I.A."]
     else putStrLn "Escolha uma opção válida."

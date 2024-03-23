@@ -22,24 +22,36 @@ explicacaoBasica01 = textoFormatado "\nEntão me ajude a carregar essas coisas a
 explicacaoBasica02::String
 explicacaoBasica02 = textoFormatado "\nEntendo entendo, pelo meio difícil hein, então responda a seguinte pergunta:"
 
+cursoAventura01::String
+cursoAventura01 = textoFormatado "\nC.W.: Bom, agora que você conhece as mecânicas básicas do jogo, recomendo ir atrás de algumas informações sobre as I.As, tudo que eu sei sobre a sua primeira I.A. é que você pode ser ajudado pelo Leandro.\nHeanes: Que Leandro??\nC.W.:Da vinci."
+
 abreMapa01 :: [String] -> IO()
 abreMapa01 opcoes = do
+
     mapM_ putStrLn opcoes
 
     input <- getLine
     if input == "1" then do
+        clearScreen
         verLoja
         abreMapa01 (removeOpcao "(1) Voltar a loja do Ferreiro Ferreira para *ver* os itens disponíveis." opcoes)
     else if input == "2" then do
+        clearScreen
         putStrLn dialogoFerreira01
         abreMapa01 (removeOpcao "(2) Conversar com o Ferreira." opcoes)
     else if input == "3" then do
+        clearScreen
         putStrLn dialogoPadeiro01
         abreMapa01 (removeOpcao "(3) Ir a praça da cidade." opcoes)
     else if input == "4" then do
+        clearScreen
         putStrLn cursoHistoria02
         sistemaGold
-    else putStrLn "Escreva uma opção válida."
+        putStrLn cursoAventura01
+        historiaPrincipal ["(1)Ganhar dinheiro","(2)Comprar poções com C.W.","(3)Visitar o ferreiro Ferreira","(4)Me garanto em enfrentar a I.A."]
+    else do
+        putStrLn "Escreva uma opção válida."
+        abreMapa01 opcoes
 
 removeOpcao::String->[String]->[String]
 removeOpcao _ [] = []
@@ -50,8 +62,6 @@ removeOpcao opcao (a:as)
 sistemaGold :: IO ()
 sistemaGold = do
 
-    putStrLn "Heanes repentinamente é sumonado em um...TRABALHO???"
-    putStrLn dialogoTrabalho01
     putStrLn "(1)Trabalhar ajudando a carregar alguns suprimentos para um mercado mágico próximo.\n(2)Responder enigmas que as IAs utilizam para afirmar sua superioridade.\n(3)N.D.A."
 
     input <- getLine
@@ -61,16 +71,33 @@ sistemaGold = do
         conteudo <- readFile' "./src/pacote/Heroi.txt"
         let heanes = read conteudo :: Player
         sistemaGoldPassivoAux (gold heanes)
-        historiaPrincipal
     else if input == "2" then do
         putStrLn explicacaoBasica02
         sistemaGoldAtivoAux
-        historiaPrincipal
-    else do
-        putStrLn "\nNão quer trabalhar hein, tudo bem, vai lutar sem ajuda alguma agora. Boa sorte! Tenha cuidado com os cachorros caramelos gigantes pelo caminho."
-        historiaPrincipal
+    else putStrLn "\nNão quer trabalhar hein, tudo bem. Boa sorte!"
 
-historiaPrincipal::IO()
-historiaPrincipal = do
-    putStrLn "antierro"
+historiaPrincipal::[String]->IO()
+historiaPrincipal opcoes02 = do
 
+    putStrLn "O que deseja fazer agora que está de volta a cidade?"
+    mapM_ putStrLn opcoes02
+
+    opcaoJogador <- getLine
+    if opcaoJogador == "1" then do
+        clearScreen
+        sistemaGold
+        historiaPrincipal (removeOpcao "(1)Ganhar dinheiro" opcoes02)
+    else if opcaoJogador == "2" then do
+        clearScreen
+        abreLojaPocoesInicial
+        historiaPrincipal (removeOpcao "(2)Comprar poções com C.W." opcoes02)
+    else if opcaoJogador == "3" then do
+        clearScreen
+        abreLojaItensInicial
+        historiaPrincipal (removeOpcao "(3)Visitar o ferreiro Ferreira" opcoes02)
+    else if opcaoJogador == "4" then do
+        clearScreen
+        combate01
+    else do 
+        putStrLn "Digite uma opcão válida."
+        historiaPrincipal opcoes02
