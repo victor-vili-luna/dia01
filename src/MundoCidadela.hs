@@ -70,5 +70,7 @@ sistemaGold = do
         putStrLn "\nNão quer trabalhar hein, tudo bem, vai lutar sem ajuda alguma agora. Boa sorte! Tenha cuidado com os cachorros caramelos gigantes pelo caminho."
         historiaPrincipal
 
-
+historiaPrincipal::IO()
+historiaPrincipal = do
+    putStrLn "antierro"
 

@@ -9,7 +9,7 @@ preCombate = do
     putStrLn "(1)Comprar poções com C.W.\n(2)Visitar o ferreiro Ferreira.\n(3)Me garanto."
 
 preCombate02::IO()
-preCombate = do
+preCombate02 = do
 
     clearScreen
     putStrLn "Parece que voce nao quis trabalhar ein hahaha, vai sem item nenhum e sem pocoes, acerte tudo e mesmo assim morrerá!"
