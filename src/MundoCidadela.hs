@@ -67,5 +67,3 @@ sistemaGold = do
 
 
 
-
-

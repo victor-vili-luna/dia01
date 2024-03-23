@@ -2,21 +2,24 @@ module SistemaGold where
 
 import System.IO (hReady, stdin)
 import Control.Concurrent(threadDelay)
-import Historia (textoFormatado)
+import Historia
 
 sistemaGoldPassivoAux::IO()
 sistemaGoldPassivoAux = do
     putStrLn "carregando caixas..."
     input <- hReady stdin
     if input then do
-        putStrLn "Você se cansa rápido para um Héroi...Aqui está seu dinheiro:" -- ++ getGold
+        putStrLn "Você se cansa rápido para um Héroi...Aqui está seu dinheiro: " ++ getGold
     else do 
-        let goldAtual = "sim, ta pegando"--getGold + 1
+        let goldAtual = getGold + 1
         threadDelay(5*1000000)
         sistemaGoldPassivoAux
 
 sistemaGoldAtivoAux::IO()
 sistemaGoldAtivoAux = do
+
+    clearScreen
+
     putStrLn questao01
     input <- getLine
     if input == "animals" then do
@@ -36,3 +39,10 @@ questao03 = textoFormatado "q03"
 
 questao04::String
 questao04 = textoFormatado "q03"
+
+atualizaGold::Int->IO()
+atualizaGold quantia = do
+    heroiAntigo <- readFile' "dia01/src/pacote/Heroi.txt"
+    let heanes = read heroiAntigo :: Models.Player.Player
+        heanes2 = heanes {Models.Player.gold=quantia}
+    writeFile "dia01/src/pacote/Heroi.txt" (show heanes2)

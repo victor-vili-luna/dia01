@@ -9,7 +9,6 @@ import System.Directory
 import qualified Models.Player
 import Combate
 
-
 main::IO()
 main = do
 
@@ -19,6 +18,8 @@ main = do
 
 escolha1::String->IO()
 escolha1 escolha01 = do
+
+    clearScreen
 
     if escolha01 == "1" then do
         putStrLn cursoParte01
@@ -48,6 +49,9 @@ menuInicial = "O que deseja fazer??\n(1) Explorar a cidade.\n(2) Seguir Carl Wil
 
 escolha2::IO()
 escolha2 = do
+
+    clearScreen
+
     putStrLn (textoFormatado menuInicial)
     escolha02 <- getLine
 
