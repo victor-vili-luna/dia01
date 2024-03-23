@@ -37,7 +37,7 @@ escolha1 escolha01 = do
     
 setupInicial::IO()
 setupInicial = do
-    heroi <- readFile' "dia01/src/pacote/Heroi.txt"
+    heroi <- readFile' "./src/pacote/Heroi.txt"
     let heanes = read heroi :: Models.Player.Player
     putStrLn (textoFormatado "...")
     escolha2
@@ -59,5 +59,5 @@ escolha2 = do
     if escolha02 == "1" then abreMapa01 ["(1) Voltar a loja do Ferreiro Ferreira para ver os itens disponíveis.", "(2) Conversar com o Ferreira.", "(3) Ir a praça da cidade.","(4) Seguir Carl Wilson." ]
     else if escolha02 == "2" then do
         putStrLn cursoHistoria02
-        combate
+        sistemaGold
     else putStrLn "Escolha uma opção válida."

@@ -12,11 +12,11 @@ sistemaGoldPassivoAux goldAntigo= do
     input <- hReady stdin
     if input then do
 
-        heroiAntigo <- readFile' "dia01/src/pacote/Heroi.txt"
+        heroiAntigo <- readFile' "./src/pacote/Heroi.txt"
         let heanes = read heroiAntigo :: Player
             goldAtual = goldAntigo + 3
             heanes2 = heanes {Models.Player.gold=goldAtual}
-        writeFile "dia01/src/pacote/Heroi.txt" (show heanes2)
+        writeFile "./src/pacote/Heroi.txt" (show heanes2)
         putStrLn "Você se cansa rápido para um héroi... Aqui está sua quantia atual de gold: "
         print goldAtual
 
@@ -32,11 +32,11 @@ sistemaGoldAtivoAux = do
     putStrLn questao01
     input <- getLine
     if input == "animals" then do
-        conteudo <- readFile' "dia01/src/pacote/Heroi.txt"
+        conteudo <- readFile' "./src/pacote/Heroi.txt"
         let heanes = read conteudo :: Models.Player.Player
             goldAtual = gold heanes + 30
             heanes2 = heanes {Models.Player.gold=goldAtual}
-        writeFile "dia01/src/pacote/Heroi.txt" (show heanes2)
+        writeFile "./src/pacote/Heroi.txt" (show heanes2)
         putStrLn $ "Muito bem. Aqui está sua recompensa: " ++ show (gold heanes2)
         putStrLn "A proxima questão só sera liberada quando enfrentar a fase."
     else do

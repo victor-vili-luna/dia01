@@ -28,8 +28,8 @@ abreMapa01 opcoes = do
 
     input <- getLine
     if input == "1" then do
-        abreLoja
-        abreMapa01 (removeOpcao "(1) Voltar a loja do Ferreiro Ferreira para ver os itens disponíveis." opcoes)
+        verLoja
+        abreMapa01 (removeOpcao "(1) Voltar a loja do Ferreiro Ferreira para *ver* os itens disponíveis." opcoes)
     else if input == "2" then do
         putStrLn dialogoFerreira01
         abreMapa01 (removeOpcao "(2) Conversar com o Ferreira." opcoes)
@@ -58,17 +58,17 @@ sistemaGold = do
     if input == "1" then do
         putStrLn explicacaoBasica01
         putStrLn "QUANDO QUISER PARAR, APERTE QUALQUER TECLA."
-        conteudo <- readFile' "dia01/src/pacote/Heroi.txt"
-        let heanes = read conteudo :: Models.Player.Player
+        conteudo <- readFile' "./src/pacote/Heroi.txt"
+        let heanes = read conteudo :: Player
         sistemaGoldPassivoAux (gold heanes)
-        combate
+        historiaPrincipal
     else if input == "2" then do
         putStrLn explicacaoBasica02
         sistemaGoldAtivoAux
-        combate
+        historiaPrincipal
     else do
         putStrLn "\nNão quer trabalhar hein, tudo bem, vai lutar sem ajuda alguma agora. Boa sorte! Tenha cuidado com os cachorros caramelos gigantes pelo caminho."
-        combate
+        historiaPrincipal
 
 
 

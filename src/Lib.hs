@@ -1,12 +1,12 @@
 module Lib where
 
-import System.Process
+    import System.Process
 
-textoFormatado::String->String
-textoFormatado texto = texto ++ "\n-----------------------------------------------------------------------------------------------------------------------------------------------------------------------\n"
+    textoFormatado::String->String
+    textoFormatado texto = texto ++ "\n-----------------------------------------------------------------------------------------------------------------------------------------------------------------------\n"
 
-clearScreen::IO()
-clearScreen = do
-    _ <- system "clear"
-    putStr "\ESC[H"
+    clearScreen::IO()
+    clearScreen = do
+        _ <- system "clear"
+        putStr "\ESC[H"
     
