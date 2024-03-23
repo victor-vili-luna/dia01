@@ -1,10 +1,9 @@
 module Combate where
-import Historia (clearScreen)
+    
+import Lib
 
 combate::IO()
 combate = do
-
-    clearScreen
 
     putStrLn "Deseja comprar algum item da loja?"
     putStrLn "antierro"

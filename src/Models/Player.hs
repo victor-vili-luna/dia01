@@ -10,5 +10,3 @@ module Models.Player where
         pocoes::String
     } deriving (Show, Read)
 
-    getGold :: Player->Int
-    getGold = gold

@@ -3,6 +3,9 @@ import Historia
 import SistemaGold (sistemaGoldPassivoAux, sistemaGoldAtivoAux)
 import Combate
 import Loja
+import Models.Player
+import System.IO (readFile')
+import Lib
 
 dialogoPadeiro01::String
 dialogoPadeiro01 = textoFormatado "\nVocê encontra uma padaria no caminho e decide conversar com o padeiro...\nPadeiro: Você não notou nada de estranho Héroi?? Por que so você pode derrotar a I.A., e se assim, por que não tem todos os melhores itens?, tenha cuidado meu caro...\nHeanes: O que quer dizer com isso??\nPadeiro: Eu já falei demais... \n*Misterioresamente o homem que estava lá, desaparece aos olhos do professor.*\nO professor decide ignorar isso por enquanto, por enquanto."
@@ -55,7 +58,9 @@ sistemaGold = do
     if input == "1" then do
         putStrLn explicacaoBasica01
         putStrLn "QUANDO QUISER PARAR, APERTE QUALQUER TECLA."
-        sistemaGoldPassivoAux
+        conteudo <- readFile' "dia01/src/pacote/Heroi.txt"
+        let heanes = read conteudo :: Models.Player.Player
+        sistemaGoldPassivoAux (gold heanes)
         combate
     else if input == "2" then do
         putStrLn explicacaoBasica02

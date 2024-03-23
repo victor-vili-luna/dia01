@@ -2,6 +2,7 @@ module Loja where
 
 import Models.Item
 import Historia
+import Lib
 
 abreLoja::IO()
 abreLoja = do

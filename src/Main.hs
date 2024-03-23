@@ -8,6 +8,7 @@ import System.IO
 import System.Directory
 import qualified Models.Player
 import Combate
+import Lib
 
 main::IO()
 main = do
