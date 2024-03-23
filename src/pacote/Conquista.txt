@@ -1,0 +1,3 @@
+Conquista {nome = "Jubilado", descricao = "Negue Carl Wilson 8 vezes", alcancou = False}
+Conquista {nome = "Se você não parar eu Paro", descricao = "Tome 6 Poções", alcancou = False}
+Conquista {nome = "Faixa Preta", descricao = "Derrotou ConversaGPT", alcancou = False}

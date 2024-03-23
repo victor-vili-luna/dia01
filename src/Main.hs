@@ -48,6 +48,9 @@ fechaJogo = "Você fugiu covardemente...Boa sorte em ensinar o Teorema do resto 
 menuInicial::String
 menuInicial = "O que deseja fazer??\n(1) Explorar a cidade.\n(2) Seguir Carl Wilson."
 
+sla::String
+sla = "Faz o L"
+
 escolha2::IO()
 escolha2 = do
 
