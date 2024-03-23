@@ -60,4 +60,4 @@ escolha2 = do
     else if escolha02 == "2" then do
         putStrLn cursoHistoria02
         combate
-    else putStrLn "Escolha uma opção válida."
+    else putStrLn "Escolha uma opção válida..."
