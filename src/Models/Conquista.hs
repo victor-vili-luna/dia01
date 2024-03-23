@@ -1,6 +1,6 @@
 module Models.Conquista where
 
-data Conquista = Conquista {
+    data Conquista = Conquista {
     nomeC:: String,
     descricao :: String,
     alcancou:: Bool
