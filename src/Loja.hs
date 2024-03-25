@@ -15,7 +15,7 @@ abreLojaItensInicial = do
     arquivo02 <- readFile' "./src/pacote/ItensIniciais.txt"
     let lojaItem = map (read::String->Item) (lines arquivo02)
     print lojaItem
-    compraItem item
+    compraItem lojaItem
 
 abreLojaPocoesInicial::IO()
 abreLojaPocoesInicial = do
@@ -30,24 +30,21 @@ abreLojaPocoesInicial = do
     if input == "1" then compraPocao pocao
     else putStrLn "Não quer comprar hein...tudo bem."
 
-compraItem::Item->IO()
-compraItem item = do
+compraItem::[Item]->IO()
+compraItem lojaItem = do
     putStrLn "Digite o nome do item que você deseja comprar. Caso você esteja liso e não queira comprar nada, digite SAIR."
     input <- getLine
     if input == "SAIR" then do
+        clearScreen
         putStrLn "ferreiro Ferreira: Não quer comprar hein... Tudo bem."
-    else if input == Models.Item.nome item then do
-        arquivoHeroi <- readFile' "./src/pacote/Heroi.txt"
-        let heanesPre = read arquivoHeroi :: Player
-            gold = Models.Player.gold heanesPre
-        if gold >= Models.Item.preco item then do
-            let goldAtual = Models.Player.gold heanesPre - Models.Item.preco item
-                heanesAdulto = heanesPre { gold = goldAtual, equipamentos = equipamentos heanesPre ++ [item] }
-            writeFile "./src/pacote/Heroi.txt" (show heanesAdulto)
-        else putStrLn "Pobretão, quer adquirir mais algum produto?"
+    else if (input == "Espada de ferro" || input == "Armadura de couro") then 
+        putStrLn "AUUUUUUUUUUUUUUUUUUUUUU"
     else do 
-        putStrLn "Por favor digite novamente."
-        compraItem item
+        clearScreen
+        putStrLn "ferreiro Ferreira: Não tenho esse item em estoque, os que eu tenho são esses:\n"
+        print (lojaItem ++ "\n")
+        putStrLn "Digite o nome do item que você deseja comprar. Caso você esteja liso e não queira comprar nada, digite SAIR."
+        compraItem lojaItem
 
 compraPocao::Pocao->IO()
 compraPocao pocao = do
