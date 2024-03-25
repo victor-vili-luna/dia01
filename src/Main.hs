@@ -17,10 +17,10 @@ main = do
 
     putStrLn inicioHistoria
     escolha <- getLine
-    escolha1 escolha 0
+    escolhaTreatment escolha 0
 
-escolha1::String-> Int -> IO()
-escolha1 escolha vezes_negado = do
+escolhaTreatment::String-> Int -> IO()
+escolhaTreatment escolha vezes_negado = do
 
     clearScreen
 
@@ -28,7 +28,7 @@ escolha1 escolha vezes_negado = do
         "1" -> setupInicial
         "2" -> jubilado (vezes_negado + 1)
         _ -> do
-            putStrLn "A liberdade de expressão era uma mentira..."
+            putStrLn "A liberdade de expressão era uma mentira...\n"
             setupInicial
 
 jubilado :: Int -> IO ()
@@ -36,8 +36,9 @@ jubilado 8 = serJubilado
 jubilado vezes_negado = do
     putStrLn "Pense melhor sobre isso professor...\n"
     putStrLn $ "(1) Sim, quero ajudar.\n" ++ "(2) " ++ concat (replicate vezes_negado "Não. ")
+    putStrLn "\n------------------------------------------------------------------------------------\n"
     escolha <- getLine
-    escolha1 escolha vezes_negado
+    escolhaTreatment escolha vezes_negado
 
 serJubilado :: IO()
 serJubilado = do
@@ -54,7 +55,7 @@ setupInicial = do
     escolha2
 
 menuInicial::String
-menuInicial = "O que deseja fazer??\n(1) Explorar a cidade.\n(2) Seguir Carl Wilson.\n"
+menuInicial = "O que deseja fazer??\n\n(1) Explorar a cidade.\n(2) Seguir Carl Wilson.\n"
 
 escolha2::IO()
 escolha2 = do
@@ -62,11 +63,14 @@ escolha2 = do
     putStrLn (textoFormatado menuInicial)
     escolha02 <- getLine
 
-    if escolha02 == "1" then abreMapa01 ["(1) Voltar a loja do Ferreiro Ferreira para *ver* os itens disponíveis.", "(2) Conversar com o Ferreira.", "(3) Ir a praça da cidade.","(4) Seguir Carl Wilson." ]
+    if escolha02 == "1" then do
+        clearScreen
+        putStrLn "Você escolheu explorar a cidade, para onde nosso bravo web-guerreiro irá?\n"
+        abreMapa01 ["(1) Voltar a loja do ferreiro Ferreira para *ver* os itens disponíveis.", "(2) Conversar com o Ferreira.", "(3) Ir à praça da cidade.","(4) Seguir Carl Wilson." ]
     else if escolha02 == "2" then do
+        clearScreen
+        putStrLn "*Carl Wilson percebe que você começa a seguir ele e se vira rapidamente em sua direção*\n"
         putStrLn cursoHistoria02
-        putStrLn "Heanes repentinamente é sumonado em um...TRABALHO???"
-        putStrLn dialogoTrabalho01
         sistemaGold
-        historiaPrincipal ["(1)Ganhar dinheiro","(2)Comprar poções com C.W.","(3)Visitar o ferreiro Ferreira","(4)Me garanto em enfrentar a I.A."]
+        historiaPrincipal ["(1) Ganhar dinheiro","(2) Comprar poções com C.W.","(3) Visitar o ferreiro Ferreira","(4) Me garanto em enfrentar a I.A."]
     else putStrLn "Escolha uma opção válida."

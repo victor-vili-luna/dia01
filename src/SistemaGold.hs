@@ -11,15 +11,14 @@ sistemaGoldPassivoAux goldAntigo= do
     putStrLn "carregando caixas..."
     input <- hReady stdin
     if input then do
-
+        throwinput <- getLine
         heroiAntigo <- readFile' "./src/pacote/Heroi.txt"
         let heanes = read heroiAntigo :: Player
             goldAtual = goldAntigo + 3
             heanes2 = heanes {Models.Player.gold=goldAtual}
         writeFile "./src/pacote/Heroi.txt" (show heanes2)
-        putStrLn "Você se cansa rápido para um héroi... Aqui está sua quantia atual de gold: "
-        print goldAtual
-
+        clearScreen
+        putStrLn("\nC.W.:Você se cansa rápido para um héroi...\n\n*Você olha para sua carteira de professor, e vê " ++ show(goldAtual) ++ " moedas de critais.*")
     else do 
         threadDelay(3*1000000)
         sistemaGoldPassivoAux (goldAntigo+3)
@@ -31,19 +30,22 @@ sistemaGoldAtivoAux = do
 
     putStrLn questao01
     input <- getLine
-    if input == "animals" then do
+    if (input /= "Haskell") && (input /= "haskell") then do
         conteudo <- readFile' "./src/pacote/Heroi.txt"
         let heanes = read conteudo :: Models.Player.Player
             goldAtual = gold heanes + 30
             heanes2 = heanes {Models.Player.gold=goldAtual}
         writeFile "./src/pacote/Heroi.txt" (show heanes2)
-        putStrLn $ "Muito bem. Aqui está sua recompensa: " ++ show (gold heanes2)
-        putStrLn "A proxima questão só sera liberada quando enfrentar a fase."
+        clearScreen
+        putStrLn $ "\nVending Machine: MUITO BEM, HUMANO! AINDA BEM QUE MEU PROGRAMADOR NÃO ME FEZ EM HASKELL... ECA!"
+        putStrLn ("\n*Você olha para sua carteira de professor, e vê " ++ show(goldAtual) ++ " moedas de critais. Enquanto isso, o Mestre dos Magos é sumonado repentinamente*")
     else do
-        putStrLn "Resposta errada professor, logo voce nao ganhou nada."
+        clearScreen
+        putStrLn "\nVending Machine: COMO VOCÊ PODE FALAR UMA COISA DESSAS??? REPENSE SUAS ATITUDEZINHAS, SEM REWARD PARA VOCÊ."
+        putStrLn ("\n*Você olha para sua carteira de professor, e ela está vazia, você pensa em entrar em greve. Enquanto isso, o Mestre dos Magos é sumonado repentinamente*")
 
 questao01::String
-questao01 = textoFormatado "AAUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU, de qual música é esse uivo?"
+questao01 = textoFormatado "*Heanes se encaminha para um lugar de procedência duvidosa, lá ele encontra uma Vending Machine*\n\nVending Machine: OLÁ HUMANO! VOCÊ É CAPAZ DE RESPONDER A MINHA PERGUNTA? AQUI VAI ELA:\n\nVending Machine: QUAL A MELHOR LINGUAGEM DE PROGRAMAÇÃO JÁ CRIADA?\n"
 
 questao02::String
 questao02 = textoFormatado "q02"

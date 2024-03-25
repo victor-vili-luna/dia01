@@ -11,8 +11,9 @@ abreLojaItensInicial::IO()
 abreLojaItensInicial = do
     clearScreen
 
-    putStrLn (textoFormatado "Aqui está uma lista de itens que atualmente voce pode comprar se tiver o dinheiro: ")
+    putStrLn (textoFormatado "Ferreira, o ferreiro: Olá herói! Aqui está uma lista de itens que você pode comprar caso tenha as moedas, claro:\n")
     arquivo02 <- readFile' "./src/pacote/ItensIniciais.txt"
+<<<<<<< HEAD
     let lojaItens = map (read::String->Item) (lines arquivo02)
     print lojaItens
 
@@ -32,12 +33,17 @@ abreLojaItensInicial = do
     --else do 
         --putStrLn "Por favor digite novamente."
         --compraPocao pocao
+=======
+    let lojaItem = map (read::String->Item) (lines arquivo02)
+    print lojaItem
+    compraItem lojaItem
+>>>>>>> f7d294508e49e89739e401e26b99373374e2c7b8
 
 abreLojaPocoesInicial::IO()
 abreLojaPocoesInicial = do
     clearScreen
 
-    putStrLn (textoFormatado "Aqui está uma lista de pocoes que atualmente voce pode comprar se tiver o dinheiro: ")
+    putStrLn (textoFormatado "Ferreira, o ferreiro: Olá herói! Aqui está uma lista de poções que você pode comprar caso tenha as moedas, claro:\n")
     arquivoPocaoInicial <- readFile' "./src/pacote/PocaoInicial.txt"
     let lojaPocao = map (read::String->Pocao) (lines arquivoPocaoInicial)
     print lojaPocao
@@ -46,6 +52,21 @@ abreLojaPocoesInicial = do
     if input == "1" then compraPocao lojaPocao
     else putStrLn "Não quer comprar hein...tudo bem."
 
+compraItem::[Item]->IO()
+compraItem lojaItem = do
+    putStrLn "Digite o nome do item que você deseja comprar. Caso você esteja liso e não queira comprar nada, digite SAIR."
+    input <- getLine
+    if input == "SAIR" then do
+        clearScreen
+        putStrLn "ferreiro Ferreira: Não quer comprar hein... Tudo bem."
+    else if (input == "Espada de ferro" || input == "Armadura de couro") then 
+        putStrLn "AUUUUUUUUUUUUUUUUUUUUUU"
+    else do 
+        clearScreen
+        putStrLn "ferreiro Ferreira: Não tenho esse item em estoque, os que eu tenho são esses:\n"
+        print (lojaItem ++ "\n")
+        putStrLn "Digite o nome do item que você deseja comprar. Caso você esteja liso e não queira comprar nada, digite SAIR."
+        compraItem lojaItem
 
 compraPocao::[Pocao]->IO()
 compraPocao lojaPocao = do
@@ -99,10 +120,12 @@ pegaPocao nomePocao (a:as)
 
 verLoja::IO()
 verLoja = do
-    putStrLn "Esses são os itens e os preços que quando você trabalhar, poderá comprar: "
+    putStrLn "Esses são os itens e os preços que quando você trabalhar, poderá comprar: \n"
     arquivo02 <- readFile' "./src/pacote/ItensIniciais.txt"
     let loja = map (read::String->Item) (lines arquivo02)
     print loja
+    putStrLn "\nMas como você ainda não possui nenhum tostão, acho melhor você pensar em fazer alguma outra coisa..."
+    putStrLn "\n------------------------------------------------------------------------------------\n"
 
 
 

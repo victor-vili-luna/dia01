@@ -1,0 +1,4 @@
+<<<<<<< HEAD
+=======
+Player {nome = "Heanes", vida = 100, gold = 209, defesa = 5, ataque = 5, equipamentos = "", pocoes = [Pocao {nome = "Cafe", vida = 40, preco = 20, defesa = 0, ataque = 0, quantidade = 0},Pocao {nome = "Cafe", vida = 40, preco = 20, defesa = 0, ataque = 0, quantidade = 0}]}
+>>>>>>> f7d294508e49e89739e401e26b99373374e2c7b8
