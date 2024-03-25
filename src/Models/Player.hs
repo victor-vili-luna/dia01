@@ -1,5 +1,6 @@
 module Models.Player where
     import Models.Pocao
+    import Models.Item
 
     data Player = Player {
         nome::String,
@@ -7,7 +8,7 @@ module Models.Player where
         gold::Int,
         defesa::Int,
         ataque::Int,
-        equipamentos::String,
+        equipamentos::[Item],
         pocoes::[Pocao]
     } deriving (Show, Read)
 
