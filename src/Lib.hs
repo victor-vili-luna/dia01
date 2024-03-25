@@ -8,6 +8,12 @@ import System.IO
 textoFormatado::String->String
 textoFormatado texto = texto ++ "\n------------------------------------------------------------------------------------\n"
 
+removeOpcao::String->[String]->[String]
+removeOpcao _ [] = []
+removeOpcao opcao (a:as)
+    | a == opcao = as
+    | otherwise = a : removeOpcao opcao as
+
 clearScreen::IO()
 clearScreen = do
     _ <- system "clear"

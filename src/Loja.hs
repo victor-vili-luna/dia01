@@ -42,7 +42,8 @@ compraItem lojaItem = do
     else do 
         clearScreen
         putStrLn "ferreiro Ferreira: Não tenho esse item em estoque, os que eu tenho são esses:\n"
-        print (lojaItem ++ "\n")
+        print lojaItem
+        putStrLn "\n"
         putStrLn "Digite o nome do item que você deseja comprar. Caso você esteja liso e não queira comprar nada, digite SAIR."
         compraItem lojaItem
 

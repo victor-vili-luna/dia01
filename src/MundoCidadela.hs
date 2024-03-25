@@ -49,12 +49,6 @@ abreMapa01 opcoes = do
         putStrLn "Escreva uma opção válida."
         abreMapa01 opcoes
 
-removeOpcao::String->[String]->[String]
-removeOpcao _ [] = []
-removeOpcao opcao (a:as)
-    | a == opcao = as
-    | otherwise = a : removeOpcao opcao as
-
 sistemaGold :: IO ()
 sistemaGold = do
 
@@ -71,7 +65,7 @@ sistemaGold = do
         sistemaGoldPassivoAux (gold heanes)
     else if input == "2" then do
         clearScreen
-        sistemaGoldAtivoAux
+        sistemaGoldAtivoAux ["(1)","(2)","(3)","(4)"]
     else do
         clearScreen
         putStrLn "Não quer trabalhar hein, tudo bem. Boa sorte!"
