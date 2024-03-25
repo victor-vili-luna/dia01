@@ -7,13 +7,15 @@ C:\Users\victo\OneDrive\Documentos\plp\haskell\dia01\dia01.cabal:
 C:\Users\victo\OneDrive\Documentos\plp\haskell\dia01\src\Combate.hs:
   hash: f872d87242b3b51e56089d7ee19bf8724193ef3c7e59a7b8c8bb61773702c560
 C:\Users\victo\OneDrive\Documentos\plp\haskell\dia01\src\Historia.hs:
-  hash: 2ef3b91fb1583b225f670fc6e0a952f63bd2f72d47af9883d4f3e7fa5fc31495
+  hash: 9f8e2ee70e4e0fd72034e8bbf6f1b4bd797e6b1c42d3a4dc0c22be048d2f5775
 C:\Users\victo\OneDrive\Documentos\plp\haskell\dia01\src\Lib.hs:
-  hash: a1ac4ecb0452769b67b3244308ecc741c5801218e3cf0b9c84392a5b1e310522
+  hash: a4f8f53e7a2d56332bbaceccf25b62aaafd7f0dce2d6649cf48b4253e72f103f
 C:\Users\victo\OneDrive\Documentos\plp\haskell\dia01\src\Loja.hs:
-  hash: cc77c3b5ca5d8b751942f350c7b4cd715de508bdad0b67dc6613a7dd5c0c1780
+  hash: f275c2ef3ea7c9ad12e5ec7469aee2c7821193d8d8482a279213bd52569c4206
 C:\Users\victo\OneDrive\Documentos\plp\haskell\dia01\src\Main.hs:
-  hash: 5363fc2f11cbc4971a972d6ff2cde51512c03e13d2fbde5faa0181958477e65e
+  hash: 948c0c7f8e6191632456dcdc022e815d5fbbe5548c0ab1f4360eb89a8f0e74a0
+C:\Users\victo\OneDrive\Documentos\plp\haskell\dia01\src\Models\Conquista.hs:
+  hash: 587e62c9c56c79dcac3c54e4897bfd8ac4e3eb61ce1751c13c24af5d121f8788
 C:\Users\victo\OneDrive\Documentos\plp\haskell\dia01\src\Models\Item.hs:
   hash: 8d703574e23887195bbaae5b8f703cd4f11249fe1dcde741fddafc31e376f15b
 C:\Users\victo\OneDrive\Documentos\plp\haskell\dia01\src\Models\Player.hs:
@@ -21,6 +23,6 @@ C:\Users\victo\OneDrive\Documentos\plp\haskell\dia01\src\Models\Player.hs:
 C:\Users\victo\OneDrive\Documentos\plp\haskell\dia01\src\Models\Pocao.hs:
   hash: 453109d82683dafceeb096394cb8d896c61e85646e6f0d3c3923497b0bfabccd
 C:\Users\victo\OneDrive\Documentos\plp\haskell\dia01\src\MundoCidadela.hs:
-  hash: 6f8c826d0a16c9c3d88a1f717ef13e6ec6f06dd5f454b7884b9fd1dff18dc157
+  hash: 3060ae7f0b1407b17ed890f4040dc803528b3feeb07fdd112ba535ca34ed3fb7
 C:\Users\victo\OneDrive\Documentos\plp\haskell\dia01\src\SistemaGold.hs:
   hash: d761a7535e3d90baa47a937528f81097844a5a57d2006aa715b6daf7f98da1f9

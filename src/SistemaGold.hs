@@ -40,7 +40,7 @@ sistemaGoldAtivoAux = do
         putStrLn $ "Muito bem. Aqui está sua recompensa: " ++ show (gold heanes2)
         putStrLn "A proxima questão só sera liberada quando enfrentar a fase."
     else do
-        putStrLn "Resposta errada professor..."
+        putStrLn "Resposta errada professor, logo voce nao ganhou nada."
 
 questao01::String
 questao01 = textoFormatado "AAUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU, de qual música é esse uivo?"

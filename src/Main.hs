@@ -13,6 +13,8 @@ import Lib
 main::IO()
 main = do
 
+    clearScreen
+
     putStrLn inicioHistoria
     escolha <- getLine
     escolha1 escolha 0
@@ -23,14 +25,11 @@ escolha1 escolha vezes_negado = do
     clearScreen
 
     case escolha of
-        "1" -> irSetupInicial
-
+        "1" -> setupInicial
         "2" -> jubilado (vezes_negado + 1)
-
-
         _ -> do
             putStrLn "A liberdade de expressão era uma mentira..."
-            irSetupInicial
+            setupInicial
 
 jubilado :: Int -> IO ()
 jubilado 8 = serJubilado
@@ -46,12 +45,9 @@ serJubilado = do
      ++ "Carl Wilson: Então você escolheu isso... não me culpe meu amigo\n *você foi ejetado para o limbo*"
     desbloqueaConquista "Jubilado"
 
-irSetupInicial::IO ()
-irSetupInicial = do
-    putStrLn cursoParte01
-
 setupInicial::IO()
 setupInicial = do
+    putStrLn cursoParte01
     heroi <- readFile' "./src/pacote/Heroi.txt"
     let heanes = read heroi :: Models.Player.Player
     putStrLn (textoFormatado "...")
@@ -62,8 +58,6 @@ menuInicial = "O que deseja fazer??\n(1) Explorar a cidade.\n(2) Seguir Carl Wil
 
 escolha2::IO()
 escolha2 = do
-
-    clearScreen
 
     putStrLn (textoFormatado menuInicial)
     escolha02 <- getLine
