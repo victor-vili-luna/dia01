@@ -34,8 +34,8 @@ escolha1 escolha vezes_negado = do
 jubilado :: Int -> IO ()
 jubilado 8 = serJubilado
 jubilado vezes_negado = do
-    putStrLn "Pense melhor sobre isso professor..."
-    putStrLn $ "(1) Sim, quero ajudar.\n" ++ "(2) " ++ concat (replicate vezes_negado "não ")
+    putStrLn "Pense melhor sobre isso professor...\n"
+    putStrLn $ "(1) Sim, quero ajudar.\n" ++ "(2) " ++ concat (replicate vezes_negado "Não. ")
     escolha <- getLine
     escolha1 escolha vezes_negado
 
@@ -54,7 +54,7 @@ setupInicial = do
     escolha2
 
 menuInicial::String
-menuInicial = "O que deseja fazer??\n(1) Explorar a cidade.\n(2) Seguir Carl Wilson."
+menuInicial = "O que deseja fazer??\n(1) Explorar a cidade.\n(2) Seguir Carl Wilson.\n"
 
 escolha2::IO()
 escolha2 = do

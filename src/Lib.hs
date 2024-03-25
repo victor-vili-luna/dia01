@@ -6,7 +6,7 @@ import Models.Player
 import System.IO
 
 textoFormatado::String->String
-textoFormatado texto = texto ++ "\n-----------------------------------------------------------------------------------------------------------------------------------------------------------------------\n"
+textoFormatado texto = texto ++ "\n------------------------------------------------------------------------------------\n"
 
 clearScreen::IO()
 clearScreen = do
