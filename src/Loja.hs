@@ -1,3 +1,5 @@
+module Loja where
+
 import Models.Player
 import Models.Item
 import Historia
@@ -44,12 +46,11 @@ compraItem lojaItens = do
                 precoItem = Models.Item.preco item
             if gold01 >= precoItem then do
                 let goldAtual = gold01 - precoItem
-                    itemComprado = pegaItem input (equipamentos heanesPre)
-                    listaItensAtualizada = equipamentos heanesPre ++ [itemComprado]
+                    listaItensAtualizada = equipamentos heanesPre ++ [item]
                     heanesAdulto = heanesPre { gold = goldAtual, equipamentos = listaItensAtualizada}
-                    listaItensIniciais = removeItem input lojaItens
+                    listaItensIniciais = unlines (map show (removeItem input lojaItens))
                 writeFile "./src/pacote/Heroi.txt" (show heanesAdulto)
-                writeFile "./src/pacote/ItensInicias.txt" (show listaItensIniciais)
+                writeFile "./src/pacote/ItensIniciais.txt" listaItensIniciais
                 putStrLn "Compra realizada com sucesso."
             else do
                 putStrLn "Está pobre, tente outro item."
@@ -93,7 +94,7 @@ compraPocao lojaPocao = do
             abreLojaPocoesInicial
 
 identificaItem::String->[Item]->Maybe Item
-identificaItem nomeItem [] = Nothing
+identificaItem _ [] = Nothing
 identificaItem nomeItem (item:itemSequente)
     | Models.Item.nome item == nomeItem = Just item
     | otherwise = identificaItem nomeItem itemSequente
