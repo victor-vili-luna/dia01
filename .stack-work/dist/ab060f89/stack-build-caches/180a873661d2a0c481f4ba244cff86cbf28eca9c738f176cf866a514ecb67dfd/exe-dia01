@@ -5,24 +5,26 @@ D:\Documents\VsCode\Fmcc\dia01\README.md:
 D:\Documents\VsCode\Fmcc\dia01\dia01.cabal:
   hash: 6fc9b4a0474c007bc21db969c13be94731e2b4984a913b66cafc15da18cf1070
 D:\Documents\VsCode\Fmcc\dia01\src\Combate.hs:
-  hash: 108edd4e204de89f9ed6b3331ce7ed469035068932e93c19d943a55e5d807762
+  hash: f872d87242b3b51e56089d7ee19bf8724193ef3c7e59a7b8c8bb61773702c560
+D:\Documents\VsCode\Fmcc\dia01\src\ControleSalvamento.hs:
+  hash: ffa8b9c4a0bdef9cd6921d5591eaa3bf57b3a6f87afdc85c466eee6ef76dd64d
 D:\Documents\VsCode\Fmcc\dia01\src\Historia.hs:
-  hash: ae002f48ae6f42b6cec6093c27933fffecd964a22149dc5f3dceffad794b0335
+  hash: 127f98de60123b567d938c5c80d7ffc9e4b2ee95dd4bb12986c4751d539dba63
 D:\Documents\VsCode\Fmcc\dia01\src\Lib.hs:
-  hash: 829ab5503fd5aedb5b3c4887b90ef3e026f62736bbf03f0c4469954ba385c8f8
+  hash: ded2d11b833f0eb77cc3a7a5a11e8aa38a7a4f58aaaa440d6f0c419cf9bcac54
 D:\Documents\VsCode\Fmcc\dia01\src\Loja.hs:
-  hash: ac85d12ce7820e4f8f4e812189b6e07bf42ab1bba0d85a7091227d613347d10e
+  hash: fc26202cbaaee94ba32e288bbe1af47c88738ee9a95541d644e610066ecdbbc1
 D:\Documents\VsCode\Fmcc\dia01\src\Main.hs:
-  hash: 31c35f5ec776acbdcc908446bb7e4b3382582e87cbaa934885f6ec838f3f43c7
+  hash: bc70e1b301acbc704c4c1e13dd090d054bb25b05ef6b8a1279be7c2e209ecdf4
 D:\Documents\VsCode\Fmcc\dia01\src\Models\Conquista.hs:
   hash: 587e62c9c56c79dcac3c54e4897bfd8ac4e3eb61ce1751c13c24af5d121f8788
 D:\Documents\VsCode\Fmcc\dia01\src\Models\Item.hs:
   hash: 8d703574e23887195bbaae5b8f703cd4f11249fe1dcde741fddafc31e376f15b
 D:\Documents\VsCode\Fmcc\dia01\src\Models\Player.hs:
-  hash: 6865b5307e6c3fdca0ce386b8f2dff96e68d495f695eb1435a8c8df53770f31f
+  hash: 820ceccfefe66a5130835b12f70e5167c07f0755e1c7ad33ed45019a46776b4b
 D:\Documents\VsCode\Fmcc\dia01\src\Models\Pocao.hs:
   hash: 453109d82683dafceeb096394cb8d896c61e85646e6f0d3c3923497b0bfabccd
 D:\Documents\VsCode\Fmcc\dia01\src\MundoCidadela.hs:
-  hash: 6fa2883594b3ea03dd2e01c7c9a262e6f715cf6779a1f0eb12ac5fd2c68e6306
+  hash: fe793dd0b622a32b38b62eb7fb6a9ede2ff03ad594983d413dea4afefcb565db
 D:\Documents\VsCode\Fmcc\dia01\src\SistemaGold.hs:
-  hash: 676803927e05e3adeab070ac975e1515db85ce794ee45f91ae31841e69536b92
+  hash: 7ca799f347f2d47e54f1a680fedb628525a9e2d258cecf3b7a621e956a3eeff3

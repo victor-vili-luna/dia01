@@ -1,5 +1,5 @@
 module Combate where
-import Lib
+import Util.Lib
 import Loja
 
 preCombate::IO()

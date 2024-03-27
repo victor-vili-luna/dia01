@@ -5,7 +5,7 @@ import Combate
 import Loja
 import Models.Player
 import System.IO (readFile')
-import Lib
+import Util.Lib
 
 dialogoPadeiro01::String
 dialogoPadeiro01 = textoFormatado "\n*Você encontra a Panificadora Alfa no caminho e decide conversar com o padeiro...*\n\nPadeiro: HoHoHo, Você não notou nada de estranho, Héroi?? Tenha cuidado, nem todos na Cidadela de Critais são confiáveis...\n\nHeanes: O que quer dizer com isso??\nPadeiro: Lembre-se disso: लोहार पर भरोसा मत करो... \n\n*Misterioresamente o homem que estava lá, desaparece aos olhos do professor.*\n\n*O professor decide ignorar isso por enquanto. Por enquanto...*"
@@ -60,9 +60,7 @@ sistemaGold = do
         clearScreen
         putStrLn explicacaoBasica01
         putStrLn "*QUANDO QUISER PARAR, APERTE QUALQUER TECLA.*"
-        conteudo <- readFile' "./src/pacote/Heroi.txt"
-        let heanes = read conteudo :: Player
-        sistemaGoldPassivoAux (gold heanes)
+        sistemaGoldPassivoAux 0
     else if input == "2" then do
         clearScreen
         sistemaGoldAtivoAux ["(1)","(2)","(3)","(4)"]

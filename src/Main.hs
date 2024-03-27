@@ -8,13 +8,19 @@ import System.IO
 import System.Directory
 import qualified Models.Player
 import Combate
-import Lib
+import Util.Lib
+import Util.ControleSalvamento
 
 main::IO()
 main = do
 
     clearScreen
+    putStrLn "Bem-vindo a Fundamentos Fábulas de Magia : Cidadela de Cristal, mais conhecido como FMCC "
+    menu
 
+comecoHistoria::IO()
+comecoHistoria = do
+    putStrLn (textoFormatado "")
     putStrLn inicioHistoria
     escolha <- getLine
     escolhaTreatment escolha 0
@@ -25,13 +31,14 @@ escolhaTreatment escolha vezes_negado = do
     clearScreen
 
     case escolha of
-        "1" -> setupInicial
+        "1" -> do
+            setupInicial
         "2" -> jubilado (vezes_negado + 1)
         _ -> do
             putStrLn "A liberdade de expressão era uma mentira...\n"
             setupInicial
 
-jubilado :: Int -> IO ()
+jubilado ::Int -> IO ()
 jubilado 8 = serJubilado
 jubilado vezes_negado = do
     putStrLn "Pense melhor sobre isso professor...\n"
@@ -48,9 +55,9 @@ serJubilado = do
 
 setupInicial::IO()
 setupInicial = do
+    clearScreen
     putStrLn cursoParte01
-    heroi <- readFile' "./src/pacote/Heroi.txt"
-    let heanes = read heroi :: Models.Player.Player
+    esperandoEnter
     putStrLn (textoFormatado "...")
     escolha2
 
@@ -73,4 +80,32 @@ escolha2 = do
         putStrLn cursoHistoria02
         sistemaGold
         historiaPrincipal ["(1) Ganhar dinheiro","(2) Comprar poções com C.W.","(3) Visitar o ferreiro Ferreira","(4) Me garanto em enfrentar a I.A."]
-    else putStrLn "Escolha uma opção válida."
+    else do
+        putStrLn "Escolha uma opção válida."
+        escolha2
+
+
+menu :: IO ()
+menu = do
+    putStrLn (textoFormatado "")
+    putStrLn "Escolha uma opção:"
+    putStrLn "1 - Começar o jogo"
+    putStrLn "2 - Carregar o jogo"
+    putStrLn "3 - Ajuda"
+    putStrLn "4 - Sair"
+
+    input <- getLine
+
+    case input of
+        "1" -> do
+            comecaJogo
+            comecoHistoria
+        "2" -> putStrLn "carregaJogo"
+        "3" -> do
+            help
+            esperandoEnter
+            menu
+        "4" -> putStrLn fechaJogo
+        _   -> do
+            putStrLn "Opção inválida. Por favor, escolha uma opção válida."
+            menu
