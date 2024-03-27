@@ -3,7 +3,7 @@ module Loja where
 import Models.Player
 import Models.Item
 import Historia
-import Lib
+import Util.Lib
 import System.IO (readFile')
 import Models.Pocao
 
@@ -40,9 +40,8 @@ compraItem lojaItens = do
     let maybeItem = identificaItem input lojaItens
     case maybeItem of
         Just item -> do
-            arquivoHero <- readFile' "./src/pacote/Heroi.txt"
-            let heanesPre = read arquivoHero :: Player
-                gold01 = Models.Player.gold heanesPre
+            heanesPre <- carregaPlayer
+            let gold01 = Models.Player.gold heanesPre
                 precoItem = Models.Item.preco item
             if gold01 >= precoItem then do
                 let goldAtual = gold01 - precoItem
