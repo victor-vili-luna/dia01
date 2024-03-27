@@ -17,7 +17,7 @@ explicacaoBasica01::String
 explicacaoBasica01 = textoFormatado "\nC.W.: Ótimo! Então me ajude a carregar essas caixas, e dependendo de quantas você levar, eu pago a quantia adequada.\n"
 
 cursoAventura01::String
-cursoAventura01 = textoFormatado "\nC.W.: Bom, agora que você já está mais orientado nessa bela cidadela, recomendo ir atrás de algumas informações sobre as I.As, Quem pode te ajudar nisso é o Leandro.\n\nHeanes: Que Leandro??\n\nC.W.: Leandro Da Vinci.\n"
+cursoAventura01 = textoFormatado "\nC.W.: Bom, agora que você já está mais orientado nessa bela cidadela, recomendo ir atrás de algumas informações sobre as I.As, Quem pode te ajudar nisso é o Leandro no museu.\n\nHeanes: Que Leandro??\n\nC.W.: Leandro Da Vinci.\n"
 
 abreMapa01 :: [String] -> IO()
 abreMapa01 opcoes = do
