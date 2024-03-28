@@ -1,8 +1,8 @@
 module SistemaGold where
 
-import System.IO (hReady, stdin, readFile')
+import System.IO
 import Control.Concurrent(threadDelay)
-import Historia
+import Historia()
 import Models.Player
 import Util.Lib
 
@@ -11,7 +11,7 @@ sistemaGoldPassivoAux goldAntigo= do
     putStrLn "carregando caixas..."
     input <- hReady stdin
     if input then do
-        throwinput <- getLine
+        _ <- getLine
         heanes <- carregaPlayer
         let goldAtual = gold heanes + goldAntigo + 3
             heanes2 = heanes {Models.Player.gold=goldAtual}

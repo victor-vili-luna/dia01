@@ -1,4 +1,6 @@
-module Models.Item where
+module Models.Item(
+    Item(..)
+) where
 
     data Item = Item {
         nome::String,

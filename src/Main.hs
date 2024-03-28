@@ -100,7 +100,7 @@ menu = do
         "1" -> do
             comecaJogo
             comecoHistoria
-        "2" -> putStrLn "carregaJogo"
+        "2" -> carregaJogo
         "3" -> do
             help
             esperandoEnter

@@ -1,16 +1,19 @@
-module Util.ControleSalvamento(comecaJogo , help) where
-import Lib
+{-# OPTIONS_GHC -Wno-incomplete-patterns #-}
+module Util.ControleSalvamento(comecaJogo , help, carregaJogo) where
+import Util.Lib
 import Models.Item
 import Models.Player
 import Models.Conquista
 import Models.Pocao
+import Control.Exception
 
 
 comecaJogo::IO()
 comecaJogo = do
     putStrLn "Inicializando dados"
     inicializaDados
-    
+
+
 
 
 help::IO()
@@ -30,7 +33,7 @@ help = putStrLn menuAjuda
 inicializaDados::IO()
 inicializaDados = do
     let heanes = player
-        itens = [(item espada) , (item armadura)]
+        itens = [item espada , item armadura]
         pocaoItem = [pocao]
     conquista <- listaDeConquista
     salvaPlayer heanes
@@ -39,7 +42,7 @@ inicializaDados = do
     salvaConquista conquista
 
 heanesString :: String
-heanesString = "Player {nome = \"Heanes\", vida = 100, gold = 0, defesa = 5, ataque = 5, equipamentos = [], pocoes = []}"
+heanesString = "Player {nome = \"Heanes\", vida = 100, gold = 0, defesa = 5, ataque = 5, equipamentos = [], pocoes = [], progresso = 0}"
 
 armadura :: String
 armadura =  "Item {nome = \"Armadura de couro\", preco = 30, ataque = 0, defesa = 30, descricao = \"Armadura que protege contra as falacias da IA.\"}"
@@ -51,7 +54,7 @@ cafe:: String
 cafe = "Pocao {nome = \"Cafe\", vida = 40, preco = 20, defesa = 0, ataque = 0, quantidade = 0}"
 
 item::String -> Item
-item itemStr = read itemStr
+item = read
 
 player ::Player
 player = read heanesString
@@ -66,7 +69,27 @@ listaDeConquista:: IO [Conquista]
 listaDeConquista = return (map parseConquista (lines conquistas))
 
 
+carregaJogo::IO()
+carregaJogo = do
+    result <- try carregaPlayer :: IO (Either SomeException Player)
+    case result of
+        Left _ -> do
+            putStrLn "Você não tem nenhum jogo salvo, irei começar um jogo agora boa sorte na aventura!"
+            comecaJogo
+        Right heanes -> carregandoJogo (getProgresso heanes)
+
+
+carregandoJogo::Int -> IO()
+carregandoJogo progresso = 
+    case progresso of
+        0 -> comecaJogo
+        1 -> putStrLn "fase1"
+        2 -> putStrLn "fase2"
+        3 -> putStrLn "fase3"
+        4 -> putStrLn "fase4"
 
 
 
-        
+
+
+

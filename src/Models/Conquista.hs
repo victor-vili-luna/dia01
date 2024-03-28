@@ -1,4 +1,6 @@
-module Models.Conquista where
+module Models.Conquista(
+    Conquista(..)
+) where
 
     data Conquista = Conquista {
     nomeC:: String,

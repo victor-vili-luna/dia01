@@ -1,4 +1,7 @@
-module Models.Player where
+module Models.Player(
+    Player(..),
+    getProgresso
+) where
     import Models.Pocao
     import Models.Item
 
@@ -9,6 +12,10 @@ module Models.Player where
         defesa::Int,
         ataque::Int,
         equipamentos::[Item],
-        pocoes::[Pocao]
+        pocoes::[Pocao],
+        progresso::Int
     } deriving (Show, Read)
+
+    getProgresso :: Player -> Int
+    getProgresso = progresso
 

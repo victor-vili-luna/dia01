@@ -1,4 +1,6 @@
-module Models.Pocao where
+module Models.Pocao(
+    Pocao(..)
+) where
 
     data Pocao = Pocao {
         nome::String,
