@@ -83,13 +83,11 @@ esperandoEnter = do
     _ <- getChar
     return ()
 
-<<<<<<< HEAD
 criaCaminho :: String -> String
 criaCaminho nomeInimigo = "./src/pacote/" ++ nomeInimigo ++".txt"
-=======
+
 atualizaProgresso::Int -> IO()
 atualizaProgresso novoProgresso = do
     heanes <- carregaPlayer
     let novoHeanes = attProgresso heanes novoProgresso
     salvaPlayer novoHeanes
->>>>>>> 002fb1313385f9ac58109f3acba997d7809ea147

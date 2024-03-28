@@ -3,12 +3,7 @@ import Util.Lib
 import Loja
 import Historia
 import Models.Player
-<<<<<<< HEAD
 import Models.Inimigo
-=======
-import Models.Caramelo
-import Models.Kanva()
->>>>>>> 002fb1313385f9ac58109f3acba997d7809ea147
 import Models.Item
 import Models.Pocao
 import System.IO

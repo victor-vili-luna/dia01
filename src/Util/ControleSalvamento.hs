@@ -1,11 +1,7 @@
 {-# OPTIONS_GHC -Wno-incomplete-patterns #-}
-<<<<<<< HEAD
-module Util.ControleSalvamento(comecaJogo , help, carregaJogo) where
-=======
 module Util.ControleSalvamento(
     comecaJogo , help, carregaJogo
 ) where
->>>>>>> 002fb1313385f9ac58109f3acba997d7809ea147
 import Util.Lib
 import Models.Item
 import Models.Player
