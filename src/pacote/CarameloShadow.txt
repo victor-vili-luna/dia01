@@ -1,1 +1,0 @@
-Caramelo {nome = "Cachorros caramelos", ataque = 0, defesa = 0, vida = 150, habilidadeEspecial = 0}

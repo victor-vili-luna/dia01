@@ -6,6 +6,7 @@ import Models.Item
 import Models.Player
 import Models.Pocao
 import System.IO
+import Models.Inimigo
 
 textoFormatado::String->String
 textoFormatado texto = texto ++ "\n------------------------------------------------------------------------------------\n"
@@ -28,6 +29,13 @@ carregaPlayer = do
         hClose handle
         return (read conteudo :: Player)
 
+carregaInimigo :: String -> IO Inimigo 
+carregaInimigo filepath = do
+        handle <- openFile filepath ReadMode
+        conteudo <- hGetContents' handle
+        hClose handle
+        return (read conteudo :: Inimigo) 
+    
 salvaPlayer:: Player -> IO()
 salvaPlayer heanes = writeFile "./src/pacote/Heroi.txt" (show heanes)
 
@@ -46,7 +54,7 @@ salvaConquista conquistas = writeFile "./src/pacote/Conquista.txt" $ unlines (ma
 
 desbloqueaConquista :: String -> IO()
 desbloqueaConquista nomeConquista = do
-    conquistas <- carregaConquista  
+    conquistas <- carregaConquista
     let conquistaDesbloqueda = desbloquearConquista nomeConquista conquistas
     salvaConquista conquistaDesbloqueda
 
@@ -74,3 +82,6 @@ esperandoEnter = do
     hFlush stdout
     _ <- getChar
     return ()
+
+criaCaminho :: String -> String
+criaCaminho nomeInimigo = "./src/pacote/" ++ nomeInimigo ++".txt"

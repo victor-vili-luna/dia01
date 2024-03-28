@@ -5,28 +5,30 @@ C:\Users\victo\OneDrive\Documentos\plp\haskell\dia01\README.md:
 C:\Users\victo\OneDrive\Documentos\plp\haskell\dia01\dia01.cabal:
   hash: 6fc9b4a0474c007bc21db969c13be94731e2b4984a913b66cafc15da18cf1070
 C:\Users\victo\OneDrive\Documentos\plp\haskell\dia01\src\Combate.hs:
-  hash: 43f4308e15154ba1d7200a85425c0675b98179c719c6c4c4be0ae20ec163b72f
+  hash: ff1eb319e73734e57912c3b250a0945156cc1d8eccd40837851320f9e3bc0023
+C:\Users\victo\OneDrive\Documentos\plp\haskell\dia01\src\CombateKanva.hs:
+  hash: d462916e538c577d78cba9ae43c2787b760cded935a1cea1375acdc70286aa68
 C:\Users\victo\OneDrive\Documentos\plp\haskell\dia01\src\Historia.hs:
-  hash: 25ff2e30d720eec319aa76896505978b706b59c8466bd4bb5d817da1bef45b19
-C:\Users\victo\OneDrive\Documentos\plp\haskell\dia01\src\Lib.hs:
-  hash: 1136676dff4ffdd7d31e25e3a12bb3326590a39bb36a38fce3bf5b65e44f061a
+  hash: b99f4fdada39b3c75c1121a54d3d1cf5df8c237a04a8307a712e074b133ce783
 C:\Users\victo\OneDrive\Documentos\plp\haskell\dia01\src\Loja.hs:
-  hash: 0870e1c00d7bccb6c82eb4a2b0920ab7295a5912e2d9bbbd535ffbbba18cfa6c
+  hash: dac5bcb9c9c0a9d4ab1ca7eb77d1d67a0816e58c0e5f8aaabf054cea51d51186
 C:\Users\victo\OneDrive\Documentos\plp\haskell\dia01\src\Main.hs:
-  hash: 34d9d97335a3d9ce5407fcf4ffb80fb9a88bd9035687abca906dcc18769b2194
-C:\Users\victo\OneDrive\Documentos\plp\haskell\dia01\src\Models\Caramelo.hs:
-  hash: 24b1c9987f6bfd58bdebce9678d63f32727de9c2d19c99680887f91968a705b0
+  hash: d415fb6f7f4d3bedba5ede5432d977152456d9cbf57512ecddc827c8e1a6c0ed
 C:\Users\victo\OneDrive\Documentos\plp\haskell\dia01\src\Models\Conquista.hs:
-  hash: 587e62c9c56c79dcac3c54e4897bfd8ac4e3eb61ce1751c13c24af5d121f8788
+  hash: e4bcedabda395ec359fe95ae7580018015ce0dd18afa39014ec6500808343d0d
+C:\Users\victo\OneDrive\Documentos\plp\haskell\dia01\src\Models\Inimigo.hs:
+  hash: 56333b12ae8f0769c1f3cbcadda870545b003ebbb133de3589cb85be6e5914d1
 C:\Users\victo\OneDrive\Documentos\plp\haskell\dia01\src\Models\Item.hs:
-  hash: 8d703574e23887195bbaae5b8f703cd4f11249fe1dcde741fddafc31e376f15b
-C:\Users\victo\OneDrive\Documentos\plp\haskell\dia01\src\Models\Kanva.hs:
-  hash: 3bc9468b5b2ed22fe892c3b32c07c7ffd1eeb6766db09b82b0c7a38106e08c0c
+  hash: 9c9b9582f73c74f98788567558c858f4fe5e35f0295d9536989d8ed059b1e746
 C:\Users\victo\OneDrive\Documentos\plp\haskell\dia01\src\Models\Player.hs:
-  hash: 820ceccfefe66a5130835b12f70e5167c07f0755e1c7ad33ed45019a46776b4b
+  hash: 774c787ecf0dc8e5301e63465cc98632e47e0804b9b24f01a110b288f2d4bd78
 C:\Users\victo\OneDrive\Documentos\plp\haskell\dia01\src\Models\Pocao.hs:
-  hash: 453109d82683dafceeb096394cb8d896c61e85646e6f0d3c3923497b0bfabccd
+  hash: c42db17f24535cd1248dd85e1896dbabf59f55fa8e6ca165e92cc5942b132744
 C:\Users\victo\OneDrive\Documentos\plp\haskell\dia01\src\MundoCidadela.hs:
-  hash: a7eef2e5aaddab6849b724ef733d7edaaffd828a65408142e6cd2ee7ea3f0bbe
+  hash: b681b9c0ce5097ddf84e8e4e488eb60cbcd3e0293d846c87eba0208919cd68f2
 C:\Users\victo\OneDrive\Documentos\plp\haskell\dia01\src\SistemaGold.hs:
-  hash: f135e64c1c5f963e4657282c5752186d3d672cfff0a3a747562e30d09d20568b
+  hash: 570d15c80f7746301190dbcae3de73148cdd989d031c304e5e29f8acc8d95c0c
+C:\Users\victo\OneDrive\Documentos\plp\haskell\dia01\src\Util\ControleSalvamento.hs:
+  hash: 6055aec24ce8d85a575916d21301e97a421fe9b8d0f9039208a768d2fbaa0633
+C:\Users\victo\OneDrive\Documentos\plp\haskell\dia01\src\Util\Lib.hs:
+  hash: 8d26804ec4a0cc30d67b3cdf80f5be8125b3013837aa078039fa564ef940f2df

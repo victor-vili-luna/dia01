@@ -1,9 +1,5 @@
-<<<<<<< HEAD
 {-# OPTIONS_GHC -Wno-incomplete-patterns #-}
 module Util.ControleSalvamento(comecaJogo , help, carregaJogo) where
-=======
-module Util.ControleSalvamento(comecaJogo , help) where
->>>>>>> db61a5f06a09d6b3c398fb1f5c00ddaa1afb55df
 import Util.Lib
 import Models.Item
 import Models.Player
@@ -46,7 +42,7 @@ inicializaDados = do
     salvaConquista conquista
 
 heanesString :: String
-heanesString = "Player {nome = \"Heanes\", vida = 100, gold = 0, defesa = 5, ataque = 5, equipamentos = [], pocoes = [], progresso = 0}"
+heanesString = "Player {nome = \"Heanes\", vida = 100, gold = 100, defesa = 5, ataque = 5, equipamentos = [], pocoes = [], progresso = 0}"
 
 armadura :: String
 armadura =  "Item {nome = \"Armadura de couro\", preco = 30, ataque = 0, defesa = 30, descricao = \"Armadura que protege contra as falacias da IA.\"}"
@@ -55,7 +51,7 @@ espada::  String
 espada = "Item {nome = \"Espada de ferro\", preco = 30, ataque = 30, defesa = 0, descricao = \"Se quiser espada tem, mas so usa espada quem nao se garante.\"}"
 
 cafe:: String
-cafe = "Pocao {nome = \"Cafe\", vida = 40, preco = 20, defesa = 0, ataque = 0, quantidade = 0}"
+cafe = "Pocao {nome = \"Cafe\", vida = 40, preco = 20, defesa = 0, ataque = 0, quantidade = 1}"
 
 item::String -> Item
 item = read

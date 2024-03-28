@@ -45,4 +45,4 @@ kanvaHistoria::String
 kanvaHistoria = textoFormatado "*Pensando sobre o que o C.W. disse, preciso ir ao museu e, pensando bem, acho que fica perto daquele padeiro estranho que conversei antes.* Na frente do museu heanes vê um homem, completamente desesperado, estatura mediana e cabelos bagunçados, repetindo para si mesmo: Isso não é arte. *Heanes se aproxima* e pergunta: Você é o Leandro?? Leandro: Sim, sou eu, e pelo que me disseram, você é o herói Heanes certo, não temos tempo a perder, dentro do museu o Kanva está alterando todo o museu, substituindo as pinturas mais perfeitas por suas imagens disformes. Heanes: Entendo, mas por que existem tantos cachorros grandes cercando o mu..."
 
 caramelosKanva::String
-caramelosKanva = textoFormatado "Leandro: Esses são os cachorros criados pelo kanva, vou ficar atrás de você aumentando seu ataque e diminuindo o ataque deles, mas preciso de protecao."
+caramelosKanva = textoFormatado "Leandro: Esses são os cachorros criados pelo kanva, fique de costas para mim para nao sermos cercados completamente!!!"
