@@ -2,7 +2,7 @@ module Loja where
 
 import Models.Player
 import Models.Item
-import Historia
+import Historia ()
 import Util.Lib
 import System.IO (readFile')
 import Models.Pocao
@@ -47,9 +47,9 @@ compraItem lojaItens = do
                 let goldAtual = gold01 - precoItem
                     listaItensAtualizada = equipamentos heanesPre ++ [item]
                     heanesAdulto = heanesPre { gold = goldAtual, equipamentos = listaItensAtualizada}
-                    listaItensIniciais = unlines (map show (removeItem input lojaItens))
-                writeFile "./src/pacote/Heroi.txt" (show heanesAdulto)
-                writeFile "./src/pacote/ItensIniciais.txt" listaItensIniciais
+                    listaAtualItens = removeItem input lojaItens
+                salvaPlayer heanesAdulto
+                salvaItens listaAtualItens
                 putStrLn "Compra realizada com sucesso."
             else do
                 putStrLn "Está pobre, tente outro item."
@@ -66,9 +66,8 @@ compraPocao lojaPocao = do
     let maybePocao = identificaPocao input01 lojaPocao
     case maybePocao of
         Just pocao -> do
-            arquivoHeroi <- readFile' "./src/pacote/Heroi.txt"
-            let heanesPre = read arquivoHeroi :: Player
-                gold = Models.Player.gold heanesPre
+            heanesPre <- carregaPlayer
+            let gold = Models.Player.gold heanesPre
                 precoPocao = Models.Pocao.preco pocao
             if gold >= precoPocao then
                 if identificaPocaoJaComprada input01 (pocoes heanesPre) then do
@@ -78,12 +77,12 @@ compraPocao lojaPocao = do
                         pocaoFinal = pocaoInicial {quantidade = quantidadeAtual}
                         listaPocoesAtualizada = removePocaoAntiga input01 (pocoes heanesPre) ++ [pocaoFinal]
                         heanesAdulto = heanesPre { gold = goldAtual, pocoes = listaPocoesAtualizada}
-                    writeFile "./src/pacote/Heroi.txt" (show heanesAdulto)
+                    salvaPlayer heanesAdulto
                     putStrLn "Compra realizada com sucesso."
                 else do
                     let goldAtual = Models.Player.gold heanesPre - Models.Pocao.preco pocao
                         heanesAdulto = heanesPre { gold = goldAtual, pocoes = pocoes heanesPre ++ [pocao] }
-                    writeFile "./src/pacote/Heroi.txt" (show heanesAdulto)
+                    salvaPlayer heanesAdulto
                     putStrLn "Compra realizada com sucesso."
             else do
                 putStrLn "Está pobre"
@@ -111,7 +110,7 @@ removeItem nomeItem (a:as)
     | otherwise = a : removeItem nomeItem as
 
 identificaPocao::String->[Pocao]->Maybe Pocao
-identificaPocao nomePocao [] = Nothing
+identificaPocao _ [] = Nothing
 identificaPocao nomePocao (pocao:pocaoSequente)
     | Models.Pocao.nome pocao == nomePocao = Just pocao
     | otherwise = identificaPocao nomePocao pocaoSequente
