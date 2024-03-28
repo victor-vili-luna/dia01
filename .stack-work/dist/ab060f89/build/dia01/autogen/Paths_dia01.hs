@@ -46,12 +46,12 @@ getBinDir, getLibDir, getDynLibDir, getDataDir, getLibexecDir, getSysconfDir :: 
 
 
 bindir, libdir, dynlibdir, datadir, libexecdir, sysconfdir :: FilePath
-bindir     = "D:\\Documents\\VsCode\\Fmcc\\dia01\\.stack-work\\install\\b69e174d\\bin"
-libdir     = "D:\\Documents\\VsCode\\Fmcc\\dia01\\.stack-work\\install\\b69e174d\\lib\\x86_64-windows-ghc-9.6.4\\dia01-0.1.0.0-Gnc5Osjac8MI8ksz7XxduP-dia01"
-dynlibdir  = "D:\\Documents\\VsCode\\Fmcc\\dia01\\.stack-work\\install\\b69e174d\\lib\\x86_64-windows-ghc-9.6.4"
-datadir    = "D:\\Documents\\VsCode\\Fmcc\\dia01\\.stack-work\\install\\b69e174d\\share\\x86_64-windows-ghc-9.6.4\\dia01-0.1.0.0"
-libexecdir = "D:\\Documents\\VsCode\\Fmcc\\dia01\\.stack-work\\install\\b69e174d\\libexec\\x86_64-windows-ghc-9.6.4\\dia01-0.1.0.0"
-sysconfdir = "D:\\Documents\\VsCode\\Fmcc\\dia01\\.stack-work\\install\\b69e174d\\etc"
+bindir     = "C:\\Users\\dsout\\GitRepos\\dia01\\.stack-work\\install\\eddc65c6\\bin"
+libdir     = "C:\\Users\\dsout\\GitRepos\\dia01\\.stack-work\\install\\eddc65c6\\lib\\x86_64-windows-ghc-9.6.4\\dia01-0.1.0.0-Gnc5Osjac8MI8ksz7XxduP-dia01"
+dynlibdir  = "C:\\Users\\dsout\\GitRepos\\dia01\\.stack-work\\install\\eddc65c6\\lib\\x86_64-windows-ghc-9.6.4"
+datadir    = "C:\\Users\\dsout\\GitRepos\\dia01\\.stack-work\\install\\eddc65c6\\share\\x86_64-windows-ghc-9.6.4\\dia01-0.1.0.0"
+libexecdir = "C:\\Users\\dsout\\GitRepos\\dia01\\.stack-work\\install\\eddc65c6\\libexec\\x86_64-windows-ghc-9.6.4\\dia01-0.1.0.0"
+sysconfdir = "C:\\Users\\dsout\\GitRepos\\dia01\\.stack-work\\install\\eddc65c6\\etc"
 
 getBinDir     = catchIO (getEnv "dia01_bindir")     (\_ -> return bindir)
 getLibDir     = catchIO (getEnv "dia01_libdir")     (\_ -> return libdir)
