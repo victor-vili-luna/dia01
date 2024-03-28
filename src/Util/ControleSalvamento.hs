@@ -1,17 +1,21 @@
 {-# OPTIONS_GHC -Wno-incomplete-patterns #-}
-module Util.ControleSalvamento(comecaJogo , help, carregaJogo) where
+module Util.ControleSalvamento(
+    comecaJogo , help, carregaJogo
+) where
 import Util.Lib
 import Models.Item
-import Models.Player hiding (progresso)
+import Models.Player
 import Models.Conquista
 import Models.Pocao
 import Control.Exception
-
+import Historia.Fase1
+import Historia.Prologo
 
 comecaJogo::IO()
 comecaJogo = do
     putStrLn "Inicializando dados"
     inicializaDados
+    comecoHistoria
 
 
 
@@ -71,19 +75,20 @@ listaDeConquista = return (map parseConquista (lines conquistas))
 
 carregaJogo::IO()
 carregaJogo = do
-    result <- try carregaPlayer :: IO (Either SomeException Player)
-    case result of
-        Left _ -> do
-            putStrLn "Você não tem nenhum jogo salvo, irei começar um jogo agora boa sorte na aventura!"
+    heanes <- carregaPlayer
+    let progresso = getProgresso heanes
+    case progresso of
+        0 -> do
+            putStrLn "Você não tem nenhum jogo salvo, ou você ainda não começou um jogo ou apenas não chegou ao fim do prólogo\n irei começar um jogo agora boa sorte na aventura!"
             comecaJogo
-        Right heanes -> carregandoJogo (getProgresso heanes)
+        1 -> carregandoJogo progresso
 
 
 carregandoJogo::Int -> IO()
 carregandoJogo progresso = 
     case progresso of
         0 -> comecaJogo
-        1 -> putStrLn "fase1"
+        1 -> escolhaCaminhoCidade
         2 -> putStrLn "fase2"
         3 -> putStrLn "fase3"
         4 -> putStrLn "fase4"

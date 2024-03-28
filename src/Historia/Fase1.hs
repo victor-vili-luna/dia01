@@ -1,5 +1,5 @@
 module Historia.Fase1(
-    menu
+    escolhaCaminhoCidade
 ) where
 import Models.Player
 import Historia
@@ -10,84 +10,6 @@ import System.Directory
 import qualified Models.Player
 import Combate
 import Util.Lib
-import Util.ControleSalvamento
-
-menu :: IO ()
-menu = do
-    clearScreen
-    putStrLn "Bem-vindo a Fábulas de Magia : Cidadela de Cristal, mais conhecido como FMCC "
-    putStrLn (textoFormatado "")
-    putStrLn "Escolha uma opção:"
-    putStrLn "1 - Começar o jogo"
-    putStrLn "2 - Carregar o jogo"
-    putStrLn "3 - Ajuda"
-    putStrLn "4 - Sair\n"
-
-    input <- getLine
-    clearScreen
-    case input of
-        "1" -> do
-            comecaJogo
-            comecoHistoria
-        "2" -> carregaJogo
-        "3" -> do
-            
-            help
-            esperandoEnter
-            clearScreen
-            menu
-        "4" -> do
-            
-            putStrLn fechaJogo
-        _   -> do
-            putStrLn "Opção inválida. Por favor, escolha uma opção válida.\n"
-            esperandoEnter
-            clearScreen
-            menu
-
-comecoHistoria::IO()
-comecoHistoria = do
-    mapM_ printString [inicioHistoria1, inicioHistoria2, inicioHistoria3, inicioHistoria4]
-    clearScreen
-    putStrLn inicioHistoria5
-    escolha <- getLine
-    escolhaTreatment escolha 0
-
-escolhaTreatment::String-> Int -> IO()
-escolhaTreatment escolha vezes_negado = do
-
-    clearScreen
-
-    case escolha of
-        "1" -> do
-            setupInicial
-        "2" -> jubilado (vezes_negado + 1)
-        _ -> do
-            putStrLn "A liberdade de expressão era uma mentira...\n"
-            esperandoEnter
-            setupInicial
-
-
-setupInicial::IO()
-setupInicial = do
-    mapM_ printString [cursoParte01, cursoParte02, cursoParte03, cursoParte04, cursoParte05, cursoParte06, cursoParte07]
-    clearScreen
-    escolhaCaminhoCidade
-
-serJubilado :: IO()
-serJubilado = do
-    putStrLn $ "Heanes: Quantas vezes vou ter que repetir eu não quero fazer isso???\n\n"
-     ++ "Carl Wilson: Então você escolheu isso... não me culpe meu amigo\n\n*você foi ejetado para o limbo*\n"
-    desbloqueaConquista "Jubilado"
-
-jubilado ::Int -> IO ()
-jubilado 8 = serJubilado
-jubilado vezes_negado = do
-    putStrLn "Pense melhor sobre isso professor...\n"
-    putStrLn $ "(1) Sim, quero ajudar.\n" ++ "(2) " ++ concat (replicate vezes_negado "Não. ")
-    putStrLn "\n------------------------------------------------------------------------------------\n"
-    escolha <- getLine
-    escolhaTreatment escolha vezes_negado
 
 escolhaCaminhoCidade::IO()
 escolhaCaminhoCidade = do
@@ -138,12 +60,6 @@ abreMapa01 opcoes = do
     else do
         putStrLn "Escreva uma opção válida."
         abreMapa01 opcoes
-
-printString:: String -> IO()
-printString texto = do
-    clearScreen
-    putStrLn texto
-    esperandoEnter
 
 historiaPrincipal::[String]->IO()
 historiaPrincipal opcoes = do
