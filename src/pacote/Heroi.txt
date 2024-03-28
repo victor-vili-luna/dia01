@@ -1,9 +1,1 @@
-<<<<<<< HEAD
-Player {nome = "Heanes", vida = 140, gold = 917, defesa = 5, ataque = 5, equipamentos = [Item {nome = "Espada de ferro", preco = 30, ataque = 30, defesa = 0, descricao = "Se quiser espada tem, mas so usa espada quem nao se garante."},Item {nome = "Armadura de couro", preco = 30, ataque = 0, defesa = 30, descricao = "Armadura que protege contra as falacias da IA."}], pocoes = []}
-=======
-<<<<<<< HEAD
 Player {nome = "Heanes", vida = 100, gold = 0, defesa = 5, ataque = 5, equipamentos = [], pocoes = []}
-=======
-Player {nome = "Heanes", vida = 100, gold = 910, defesa = 5, ataque = 5, equipamentos = [Item {nome = "Espada de ferro", preco = 30, ataque = 30, defesa = 0, descricao = "Se quiser espada tem, mas so usa espada quem nao se garante."},Item {nome = "Armadura de couro", preco = 30, ataque = 0, defesa = 30, descricao = "Armadura que protege contra as falacias da IA."},Item {nome = "Espada de ferro", preco = 30, ataque = 30, defesa = 0, descricao = "Se quiser espada tem, mas so usa espada quem nao se garante."}], pocoes = []}
->>>>>>> 5d70285d2d7f0255588af9d1f93ea1ac11eeb5f5
->>>>>>> 239497c31f58e1b653251a2908f3e13943b517c8

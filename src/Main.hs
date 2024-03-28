@@ -15,13 +15,24 @@ main::IO()
 main = do
 
     clearScreen
-    putStrLn "Bem-vindo a Fundamentos Fábulas de Magia : Cidadela de Cristal, mais conhecido como FMCC "
     menu
 
 comecoHistoria::IO()
 comecoHistoria = do
-    putStrLn (textoFormatado "")
-    putStrLn inicioHistoria
+    clearScreen
+    putStrLn inicioHistoria1
+    esperandoEnter
+    clearScreen
+    putStrLn inicioHistoria2
+    esperandoEnter
+    clearScreen
+    putStrLn inicioHistoria3
+    esperandoEnter
+    clearScreen
+    putStrLn inicioHistoria4
+    esperandoEnter
+    clearScreen
+    putStrLn inicioHistoria5
     escolha <- getLine
     escolhaTreatment escolha 0
 
@@ -36,6 +47,7 @@ escolhaTreatment escolha vezes_negado = do
         "2" -> jubilado (vezes_negado + 1)
         _ -> do
             putStrLn "A liberdade de expressão era uma mentira...\n"
+            esperandoEnter
             setupInicial
 
 jubilado ::Int -> IO ()
@@ -49,8 +61,8 @@ jubilado vezes_negado = do
 
 serJubilado :: IO()
 serJubilado = do
-    putStrLn $ "Heanes: Quantas vezes vou ter que repetir eu não quero fazer isso\n"
-     ++ "Carl Wilson: Então você escolheu isso... não me culpe meu amigo\n *você foi ejetado para o limbo*"
+    putStrLn $ "Heanes: Quantas vezes vou ter que repetir eu não quero fazer isso???\n\n"
+     ++ "Carl Wilson: Então você escolheu isso... não me culpe meu amigo\n\n*você foi ejetado para o limbo*\n"
     desbloqueaConquista "Jubilado"
 
 setupInicial::IO()
@@ -58,11 +70,29 @@ setupInicial = do
     clearScreen
     putStrLn cursoParte01
     esperandoEnter
-    putStrLn (textoFormatado "...")
+    clearScreen
+    putStrLn cursoParte02
+    esperandoEnter
+    clearScreen
+    putStrLn cursoParte03
+    esperandoEnter
+    clearScreen
+    putStrLn cursoParte04
+    esperandoEnter
+    clearScreen
+    putStrLn cursoParte05
+    esperandoEnter
+    clearScreen
+    putStrLn cursoParte06
+    esperandoEnter
+    clearScreen
+    putStrLn cursoParte07
+    esperandoEnter
+    clearScreen
     escolha2
 
 menuInicial::String
-menuInicial = "O que deseja fazer??\n\n(1) Explorar a cidade.\n(2) Seguir Carl Wilson.\n"
+menuInicial = "O que você deseja fazer??\n\n(1) Explorar a cidade.\n(2) Seguir Carl Wilson.\n"
 
 escolha2::IO()
 escolha2 = do
@@ -87,25 +117,34 @@ escolha2 = do
 
 menu :: IO ()
 menu = do
+    putStrLn "Bem-vindo a Fábulas de Magia : Cidadela de Cristal, mais conhecido como FMCC "
     putStrLn (textoFormatado "")
     putStrLn "Escolha uma opção:"
     putStrLn "1 - Começar o jogo"
     putStrLn "2 - Carregar o jogo"
     putStrLn "3 - Ajuda"
-    putStrLn "4 - Sair"
+    putStrLn "4 - Sair\n"
 
     input <- getLine
 
     case input of
         "1" -> do
+            clearScreen
             comecaJogo
             comecoHistoria
         "2" -> putStrLn "carregaJogo"
         "3" -> do
+            clearScreen
             help
             esperandoEnter
+            clearScreen
             menu
-        "4" -> putStrLn fechaJogo
+        "4" -> do
+            clearScreen
+            putStrLn fechaJogo
         _   -> do
-            putStrLn "Opção inválida. Por favor, escolha uma opção válida."
+            clearScreen
+            putStrLn "Opção inválida. Por favor, escolha uma opção válida.\n"
+            esperandoEnter
+            clearScreen
             menu

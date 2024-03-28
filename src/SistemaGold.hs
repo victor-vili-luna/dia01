@@ -17,11 +17,7 @@ sistemaGoldPassivoAux goldAntigo= do
             heanes2 = heanes {Models.Player.gold=goldAtual}
         writeFile "./src/pacote/Heroi.txt" (show heanes2)
         clearScreen
-<<<<<<< HEAD
-        putStrLn ("\nC.W.:Você se cansa rápido para um héroi...\n\n*Você olha para sua carteira de professor, e vê " ++ show (goldAtual) ++ " moedas de critais.*")
-=======
         putStrLn ("\nC.W.:Você se cansa rápido para um héroi...\n\n*Você olha para sua carteira de professor, e vê " ++ show (goldAntigo + 3) ++ " moedas de critais.*")
->>>>>>> 239497c31f58e1b653251a2908f3e13943b517c8
     else do
         threadDelay (3*1000000)
         sistemaGoldPassivoAux (goldAntigo+3)
@@ -68,13 +64,8 @@ questao01 = do
             heanes2 = heanes {Models.Player.gold=goldAtual}
         writeFile "./src/pacote/Heroi.txt" (show heanes2)
         clearScreen
-<<<<<<< HEAD
-        putStrLn $ "\nVending Machine: MUITO BEM, HUMANO! AINDA BEM QUE MEU PROGRAMADOR NÃO ME FEZ EM HASKELL... ECA!"
-        putStrLn ("\n*Você olha para sua carteira de professor, e vê " ++ show (goldAtual) ++ " moedas de critais. Enquanto isso, o Mestre dos Magos é sumonado repentinamente*")
-=======
         putStrLn "\nVending Machine: MUITO BEM, HUMANO! AINDA BEM QUE MEU PROGRAMADOR NÃO ME FEZ EM HASKELL... ECA!"
         putStrLn ("\n*Você olha para sua carteira de professor, e vê " ++ show goldAtual ++ " moedas de critais. Enquanto isso, o Mestre dos Magos é sumonado repentinamente*")
->>>>>>> 239497c31f58e1b653251a2908f3e13943b517c8
     else do
         clearScreen
         putStrLn "\nVending Machine: COMO VOCÊ PODE FALAR UMA COISA DESSAS??? REPENSE SUAS ATITUDEZINHAS, SEM REWARD PARA VOCÊ."
@@ -91,11 +82,7 @@ questao02 = do
         writeFile "./src/pacote/Heroi.txt" (show heanes2)
         clearScreen
         putStrLn $ "\nVending Machine: MUITO BEM, HUMANO! UH É GALO DOIDO!"
-<<<<<<< HEAD
-        putStrLn ("\n*Você olha para sua carteira de professor, e vê " ++ show (goldAtual) ++ " moedas de critais. Enquanto isso, o Mestre dos Magos é sumonado repentinamente*")
-=======
         putStrLn ("\n*Você olha para sua carteira de professor, e vê " ++ show goldAtual ++ " moedas de critais. Enquanto isso, o Mestre dos Magos é sumonado repentinamente*")
->>>>>>> 239497c31f58e1b653251a2908f3e13943b517c8
     else do
         clearScreen
         putStrLn "\nVending Machine: COMO VOCÊ PODE FALAR UMA COISA DESSAS??? REPENSE SUAS ATITUDEZINHAS, SEM REWARD PARA VOCÊ."
@@ -103,11 +90,7 @@ questao02 = do
 
 questao03::IO()
 questao03 = do
-<<<<<<< HEAD
-    putStrLn (textoFormatado "Vending Machine: HÁ QUANTOS ANOS A CIDADELA DE CRISTAIS FOI FUNDADA?\n")
-=======
     putStrLn (textoFormatado "Vending Machine: A QUANTOS ANOS A CIDADELA DE CRISTAIS FOI FUNDADA?\n")
->>>>>>> 239497c31f58e1b653251a2908f3e13943b517c8
     input <- getLine
     if input == "500" then do
         heanes <- carregaPlayer
@@ -115,13 +98,8 @@ questao03 = do
             heanes2 = heanes {Models.Player.gold=goldAtual}
         writeFile "./src/pacote/Heroi.txt" (show heanes2)
         clearScreen
-<<<<<<< HEAD
-        putStrLn $ "\nVending Machine: MUITO BEM, HUMANO! SÃO 500 ANOS DE HISTÓRIA!"
-        putStrLn ("\n*Você olha para sua carteira de professor, e vê " ++ show (goldAtual) ++ " moedas de critais. Enquanto isso, o Mestre dos Magos é sumonado repentinamente*")
-=======
         putStrLn "\nVending Machine: MUITO BEM, HUMANO! SÃO 500 ANOS DE HISTÓRIA!"
         putStrLn ("\n*Você olha para sua carteira de professor, e vê " ++ show goldAtual ++ " moedas de critais. Enquanto isso, o Mestre dos Magos é sumonado repentinamente*")
->>>>>>> 239497c31f58e1b653251a2908f3e13943b517c8
     else do
         clearScreen
         putStrLn "\nVending Machine: COMO VOCÊ PODE FALAR UMA COISA DESSAS??? REPENSE SUAS ATITUDEZINHAS, SEM REWARD PARA VOCÊ."
@@ -138,11 +116,7 @@ questao04 = do
         writeFile "./src/pacote/Heroi.txt" (show heanes2)
         clearScreen
         putStrLn $ "\nVending Machine: MUITO BEM, HUMANO! O PARADIGMA LÓGICO VAI SER EXPLORADO NA DISCIPLINA!"
-<<<<<<< HEAD
-        putStrLn ("\n*Você olha para sua carteira de professor, e vê " ++ show (goldAtual) ++ " moedas de critais. Enquanto isso, o Mestre dos Magos é sumonado repentinamente*")
-=======
         putStrLn ("\n*Você olha para sua carteira de professor, e vê " ++ show goldAtual ++ " moedas de critais. Enquanto isso, o Mestre dos Magos é sumonado repentinamente*")
->>>>>>> 239497c31f58e1b653251a2908f3e13943b517c8
     else do
         clearScreen
         putStrLn "\nVending Machine: COMO VOCÊ PODE FALAR UMA COISA DESSAS??? REPENSE SUAS ATITUDEZINHAS, SEM REWARD PARA VOCÊ."
