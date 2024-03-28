@@ -1,1 +1,0 @@
-Kanva = {nome = "Kanva", ataque = 0, defesa = 0, vida = 200, habilidadeEspecial = 0}

@@ -1,3 +1,4 @@
+{-# OPTIONS_GHC -Wno-missing-export-lists #-}
 module Historia where
 import Util.Lib
 
@@ -44,5 +45,20 @@ cursoHistoria02 = textoFormatado "C.W.: Olá Heanes, agora vou lhe explicar como
 kanvaHistoria::String
 kanvaHistoria = textoFormatado "*Pensando sobre o que o C.W. disse, preciso ir ao museu e, pensando bem, acho que fica perto daquele padeiro estranho que conversei antes.* Na frente do museu heanes vê um homem, completamente desesperado, estatura mediana e cabelos bagunçados, repetindo para si mesmo: Isso não é arte. *Heanes se aproxima* e pergunta: Você é o Leandro?? Leandro: Sim, sou eu, e pelo que me disseram, você é o herói Heanes certo, não temos tempo a perder, dentro do museu o Kanva está alterando todo o museu, substituindo as pinturas mais perfeitas por suas imagens disformes. Heanes: Entendo, mas por que existem tantos cachorros grandes cercando o mu..."
 
+menuInicial::String
+menuInicial = "O que você deseja fazer??\n\n(1) Explorar a cidade.\n(2) Seguir Carl Wilson.\n"
+
 caramelosKanva::String
 caramelosKanva = textoFormatado "Leandro: Esses são os cachorros criados pelo kanva, vou ficar atrás de você aumentando seu ataque e diminuindo o ataque deles, mas preciso de protecao."
+
+dialogoFerreira01::String
+dialogoFerreira01 = textoFormatado "\nHeanes: Ferreira, se eu vou salvar o mundo, por que você só não me dá os melhores itens de uma vez?\n\nFerreira: *cerra os olhos e diz* Negócios são negócios, como vou pagar o meu café que tomo em seu Élho?\n\n*Ferreira não está mais aberto a conversas, acho melhor fazer alguma outra coisa decente*\n"
+
+cursoAventura01::String
+cursoAventura01 = textoFormatado "\nC.W.: Bom, agora que você já está mais orientado nessa bela cidadela, recomendo ir atrás de algumas informações sobre as I.As, Quem pode te ajudar nisso é o Leandro no museu.\n\nHeanes: Que Leandro??\n\nC.W.: Leandro Da Vinci.\n"
+
+dialogoPadeiro01::String
+dialogoPadeiro01 = textoFormatado "\n*Você encontra a Panificadora Alfa no caminho e decide conversar com o padeiro...*\n\nPadeiro: HoHoHo, Você não notou nada de estranho, Héroi?? Tenha cuidado, nem todos na Cidadela de Critais são confiáveis...\n\nHeanes: O que quer dizer com isso??\nPadeiro: Lembre-se disso: लोहार पर भरोसा मत करो... \n\n*Misterioresamente o homem que estava lá, desaparece aos olhos do professor.*\n\n*O professor decide ignorar isso por enquanto. Por enquanto...*"
+
+explicacaoBasica01 :: String
+explicacaoBasica01 = textoFormatado "\nC.W.: Ótimo! Então me ajude a carregar essas caixas, e dependendo de quantas você levar, eu pago a quantia adequada.\n"

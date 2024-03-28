@@ -2,9 +2,26 @@ module SistemaGold where
 
 import System.IO
 import Control.Concurrent(threadDelay)
-import Historia()
+import Historia
 import Models.Player
 import Util.Lib
+
+sistemaGold :: IO ()
+sistemaGold = do
+
+    putStrLn "(1) Trabalhar ajudando a carregar alguns suprimentos para um mercado mágico próximo.\n(2) Responder enigmas que as IAs utilizam para afirmar sua superioridade.\n(3) N.D.A."
+    putStrLn "\n------------------------------------------------------------------------------------\n"
+
+    input <- getLine
+    clearScreen
+    if input == "1" then do  
+        putStrLn explicacaoBasica01
+        putStrLn "*QUANDO QUISER PARAR, APERTE QUALQUER TECLA.*"
+        sistemaGoldPassivoAux 0
+    else if input == "2" 
+        then sistemaGoldAtivoAux ["(1)","(2)","(3)","(4)"]
+    else 
+        putStrLn "Não quer trabalhar hein, tudo bem. Boa sorte!"
 
 sistemaGoldPassivoAux::Int->IO()
 sistemaGoldPassivoAux goldAntigo= do

@@ -1,4 +1,6 @@
-module Models.Kanva where 
+module Models.Kanva(
+    Kanva(..)
+) where 
     
     data Kanva = Kanva {
         nome::String,

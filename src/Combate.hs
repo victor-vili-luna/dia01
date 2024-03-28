@@ -4,7 +4,7 @@ import Loja
 import Historia
 import Models.Player
 import Models.Caramelo
-import Models.Kanva
+import Models.Kanva()
 import Models.Item
 import Models.Pocao
 import System.IO

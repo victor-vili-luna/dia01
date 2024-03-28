@@ -1,4 +1,6 @@
-module Models.Caramelo where
+module Models.Caramelo(
+    Caramelo(..)
+) where
     
     data Caramelo = Caramelo {
         nome::String,

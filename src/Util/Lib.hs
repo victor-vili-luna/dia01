@@ -74,3 +74,9 @@ esperandoEnter = do
     hFlush stdout
     _ <- getChar
     return ()
+
+atualizaProgresso::Int -> IO()
+atualizaProgresso novoProgresso = do
+    heanes <- carregaPlayer
+    let novoHeanes = attProgresso heanes novoProgresso
+    salvaPlayer novoHeanes
