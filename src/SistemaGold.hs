@@ -13,8 +13,13 @@ sistemaGold = do
 
     input <- getLine
     clearScreen
+<<<<<<< HEAD
     if trim input == "1" then do
         putStrLn explicacaoBasica01
+=======
+    if input == "1" then do  
+        --putStrLn explicacaoBasica01 mudou o nome da funcao e nao consigo achar ela.
+>>>>>>> 6e501f9bddc64916e35b6ae1f276d4d0b639e3bb
         putStrLn "*QUANDO QUISER PARAR, APERTE QUALQUER TECLA.*"
         sistemaGoldPassivoAux 0
     else if trim input == "2"

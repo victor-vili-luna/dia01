@@ -90,6 +90,7 @@ compraPocao lojaPocao = do
             putStrLn "Por favor tente novamente"
             abreLojaPocoesInicial
 
+<<<<<<< HEAD
 identificaItem::String->[Item]->Maybe Item
 identificaItem _ [] = Nothing
 identificaItem nomeItem (a:as)
@@ -132,6 +133,8 @@ removePocaoAntiga nomePocao (a:as)
     | comparaStrings (getNomePocao a) nomePocao = as
     | otherwise = a : removePocaoAntiga nomePocao as
 
+=======
+>>>>>>> 6e501f9bddc64916e35b6ae1f276d4d0b639e3bb
 verLoja::IO()
 verLoja = do
     putStrLn "Ferreira, o ferreiro: Olá Herói! Esses são os itens e os preços que quando você trabalhar, poderá comprar: \n"
@@ -140,6 +143,4 @@ verLoja = do
     print loja
     putStrLn "\nMas como você ainda não possui nenhum tostão, acho melhor você pensar em fazer alguma outra coisa..."
     putStrLn "\n------------------------------------------------------------------------------------\n"
-
-
 

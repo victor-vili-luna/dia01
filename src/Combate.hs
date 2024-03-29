@@ -1,5 +1,6 @@
 module Combate where
 import Util.Lib
+import Util.CombateFuncoes
 import Loja
 import Historia
 import Models.Player
@@ -24,9 +25,17 @@ combate01 = do
     print caramelos
 
     putStrLn "\nDê uma olhada nos seus status também, quando utilizar um item ou poção os atributos vão ser adicionados aos seus status básicos.\n"
+<<<<<<< HEAD
     heanes <- carregaPlayer
     print heanes
+=======
+    putStrLn "Dica: Quando você utiliza um equipamento ou poção, ele é descartado após o combate, logo, tenha cuidado no que vai usar."
+    arquivoHeroi <- readFile' "./src/pacote/Heroi.txt"
+    let heroi = read arquivoHeroi :: Player
+    print heroi
+>>>>>>> 6e501f9bddc64916e35b6ae1f276d4d0b639e3bb
 
+    putStrLn "Começou a primeira fase, você terá 2 turnos, um de preparo e outro que vai ser seguido pelo ataque dos caramelos."
     turnoPreparacao
     turnoAcao01
 
@@ -100,6 +109,7 @@ turnoAtaqueInimigo = do
         heanesAtualizado = heanes {Models.Player.vida = vidaAtualizadaHeanes}
     writeFile "./src/pacote/Heroi.txt" (show heanesAtualizado)
 
+<<<<<<< HEAD
 turnoPreparacao :: IO()
 turnoPreparacao = do
     putStrLn "Começou a primeira fase, você terá 2 turnos, um de preparo e outro que vai ser seguido pelo ataque dos caramelos."
@@ -175,4 +185,6 @@ usaPocao = do
             input01 <- getLine
             if comparaStrings input01 "voltar" then turnoPreparacao
             else usaPocao
+=======
+>>>>>>> 6e501f9bddc64916e35b6ae1f276d4d0b639e3bb
 
