@@ -93,7 +93,6 @@ atualizaProgresso novoProgresso = do
     let novoHeanes = attProgresso heanes novoProgresso
     salvaPlayer novoHeanes
 
-<<<<<<< HEAD
 comparaStrings :: String -> String -> Bool
 comparaStrings str1 str2 = clean str1 == clean str2
     where clean = map toLower . trim
@@ -110,7 +109,7 @@ apagaEspacosFim = reverse . apagaEspacos . reverse
 
 trim :: String -> String
 trim = apagaEspacos . apagaEspacosFim
-=======
+
 identificaItem::String->[Item]->Maybe Item
 identificaItem _ [] = Nothing
 identificaItem nomeItem (item:itemSequente)
@@ -152,4 +151,3 @@ removePocaoAntiga _ [] = []
 removePocaoAntiga nomePocao (a:as)
     | Models.Pocao.nome a == nomePocao = as
     | otherwise = a : removePocaoAntiga nomePocao as
->>>>>>> 6e501f9bddc64916e35b6ae1f276d4d0b639e3bb

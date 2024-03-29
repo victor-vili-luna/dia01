@@ -1,12 +1,9 @@
 module Combate where
 import Util.Lib
 import Util.CombateFuncoes
-import Loja
 import Historia
 import Models.Player
 import Models.Inimigo
-import Models.Item
-import Models.Pocao
 import System.IO
 import CombateKanva
 
@@ -25,15 +22,9 @@ combate01 = do
     print caramelos
 
     putStrLn "\nDê uma olhada nos seus status também, quando utilizar um item ou poção os atributos vão ser adicionados aos seus status básicos.\n"
-<<<<<<< HEAD
+    putStrLn "Dica: Quando você utiliza um equipamento ou poção, ele é descartado após o combate, logo, tenha cuidado no que vai usar."
     heanes <- carregaPlayer
     print heanes
-=======
-    putStrLn "Dica: Quando você utiliza um equipamento ou poção, ele é descartado após o combate, logo, tenha cuidado no que vai usar."
-    arquivoHeroi <- readFile' "./src/pacote/Heroi.txt"
-    let heroi = read arquivoHeroi :: Player
-    print heroi
->>>>>>> 6e501f9bddc64916e35b6ae1f276d4d0b639e3bb
 
     putStrLn "Começou a primeira fase, você terá 2 turnos, um de preparo e outro que vai ser seguido pelo ataque dos caramelos."
     turnoPreparacao
@@ -41,8 +32,8 @@ combate01 = do
 
 turnoAcao01 :: IO()
 turnoAcao01 = do
-    turnoHeanes
-    turnoInimigo
+    turnoHeanesCaramelo
+    turnoCaramelo
     heanes <- carregaPlayer
     inimigo <- carregaInimigo (criaCaminho "Cachorros Caramelos")
     if verificaMortoHeroi heanes || verificaMortoInimigo inimigo then do
@@ -50,29 +41,20 @@ turnoAcao01 = do
         else combateKanva
     else turnoAcao01
 
-carregaInimigoAux::String
-carregaInimigoAux = "Cachorros Caramelos.txt"
-
-verificaMortoHeroi :: Player -> Bool
-verificaMortoHeroi heanes = Models.Player.vida heanes <= 0
-
-verificaMortoInimigo :: Inimigo -> Bool
-verificaMortoInimigo inimigo = Models.Inimigo.vida inimigo <= 0
-
-turnoHeanes :: IO()
-turnoHeanes = do
+turnoHeanesCaramelo :: IO()
+turnoHeanesCaramelo = do
     heanes <- carregaPlayer
     if not (verificaMortoHeroi heanes) then do
         putStrLn "(1)Ataque.\n(2)Usa poção."
         input <- getLine
-
+    
         if trim input == "1" then do
             usaAtaque
             putStrLn "Voce desfere um ataque fatal a alguns cachorros que o cercavam."
         else if trim input == "2" then usaPocao
         else do
             putStrLn "Digite uma opção válida."
-            turnoHeanes
+            turnoHeanesCaramelo
     else putStrLn "voce morreu dog. os cachorros tinham raiva."
 
 usaAtaque :: IO()
@@ -88,18 +70,18 @@ usaAtaque = do
     writeFile filepath (show inimigoAtualizado)
 
 
-turnoInimigo :: IO()
-turnoInimigo = do
+turnoCaramelo :: IO()
+turnoCaramelo = do
     inimigo <- carregaInimigo (criaCaminho "Cachorros Caramelos")
     if not (verificaMortoInimigo inimigo) then do
         putStrLn "UM CACHORRO TE MORDE VIOLENTAMENTE E VOCE GRITA: TIRA DOG TIRAAAA AYELLLLLLLLL ME AJUDA"
-        turnoAtaqueInimigo
+        turnoAtaqueCaramelo
         heanes <- carregaPlayer
         print heanes
     else putStrLn "Leandro: Você conseguiu, matou todos os cachorros mágicos, eu sabia que você era forte."
 
-turnoAtaqueInimigo :: IO()
-turnoAtaqueInimigo = do
+turnoAtaqueCaramelo :: IO()
+turnoAtaqueCaramelo = do
     heanes <- carregaPlayer
     inimigo <- carregaInimigo (criaCaminho "Cachorros Caramelos")
     let ataqueInimigo = Models.Inimigo.ataque inimigo
@@ -108,83 +90,4 @@ turnoAtaqueInimigo = do
         vidaAtualizadaHeanes = (defesaHeanes + vidaHeanes) - ataqueInimigo
         heanesAtualizado = heanes {Models.Player.vida = vidaAtualizadaHeanes}
     writeFile "./src/pacote/Heroi.txt" (show heanesAtualizado)
-
-<<<<<<< HEAD
-turnoPreparacao :: IO()
-turnoPreparacao = do
-    putStrLn "Começou a primeira fase, você terá 2 turnos, um de preparo e outro que vai ser seguido pelo ataque dos caramelos."
-    putStrLn "(1)Equipar um item\n(2)Utilizar uma poção\n(3)Lutar."
-    input <- getLine
-
-    case input of
-        "1" -> do
-            equipaItem
-            turnoPreparacao
-        "2" -> do
-            usaPocao
-            turnoPreparacao
-        "3" -> return ()
-        _ -> turnoPreparacao
-
-equipaItem :: IO()
-equipaItem = do
-    heroi <- carregaPlayer
-    let equipamentos = Models.Player.equipamentos heroi
-    print equipamentos
-
-    putStrLn "Digite o nome do item que deseja equipar, logo depois disso seus status serão atualizados e mostrados."
-    input <- getLine
-    let maybeItem = identificaItem input equipamentos
-    case maybeItem of
-        Just item -> do
-            let ataqueAtualizado = Models.Item.ataque item + Models.Player.ataque heroi
-                defesaAtualizada = Models.Item.defesa item + Models.Player.defesa heroi
-                listaItensAtualizada = removeItem input (Models.Player.equipamentos heroi)
-                heanesAtualizado = heroi {Models.Player.ataque = ataqueAtualizado, Models.Player.defesa = defesaAtualizada, Models.Player.equipamentos = listaItensAtualizada}
-            writeFile "./src/pacote/Heroi.txt" (show heanesAtualizado)
-            putStrLn "Item equipado com sucesso.\n"
-            print heanesAtualizado
-        Nothing -> do
-            putStrLn "Creio que digitou errado, mas caso queria voltar ao turno digite: voltar."
-            input01 <- getLine
-            if comparaStrings input01 "voltar" then turnoPreparacao
-            else equipaItem
-
-usaPocao :: IO()
-usaPocao = do
-    heroi <- carregaPlayer
-    let pocoes = Models.Player.pocoes heroi
-    print pocoes
-
-    putStrLn "Digite o nome da poção que deseja equipar, logo depois disso seus status serão atualizados e mostrados."
-    input <- getLine
-    let maybePocao = identificaPocao input pocoes
-    case maybePocao of
-        Just pocao -> do
-            let ataqueAtualizado = Models.Pocao.ataque pocao + Models.Player.ataque heroi
-                defesaAtualizada = Models.Pocao.defesa pocao + Models.Player.defesa heroi
-                vidaAtualizada = Models.Pocao.vida pocao + Models.Player.vida heroi
-                pocaoInicial = pegaPocao input (Models.Player.pocoes heroi)
-                quantidadeAtualizada = Models.Pocao.quantidade pocaoInicial - 1
-                pocaoFinal = pocaoInicial {Models.Pocao.quantidade = quantidadeAtualizada}
-
-            if quantidadeAtualizada == 0 then do
-                let listaPocoesAtualizada = removePocaoAntiga input (Models.Player.pocoes heroi)
-                    heanesAtualizado = heroi {Models.Player.ataque = ataqueAtualizado, Models.Player.defesa = defesaAtualizada, Models.Player.vida = vidaAtualizada, Models.Player.pocoes = listaPocoesAtualizada}
-                writeFile "./src/pacote/Heroi.txt" (show heanesAtualizado)
-                print heanesAtualizado
-            else do
-                let listaPocoesAtualizada = removePocaoAntiga input (Models.Player.pocoes heroi) ++ [pocaoFinal]
-                    heanesAtualizado = heroi {Models.Player.ataque = ataqueAtualizado, Models.Player.defesa = defesaAtualizada, Models.Player.vida = vidaAtualizada, Models.Player.pocoes = listaPocoesAtualizada}
-                writeFile "./src/pacote/Heroi.txt" (show heanesAtualizado)
-                print heanesAtualizado
-            putStrLn "Pocao utilizada com sucesso."
-
-        Nothing -> do
-            putStrLn "Pocao inválida, caso queira voltar ao turno ao invés de digitar a poção novamente, digite: voltar."
-            input01 <- getLine
-            if comparaStrings input01 "voltar" then turnoPreparacao
-            else usaPocao
-=======
->>>>>>> 6e501f9bddc64916e35b6ae1f276d4d0b639e3bb
 

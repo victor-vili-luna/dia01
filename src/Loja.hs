@@ -90,51 +90,6 @@ compraPocao lojaPocao = do
             putStrLn "Por favor tente novamente"
             abreLojaPocoesInicial
 
-<<<<<<< HEAD
-identificaItem::String->[Item]->Maybe Item
-identificaItem _ [] = Nothing
-identificaItem nomeItem (a:as)
-    | comparaStrings (getNomeItem a) nomeItem  = Just a
-    | otherwise = identificaItem nomeItem as
-
-pegaItem::String->[Item]->Item
-pegaItem _ [] = error "Item errado" --nunca chega nesse codigo
-pegaItem nomeItem (a:as)
-    | comparaStrings (getNomeItem a) nomeItem  = a
-    | otherwise = pegaItem nomeItem as
-
-removeItem::String->[Item]->[Item]
-removeItem _ [] = []
-removeItem nomeItem (a:as)
-    | comparaStrings (getNomeItem a) nomeItem  = as
-    | otherwise = a : removeItem nomeItem as
-
-identificaPocao::String->[Pocao]->Maybe Pocao
-identificaPocao _ [] = Nothing
-identificaPocao nomePocao (a:as)
-    | comparaStrings (getNomePocao a) nomePocao = Just a
-    | otherwise = identificaPocao nomePocao as
-
-identificaPocaoJaComprada::String->[Pocao]->Bool
-identificaPocaoJaComprada _ [] = False
-identificaPocaoJaComprada nomePocao (a:as)
-    | comparaStrings (getNomePocao a) nomePocao = True
-    | otherwise = identificaPocaoJaComprada nomePocao as
-
-pegaPocao::String->[Pocao]->Pocao
-pegaPocao _ [] = error "Poção errada" --nunca chega nesse codigo
-pegaPocao nomePocao (a:as)
-    | comparaStrings (getNomePocao a) nomePocao = a
-    | otherwise = pegaPocao nomePocao as
-
-removePocaoAntiga::String->[Pocao]->[Pocao]
-removePocaoAntiga _ [] = []
-removePocaoAntiga nomePocao (a:as)
-    | comparaStrings (getNomePocao a) nomePocao = as
-    | otherwise = a : removePocaoAntiga nomePocao as
-
-=======
->>>>>>> 6e501f9bddc64916e35b6ae1f276d4d0b639e3bb
 verLoja::IO()
 verLoja = do
     putStrLn "Ferreira, o ferreiro: Olá Herói! Esses são os itens e os preços que quando você trabalhar, poderá comprar: \n"

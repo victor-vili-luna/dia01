@@ -48,10 +48,6 @@ kanvaHistoria = textoFormatado "*Pensando sobre o que o C.W. disse, preciso ir a
 menuInicial :: String
 menuInicial = "O que você deseja fazer??\n\n(1) Explorar a cidade.\n(2) Seguir Carl Wilson.\n"
 
-<<<<<<< HEAD
-caramelosKanva:: String
-caramelosKanva = textoFormatado "Leandro: Esses são os cachorros criados pelo kanva, vou ficar atrás de você aumentando seu ataque e diminuindo o ataque deles, mas preciso de protecao."
-
 dialogoFerreira01::String
 dialogoFerreira01 = textoFormatado "\nHeanes: Ferreira, se eu vou salvar o mundo, por que você só não me dá os melhores itens de uma vez?\n\nFerreira: *cerra os olhos e diz* Negócios são negócios, como vou pagar o meu café que tomo em seu Élho?\n\n*Ferreira não está mais aberto a conversas, acho melhor fazer alguma outra coisa decente*\n"
 
@@ -69,7 +65,9 @@ promptPerguntas = "*Heanes se encaminha para um lugar de procedência duvidosa, 
 
 propagandaMaquina::String
 propagandaMaquina = "NINGUEM NUNCA VEIO TÃO LONGE MEU AMIGO HUMANO, em comemoração a sua vasta inteligência irei lhe fazer uma promoção duas perguntas pelo preço de uma vinda\n será que você tem o que é necessario para responder tamanhas perguntas, essas últimas pergunta são de um nivel jamais visto nesse mundo\n meu criador conseguiu ela através de um erro no espaço tempo que chegou a uma outra dimesão e um outro planeta, você terá que responder algo sobre CAMPINA GRANDE\n vamos ver como você se sai, BOA SORTE"
-=======
+
 caramelosKanva :: String
 caramelosKanva = textoFormatado "Leandro: Esses são os cachorros criados pelo kanva, fique de costas para mim para nao sermos cercados completamente!!!"
->>>>>>> 6e501f9bddc64916e35b6ae1f276d4d0b639e3bb
+
+vilaoKanva :: String
+vilaoKanva = textoFormatado "Eu sou o kanva e os caralho."
