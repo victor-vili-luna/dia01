@@ -1,4 +1,4 @@
-module CombateFuncoes where
+module Util.CombateFuncoes where
 
 import Models.Player
 import Models.Item
@@ -19,7 +19,6 @@ turnoPreparacao = do
             turnoPreparacao
         "3" -> return ()
         _ -> turnoPreparacao
-
 
 equipaItem :: IO()
 equipaItem = do
