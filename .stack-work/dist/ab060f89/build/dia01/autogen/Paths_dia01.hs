@@ -46,21 +46,12 @@ getBinDir, getLibDir, getDynLibDir, getDataDir, getLibexecDir, getSysconfDir :: 
 
 
 bindir, libdir, dynlibdir, datadir, libexecdir, sysconfdir :: FilePath
-<<<<<<< HEAD
-bindir     = "C:\\Users\\victo\\OneDrive\\Documentos\\plp\\haskell\\dia01\\.stack-work\\install\\814080fd\\bin"
-libdir     = "C:\\Users\\victo\\OneDrive\\Documentos\\plp\\haskell\\dia01\\.stack-work\\install\\814080fd\\lib\\x86_64-windows-ghc-9.6.4\\dia01-0.1.0.0-Gnc5Osjac8MI8ksz7XxduP-dia01"
-dynlibdir  = "C:\\Users\\victo\\OneDrive\\Documentos\\plp\\haskell\\dia01\\.stack-work\\install\\814080fd\\lib\\x86_64-windows-ghc-9.6.4"
-datadir    = "C:\\Users\\victo\\OneDrive\\Documentos\\plp\\haskell\\dia01\\.stack-work\\install\\814080fd\\share\\x86_64-windows-ghc-9.6.4\\dia01-0.1.0.0"
-libexecdir = "C:\\Users\\victo\\OneDrive\\Documentos\\plp\\haskell\\dia01\\.stack-work\\install\\814080fd\\libexec\\x86_64-windows-ghc-9.6.4\\dia01-0.1.0.0"
-sysconfdir = "C:\\Users\\victo\\OneDrive\\Documentos\\plp\\haskell\\dia01\\.stack-work\\install\\814080fd\\etc"
-=======
-bindir     = "D:\\Documents\\VsCode\\Fmcc\\dia01\\.stack-work\\install\\b69e174d\\bin"
-libdir     = "D:\\Documents\\VsCode\\Fmcc\\dia01\\.stack-work\\install\\b69e174d\\lib\\x86_64-windows-ghc-9.6.4\\dia01-0.1.0.0-Gnc5Osjac8MI8ksz7XxduP-dia01"
-dynlibdir  = "D:\\Documents\\VsCode\\Fmcc\\dia01\\.stack-work\\install\\b69e174d\\lib\\x86_64-windows-ghc-9.6.4"
-datadir    = "D:\\Documents\\VsCode\\Fmcc\\dia01\\.stack-work\\install\\b69e174d\\share\\x86_64-windows-ghc-9.6.4\\dia01-0.1.0.0"
-libexecdir = "D:\\Documents\\VsCode\\Fmcc\\dia01\\.stack-work\\install\\b69e174d\\libexec\\x86_64-windows-ghc-9.6.4\\dia01-0.1.0.0"
-sysconfdir = "D:\\Documents\\VsCode\\Fmcc\\dia01\\.stack-work\\install\\b69e174d\\etc"
->>>>>>> 002fb1313385f9ac58109f3acba997d7809ea147
+bindir     = "C:\\Users\\victo\\OneDrive\\Documentos\\plp\\haskell\\.stack-work\\install\\5b7726ad\\bin"
+libdir     = "C:\\Users\\victo\\OneDrive\\Documentos\\plp\\haskell\\.stack-work\\install\\5b7726ad\\lib\\x86_64-windows-ghc-9.6.4\\dia01-0.1.0.0-Gnc5Osjac8MI8ksz7XxduP-dia01"
+dynlibdir  = "C:\\Users\\victo\\OneDrive\\Documentos\\plp\\haskell\\.stack-work\\install\\5b7726ad\\lib\\x86_64-windows-ghc-9.6.4"
+datadir    = "C:\\Users\\victo\\OneDrive\\Documentos\\plp\\haskell\\.stack-work\\install\\5b7726ad\\share\\x86_64-windows-ghc-9.6.4\\dia01-0.1.0.0"
+libexecdir = "C:\\Users\\victo\\OneDrive\\Documentos\\plp\\haskell\\.stack-work\\install\\5b7726ad\\libexec\\x86_64-windows-ghc-9.6.4\\dia01-0.1.0.0"
+sysconfdir = "C:\\Users\\victo\\OneDrive\\Documentos\\plp\\haskell\\.stack-work\\install\\5b7726ad\\etc"
 
 getBinDir     = catchIO (getEnv "dia01_bindir")     (\_ -> return bindir)
 getLibDir     = catchIO (getEnv "dia01_libdir")     (\_ -> return libdir)

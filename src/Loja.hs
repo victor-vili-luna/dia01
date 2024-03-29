@@ -91,48 +91,6 @@ compraPocao lojaPocao = do
             putStrLn "Por favor tente novamente"
             abreLojaPocoesInicial
 
-identificaItem::String->[Item]->Maybe Item
-identificaItem _ [] = Nothing
-identificaItem nomeItem (item:itemSequente)
-    | Models.Item.nome item == nomeItem = Just item
-    | otherwise = identificaItem nomeItem itemSequente
-
-pegaItem::String->[Item]->Item
-pegaItem _ [] = error "Item errado" --nunca chega nesse codigo
-pegaItem nomeItem (a:as)
-    | Models.Item.nome a == nomeItem = a
-    | otherwise = pegaItem nomeItem as
-
-removeItem::String->[Item]->[Item]
-removeItem _ [] = []
-removeItem nomeItem (a:as)
-    | Models.Item.nome a == nomeItem = as
-    | otherwise = a : removeItem nomeItem as
-
-identificaPocao::String->[Pocao]->Maybe Pocao
-identificaPocao _ [] = Nothing
-identificaPocao nomePocao (pocao:pocaoSequente)
-    | Models.Pocao.nome pocao == nomePocao = Just pocao
-    | otherwise = identificaPocao nomePocao pocaoSequente
-
-identificaPocaoJaComprada::String->[Pocao]->Bool
-identificaPocaoJaComprada _ [] = False
-identificaPocaoJaComprada nomePocao (a:as)
-    | Models.Pocao.nome a == nomePocao = True
-    | otherwise = identificaPocaoJaComprada nomePocao as
-
-pegaPocao::String->[Pocao]->Pocao
-pegaPocao _ [] = error "Poção errada" --nunca chega nesse codigo
-pegaPocao nomePocao (a:as)
-    | Models.Pocao.nome a == nomePocao = a
-    | otherwise = pegaPocao nomePocao as
-
-removePocaoAntiga::String->[Pocao]->[Pocao]
-removePocaoAntiga _ [] = []
-removePocaoAntiga nomePocao (a:as)
-    | Models.Pocao.nome a == nomePocao = as
-    | otherwise = a : removePocaoAntiga nomePocao as
-
 verLoja::IO()
 verLoja = do
     putStrLn "Ferreira, o ferreiro: Olá Herói! Esses são os itens e os preços que quando você trabalhar, poderá comprar: \n"
@@ -141,6 +99,4 @@ verLoja = do
     print loja
     putStrLn "\nMas como você ainda não possui nenhum tostão, acho melhor você pensar em fazer alguma outra coisa..."
     putStrLn "\n------------------------------------------------------------------------------------\n"
-
-
 

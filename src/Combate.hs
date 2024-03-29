@@ -24,10 +24,12 @@ combate01 = do
     print caramelos
 
     putStrLn "\nDê uma olhada nos seus status também, quando utilizar um item ou poção os atributos vão ser adicionados aos seus status básicos.\n"
+    putStrLn "Dica: Quando você utiliza um equipamento ou poção, ele é descartado após o combate, logo, tenha cuidado no que vai usar."
     arquivoHeroi <- readFile' "./src/pacote/Heroi.txt"
     let heroi = read arquivoHeroi :: Player
     print heroi
-
+    
+    putStrLn "Começou a primeira fase, você terá 2 turnos, um de preparo e outro que vai ser seguido pelo ataque dos caramelos."
     turnoPreparacao
     turnoAcao01
 
@@ -103,7 +105,6 @@ turnoAtaqueInimigo = do
 
 turnoPreparacao :: IO()
 turnoPreparacao = do
-    putStrLn "Começou a primeira fase, você terá 2 turnos, um de preparo e outro que vai ser seguido pelo ataque dos caramelos."
     putStrLn "(1)Equipar um item\n(2)Utilizar uma poção\n(3)Lutar."
     input <- getLine
 

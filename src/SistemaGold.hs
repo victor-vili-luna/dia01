@@ -15,7 +15,7 @@ sistemaGold = do
     input <- getLine
     clearScreen
     if input == "1" then do  
-        putStrLn explicacaoBasica01
+        --putStrLn explicacaoBasica01 mudou o nome da funcao e nao consigo achar ela.
         putStrLn "*QUANDO QUISER PARAR, APERTE QUALQUER TECLA.*"
         sistemaGoldPassivoAux 0
     else if input == "2" 
