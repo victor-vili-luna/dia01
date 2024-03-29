@@ -48,10 +48,7 @@ kanvaHistoria = textoFormatado "*Pensando sobre o que o C.W. disse, preciso ir a
 menuInicial::String
 menuInicial = "O que você deseja fazer??\n\n(1) Explorar a cidade.\n(2) Seguir Carl Wilson.\n"
 
-caramelosKanva::String
-<<<<<<< HEAD
-caramelosKanva = textoFormatado "Leandro: Esses são os cachorros criados pelo kanva, fique de costas para mim para nao sermos cercados completamente!!!"
-=======
+caramelosKanva:: String
 caramelosKanva = textoFormatado "Leandro: Esses são os cachorros criados pelo kanva, vou ficar atrás de você aumentando seu ataque e diminuindo o ataque deles, mas preciso de protecao."
 
 dialogoFerreira01::String
@@ -65,4 +62,9 @@ dialogoPadeiro01 = textoFormatado "\n*Você encontra a Panificadora Alfa no cami
 
 explicacaoBasica01 :: String
 explicacaoBasica01 = textoFormatado "\nC.W.: Ótimo! Então me ajude a carregar essas caixas, e dependendo de quantas você levar, eu pago a quantia adequada.\n"
->>>>>>> 002fb1313385f9ac58109f3acba997d7809ea147
+
+promptPerguntas::String
+promptPerguntas = "*Heanes se encaminha para um lugar de procedência duvidosa, lá ele encontra uma Vending Machine*\n\nVending Machine: OLÁ HUMANO! VOCÊ É CAPAZ DE RESPONDER A MINHA PERGUNTA? A cada vez que você derrotar uma IA terei uma pergunta fresquinha para você\n Só que tem um adendo, eu tenho um leve defeito de repetir a pergunta se o participante se afastar e voltar mas sei que você não abusaria desse bug para lucrar por que confio no seu carater\n você não faria isso? não é mesmo HEROI."
+
+propagandaMaquina::String
+propagandaMaquina = "NINGUEM NUNCA VEIO TÃO LONGE MEU AMIGO HUMANO, em comemoração a sua vasta inteligência irei lhe fazer uma promoção duas perguntas pelo preço de uma vinda\n será que você tem o que é necessario para responder tamanhas perguntas, essas últimas pergunta são de um nivel jamais visto nesse mundo\n meu criador conseguiu ela através de um erro no espaço tempo que chegou a uma outra dimesão e um outro planeta, você terá que responder algo sobre CAMPINA GRANDE\n vamos ver como você se sai, BOA SORTE"

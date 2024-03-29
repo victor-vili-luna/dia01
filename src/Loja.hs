@@ -1,5 +1,4 @@
 module Loja where
-
 import Models.Player
 import Models.Item
 import Historia ()
@@ -17,7 +16,7 @@ abreLojaItensInicial = do
     print lojaItens
     putStrLn (textoFormatado "Deseja comprar algo?\n(1)Sim.\n(2)Não.")
     input <- getLine
-    if input == "1" then compraItem lojaItens
+    if trim input == "1" then compraItem lojaItens
     else putStrLn "Não quer comprar hein...tudo bem."
 
 abreLojaPocoesInicial::IO()
@@ -30,7 +29,7 @@ abreLojaPocoesInicial = do
     print lojaPocao
     putStrLn (textoFormatado "Deseja comprar algo?\n(1)Sim.\n(2)Não.")
     input <- getLine
-    if input == "1" then compraPocao lojaPocao
+    if trim input == "1" then compraPocao lojaPocao
     else putStrLn "Não quer comprar hein...tudo bem."
 
 compraItem::[Item]->IO()
@@ -41,8 +40,8 @@ compraItem lojaItens = do
     case maybeItem of
         Just item -> do
             heanesPre <- carregaPlayer
-            let gold01 = Models.Player.gold heanesPre
-                precoItem = Models.Item.preco item
+            let gold01 = getGold heanesPre
+                precoItem = getPrecoItem item
             if gold01 >= precoItem then do
                 let goldAtual = gold01 - precoItem
                     listaItensAtualizada = equipamentos heanesPre ++ [item]
@@ -62,25 +61,25 @@ compraItem lojaItens = do
 compraPocao::[Pocao]->IO()
 compraPocao lojaPocao = do
     putStrLn "Digite o nome da pocao que você deseja comprar."
-    input01 <- getLine
-    let maybePocao = identificaPocao input01 lojaPocao
+    pocaoNome <- getLine
+    let maybePocao = identificaPocao pocaoNome lojaPocao
     case maybePocao of
         Just pocao -> do
             heanesPre <- carregaPlayer
-            let gold = Models.Player.gold heanesPre
-                precoPocao = Models.Pocao.preco pocao
+            let gold = getGold heanesPre
+                precoPocao = getPrecoPocao pocao
             if gold >= precoPocao then
-                if identificaPocaoJaComprada input01 (pocoes heanesPre) then do
+                if identificaPocaoJaComprada pocaoNome (pocoes heanesPre) then do
                     let goldAtual = gold - precoPocao
-                        pocaoInicial = pegaPocao input01 (pocoes heanesPre)
-                        quantidadeAtual = Models.Pocao.quantidade pocaoInicial + 1
+                        pocaoInicial = pegaPocao pocaoNome (pocoes heanesPre)
+                        quantidadeAtual = getQuantidadePocao pocaoInicial + 1
                         pocaoFinal = pocaoInicial {quantidade = quantidadeAtual}
-                        listaPocoesAtualizada = removePocaoAntiga input01 (pocoes heanesPre) ++ [pocaoFinal]
+                        listaPocoesAtualizada = removePocaoAntiga pocaoNome (pocoes heanesPre) ++ [pocaoFinal]
                         heanesAdulto = heanesPre { gold = goldAtual, pocoes = listaPocoesAtualizada}
                     salvaPlayer heanesAdulto
                     putStrLn "Compra realizada com sucesso."
                 else do
-                    let goldAtual = Models.Player.gold heanesPre - Models.Pocao.preco pocao
+                    let goldAtual = gold - precoPocao
                         heanesAdulto = heanesPre { gold = goldAtual, pocoes = pocoes heanesPre ++ [pocao] }
                     salvaPlayer heanesAdulto
                     putStrLn "Compra realizada com sucesso."
@@ -93,44 +92,44 @@ compraPocao lojaPocao = do
 
 identificaItem::String->[Item]->Maybe Item
 identificaItem _ [] = Nothing
-identificaItem nomeItem (item:itemSequente)
-    | Models.Item.nome item == nomeItem = Just item
-    | otherwise = identificaItem nomeItem itemSequente
+identificaItem nomeItem (a:as)
+    | comparaStrings (getNomeItem a) nomeItem  = Just a
+    | otherwise = identificaItem nomeItem as
 
 pegaItem::String->[Item]->Item
 pegaItem _ [] = error "Item errado" --nunca chega nesse codigo
 pegaItem nomeItem (a:as)
-    | Models.Item.nome a == nomeItem = a
+    | comparaStrings (getNomeItem a) nomeItem  = a
     | otherwise = pegaItem nomeItem as
 
 removeItem::String->[Item]->[Item]
 removeItem _ [] = []
 removeItem nomeItem (a:as)
-    | Models.Item.nome a == nomeItem = as
+    | comparaStrings (getNomeItem a) nomeItem  = as
     | otherwise = a : removeItem nomeItem as
 
 identificaPocao::String->[Pocao]->Maybe Pocao
 identificaPocao _ [] = Nothing
-identificaPocao nomePocao (pocao:pocaoSequente)
-    | Models.Pocao.nome pocao == nomePocao = Just pocao
-    | otherwise = identificaPocao nomePocao pocaoSequente
+identificaPocao nomePocao (a:as)
+    | comparaStrings (getNomePocao a) nomePocao = Just a
+    | otherwise = identificaPocao nomePocao as
 
 identificaPocaoJaComprada::String->[Pocao]->Bool
 identificaPocaoJaComprada _ [] = False
 identificaPocaoJaComprada nomePocao (a:as)
-    | Models.Pocao.nome a == nomePocao = True
+    | comparaStrings (getNomePocao a) nomePocao = True
     | otherwise = identificaPocaoJaComprada nomePocao as
 
 pegaPocao::String->[Pocao]->Pocao
 pegaPocao _ [] = error "Poção errada" --nunca chega nesse codigo
 pegaPocao nomePocao (a:as)
-    | Models.Pocao.nome a == nomePocao = a
+    | comparaStrings (getNomePocao a) nomePocao = a
     | otherwise = pegaPocao nomePocao as
 
 removePocaoAntiga::String->[Pocao]->[Pocao]
 removePocaoAntiga _ [] = []
 removePocaoAntiga nomePocao (a:as)
-    | Models.Pocao.nome a == nomePocao = as
+    | comparaStrings (getNomePocao a) nomePocao = as
     | otherwise = a : removePocaoAntiga nomePocao as
 
 verLoja::IO()

@@ -1,8 +1,4 @@
-module Models.Player(
-    Player(..),
-    getProgresso,
-    attProgresso
-) where
+module Models.Player where
     import Models.Pocao
     import Models.Item
 
@@ -22,4 +18,10 @@ module Models.Player(
 
     attProgresso:: Player -> Int -> Player
     attProgresso heanes novoProgresso = heanes {progresso = novoProgresso}
+
+    getGold:: Player -> Int
+    getGold = gold
+
+    modificaGold:: Player -> Int -> Player
+    modificaGold heanes goldExtra = heanes{gold = getGold heanes + goldExtra}
 

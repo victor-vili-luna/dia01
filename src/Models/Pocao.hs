@@ -1,6 +1,4 @@
-module Models.Pocao(
-    Pocao(..)
-) where
+module Models.Pocao where
 
     data Pocao = Pocao {
         nome::String,
@@ -10,3 +8,12 @@ module Models.Pocao(
         ataque::Int,
         quantidade::Int
     } deriving (Show, Read)
+
+    getNomePocao::Pocao -> String
+    getNomePocao =  nome
+
+    getPrecoPocao:: Pocao -> Int
+    getPrecoPocao = preco
+
+    getQuantidadePocao:: Pocao -> Int
+    getQuantidadePocao = quantidade

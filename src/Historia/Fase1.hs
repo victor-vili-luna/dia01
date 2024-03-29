@@ -7,7 +7,6 @@ import Loja
 import SistemaGold
 import System.IO
 import System.Directory
-import qualified Models.Player
 import Combate
 import Util.Lib
 
@@ -17,11 +16,11 @@ escolhaCaminhoCidade = do
     putStrLn (textoFormatado menuInicial)
     escolha02 <- getLine
 
-    if escolha02 == "1" then do
+    if trim escolha02 == "1" then do
         clearScreen
         putStrLn "Você escolheu explorar a cidade, para onde nosso bravo web-guerreiro irá?\n"
         abreMapa01 ["(1) Voltar a loja do ferreiro Ferreira para *ver* os itens disponíveis.", "(2) Conversar com o Ferreira.", "(3) Ir à praça da cidade.","(4) Seguir Carl Wilson." ]
-    else if escolha02 == "2" then do
+    else if trim escolha02 == "2" then do
         clearScreen
         putStrLn "*Carl Wilson percebe que você começa a seguir ele e se vira rapidamente em sua direção*\n"
         putStrLn cursoHistoria02
@@ -39,19 +38,20 @@ abreMapa01 opcoes = do
     putStrLn "\n------------------------------------------------------------------------------------\n"
 
     input <- getLine
-    if input == "1" then do
+    let resposta = trim input
+    if resposta == "1" then do
         clearScreen
         verLoja
         abreMapa01 opcoes
-    else if input == "2" then do
+    else if resposta == "2" then do
         clearScreen
         putStrLn dialogoFerreira01
         abreMapa01 opcoes
-    else if input == "3" then do
+    else if resposta == "3" then do
         clearScreen
         putStrLn dialogoPadeiro01
         abreMapa01 opcoes
-    else if input == "4" then do
+    else if resposta == "4" then do
         clearScreen
         putStrLn cursoHistoria02
         sistemaGold
@@ -68,7 +68,8 @@ historiaPrincipal opcoes = do
     mapM_ putStrLn opcoes
     putStrLn "\n------------------------------------------------------------------------------------\n"
 
-    opcaoJogador <- getLine
+    input <- getLine
+    let opcaoJogador = trim input
     if opcaoJogador == "1" then do
         clearScreen
         putStrLn "Ganhar alguns mangos sempre é bom, talvez assim nosso herói não precise aderir a nenhuma greve. Como iremos angariar fundos?\n"

@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-Player {nome = "Heanes", vida = 90, gold = 70, defesa = 5, ataque = 35, equipamentos = [], pocoes = [], progresso = 0}
-=======
-Player {nome = "Heanes", vida = 100, gold = 0, defesa = 5, ataque = 5, equipamentos = [], pocoes = [], progresso = 1}
->>>>>>> 002fb1313385f9ac58109f3acba997d7809ea147
+Player {nome = "Heanes", vida = 100, gold = 184, defesa = 5, ataque = 5, equipamentos = [], pocoes = [Pocao {nome = "Cafe", vida = 40, preco = 20, defesa = 0, ataque = 0, quantidade = 3}], progresso = 1}

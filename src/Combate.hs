@@ -24,9 +24,8 @@ combate01 = do
     print caramelos
 
     putStrLn "\nDê uma olhada nos seus status também, quando utilizar um item ou poção os atributos vão ser adicionados aos seus status básicos.\n"
-    arquivoHeroi <- readFile' "./src/pacote/Heroi.txt"
-    let heroi = read arquivoHeroi :: Player
-    print heroi
+    heanes <- carregaPlayer
+    print heanes
 
     turnoPreparacao
     turnoAcao01
@@ -58,10 +57,10 @@ turnoHeanes = do
         putStrLn "(1)Ataque.\n(2)Usa poção."
         input <- getLine
 
-        if input == "1" then do
+        if trim input == "1" then do
             usaAtaque
             putStrLn "Voce desfere um ataque fatal a alguns cachorros que o cercavam."
-        else if input == "2" then usaPocao
+        else if trim input == "2" then usaPocao
         else do
             putStrLn "Digite uma opção válida."
             turnoHeanes
@@ -138,7 +137,7 @@ equipaItem = do
         Nothing -> do
             putStrLn "Creio que digitou errado, mas caso queria voltar ao turno digite: voltar."
             input01 <- getLine
-            if input01 == "voltar" then turnoPreparacao
+            if comparaStrings input01 "voltar" then turnoPreparacao
             else equipaItem
 
 usaPocao :: IO()
@@ -174,6 +173,6 @@ usaPocao = do
         Nothing -> do
             putStrLn "Pocao inválida, caso queira voltar ao turno ao invés de digitar a poção novamente, digite: voltar."
             input01 <- getLine
-            if input01 == "voltar" then turnoPreparacao
+            if comparaStrings input01 "voltar" then turnoPreparacao
             else usaPocao
 

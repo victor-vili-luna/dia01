@@ -7,6 +7,7 @@ import Models.Player
 import Models.Pocao
 import System.IO
 import Models.Inimigo
+import Data.Char
 
 textoFormatado::String->String
 textoFormatado texto = texto ++ "\n------------------------------------------------------------------------------------\n"
@@ -29,13 +30,13 @@ carregaPlayer = do
         hClose handle
         return (read conteudo :: Player)
 
-carregaInimigo :: String -> IO Inimigo 
+carregaInimigo :: String -> IO Inimigo
 carregaInimigo filepath = do
         handle <- openFile filepath ReadMode
         conteudo <- hGetContents' handle
         hClose handle
-        return (read conteudo :: Inimigo) 
-    
+        return (read conteudo :: Inimigo)
+
 salvaPlayer:: Player -> IO()
 salvaPlayer heanes = writeFile "./src/pacote/Heroi.txt" (show heanes)
 
@@ -91,3 +92,20 @@ atualizaProgresso novoProgresso = do
     heanes <- carregaPlayer
     let novoHeanes = attProgresso heanes novoProgresso
     salvaPlayer novoHeanes
+
+comparaStrings :: String -> String -> Bool
+comparaStrings str1 str2 = clean str1 == clean str2
+    where clean = map toLower . trim
+
+{-esse droWhile ficando fazendo o drop da lista enquanto o boll que passamos é verdadeiro só que nesse caso
+o bool que passamos lambda que se o primeiro caracter for espaço vazio ou um tab ele vai dar drop -}
+apagaEspacos :: String -> String
+apagaEspacos = dropWhile (\c -> c == ' ' || c == '\t')
+
+{-esse metodo recebe uma string e usa composição de função pra resolver ela, tipo em matematica quando faz
+f(x) g(x)  e g(f(x)) so que no caso a composição é (reverse (apagaEspacos (reverse (palavra))))-}
+apagaEspacosFim :: String -> String
+apagaEspacosFim = reverse . apagaEspacos . reverse
+
+trim :: String -> String
+trim = apagaEspacos . apagaEspacosFim

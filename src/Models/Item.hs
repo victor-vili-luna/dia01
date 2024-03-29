@@ -1,6 +1,4 @@
-module Models.Item(
-    Item(..)
-) where
+module Models.Item where
 
     data Item = Item {
         nome::String,
@@ -9,4 +7,11 @@ module Models.Item(
         defesa::Int,
         descricao::String
     } deriving (Show, Read)
+
+    getPrecoItem :: Item -> Int
+    getPrecoItem = preco
+
+    getNomeItem :: Item -> String
+    getNomeItem = nome
+
 
