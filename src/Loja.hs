@@ -92,7 +92,7 @@ compraPocao lojaPocao = do
 
 verLoja::IO()
 verLoja = do
-    putStrLn "Ferreira, o ferreiro: Olá Herói! Esses são os itens e os preços que quando você trabalhar, poderá comprar: \n"
+    putStrLn "Ferreira, o ferreiro: Olá Herói! Esses são os itens e os preços que se você tiver dinheiro, poderá comprar: \n"
     arquivo02 <- readFile' "./src/pacote/ItensIniciais.txt"
     let loja = map (read::String->Item) (lines arquivo02)
     print loja

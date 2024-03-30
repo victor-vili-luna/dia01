@@ -1,1 +1,1 @@
-Inimigo {nome = "Cachorros Caramelos", ataque = 15, defesa = 5, vida = 35, habilidadeEspecial = 0}
+Inimigo {nome = "Cachorros Caramelos", ataque = 15, defesa = 5, vida = 50, habilidadeEspecial = 0}

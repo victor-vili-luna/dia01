@@ -11,19 +11,13 @@ import Models.Inimigo
 combateKanva :: IO()
 combateKanva = do
     putStrLn "Sem tempo para comemorar a vitória você é puxado para dentro do museu deixando Leandro para trás."
-<<<<<<< HEAD
-    putStrLn kanvaHistoria
-=======
     putStrLn vilaoKanva
->>>>>>> 3d1fcfd0f1f861fdafa1f7e657cf22bff71b40bf
     putStrLn "Voce consegue se soltar enquanto ele divaga e dístraido, você tem chance de se preparar para o combate."
     putStrLn "Esses são seus status atuais, mas C.W. te acompanha de longe e liberou uma poção a mais no seu inventário, veja o que quer fazer tendo em vista que essa poção não pode ser comprada, se utilizar todos os exemplares ela sumirá para sempre."
 
     adicionaPocaoCW
     heanes <- carregaPlayer
     print heanes
-<<<<<<< HEAD
-=======
 
     putStrLn "Kanva finalmente notou que você se aproxima para o combate!!\nTOME SUA DECISÃO HÉROI!!"
     turnoAcaoKanva
@@ -54,7 +48,6 @@ turnoHeanesKanva = do
     if not (verificaMortoHeroi heanes) then do
         putStrLn "(1)Ataque.\n(2)Usa poção."
         input <- getLine
->>>>>>> 3d1fcfd0f1f861fdafa1f7e657cf22bff71b40bf
     
         if trim input == "1" then do
             usaAtaqueKanva

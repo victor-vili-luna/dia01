@@ -46,14 +46,11 @@ kanvaHistoria :: String
 kanvaHistoria = textoFormatado "*Pensando sobre o que o C.W. disse, preciso ir ao museu e, pensando bem, acho que fica perto daquele padeiro estranho que conversei antes.* Na frente do museu heanes vê um homem, completamente desesperado, estatura mediana e cabelos bagunçados, repetindo para si mesmo: Isso não é arte. *Heanes se aproxima* e pergunta: Você é o Leandro?? Leandro: Sim, sou eu, e pelo que me disseram, você é o herói Heanes certo, não temos tempo a perder, dentro do museu o Kanva está alterando todo o museu, substituindo as pinturas mais perfeitas por suas imagens disformes. Heanes: Entendo, mas por que existem tantos cachorros grandes cercando o mu..."
 
 menuInicial :: String
-menuInicial = textoFormatado "O que você deseja fazer??\n\n(1) Explorar a cidade.\n(2) Seguir Carl Wilson.\n"
+menuInicial = textoFormatado "O que você deseja fazer??\n\n(1) Explorar a cidade.\n(2) Seguir Carl Wilson.\n(3) voltar ao menu"
 
-<<<<<<< HEAD
 caramelosKanva:: String
 caramelosKanva = textoFormatado "Leandro: Esses são os cachorros criados pelo kanva, fique de costas para mim para nao sermos cercados completamente!!!"
 
-=======
->>>>>>> 3d1fcfd0f1f861fdafa1f7e657cf22bff71b40bf
 dialogoFerreira01::String
 dialogoFerreira01 = textoFormatado "\nHeanes: Ferreira, se eu vou salvar o mundo, por que você só não me dá os melhores itens de uma vez?\n\nFerreira: *cerra os olhos e diz* Negócios são negócios, como vou pagar o meu café que tomo em seu Élho?\n\n*Ferreira não está mais aberto a conversas, acho melhor fazer alguma outra coisa decente*\n"
 
@@ -72,9 +69,8 @@ promptPerguntas = "*Heanes se encaminha para um lugar de procedência duvidosa, 
 propagandaMaquina::String
 propagandaMaquina = "NINGUEM NUNCA VEIO TÃO LONGE MEU AMIGO HUMANO, em comemoração a sua vasta inteligência irei lhe fazer uma promoção duas perguntas pelo preço de uma vinda\n será que você tem o que é necessario para responder tamanhas perguntas, essas últimas pergunta são de um nivel jamais visto nesse mundo\n meu criador conseguiu ela através de um erro no espaço tempo que chegou a uma outra dimesão e um outro planeta, você terá que responder algo sobre CAMPINA GRANDE\n vamos ver como você se sai, BOA SORTE"
 
-<<<<<<< HEAD
 opcoesCidadela:: String
-opcoesCidadela = textoFormatado "Após a luta de ontem você desperta, mas vê que ainda são 6h da manhã O que você deseja fazer??\n\n(1) Explorar a cidade pela manhã.\n(2) Descansar mais um pouco"
+opcoesCidadela = textoFormatado "Após a luta de ontem você desperta, mas vê que ainda são 6h da manhã O que você deseja fazer??\n\n(1) Explorar a cidade pela manhã.\n(2) Descansar mais um pouco\n(3) Voltar ao menu"
 
 dialogoFerreira02::String
 dialogoFerreira02 = textoFormatado "Heanes: Ei os seus itens quebraram apos um uso? não tem nada sobre a garantia, algo como se quebrar em até 14 dias devolvemos seu dinheiro?\n\nFerreira: *arrega os olhos e diz*  Você tem a brilhante ideia de lutar contra cachorros e uma IA e quebrar os itens, e tem a cara de pau de falar que eles são defeituosos?\n\nHeanes: é pensando por esse lado..."
@@ -84,10 +80,6 @@ dialogoLeandro01 = textoFormatado "Meu amigo, graças a você eu não vejo mais 
 
 cursoHistoria2::String
 cursoHistoria2 = textoFormatado "*Você percebe que não descansou o suficiente, e que ninguem é de ferro, assim indo tirar um cochilo de mais meia hora\n*30 Minutes later*\nApos acordar você por algum motivo lembra de BoB Esponja e vê que é mais um dia de luta para salvar o mundo"
-=======
-caramelosKanva :: String
-caramelosKanva = textoFormatado "Leandro: Esses são os cachorros criados pelo kanva, fique de costas para mim para nao sermos cercados completamente!!!"
 
 vilaoKanva :: String
 vilaoKanva = textoFormatado "Eu sou o kanva e os caralho."
->>>>>>> 3d1fcfd0f1f861fdafa1f7e657cf22bff71b40bf

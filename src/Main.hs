@@ -23,20 +23,9 @@ menu = do
     let escolha = trim input
     clearScreen
     case escolha of
-        "1" -> do
-            comecaJogo
-        "2" -> carregaJogo
-        "3" -> do
-            help
-            esperandoEnter
-            clearScreen
-            menu
-        "4" -> do
-            
-            putStrLn fechaJogo
-        _   -> do
-            putStrLn "Opção inválida. Por favor, escolha uma opção válida.\n"
-            esperandoEnter
-            clearScreen
-            menu
+        "1" -> comecaJogo >> menu
+        "2" -> carregaJogo >> menu
+        "3" -> help >> esperandoEnter >> clearScreen >>menu
+        "4" -> putStrLn fechaJogo
+        _   -> putStrLn "Opção inválida. Por favor, escolha uma opção válida.\n" >> esperandoEnter >> clearScreen >> menu
 

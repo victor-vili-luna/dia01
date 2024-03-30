@@ -93,13 +93,8 @@ atualizaProgresso novoProgresso = do
     let novoHeanes = attProgresso heanes novoProgresso
     salvaPlayer novoHeanes
 
-<<<<<<< HEAD
 comparaString :: String -> String -> Bool
 comparaString str1 str2 = clean str1 == clean str2
-=======
-comparaStrings :: String -> String -> Bool
-comparaStrings str1 str2 = clean str1 == clean str2
->>>>>>> 3d1fcfd0f1f861fdafa1f7e657cf22bff71b40bf
     where clean = map toLower . trim
 
 {-esse droWhile ficando fazendo o drop da lista enquanto o boll que passamos é verdadeiro só que nesse caso
@@ -117,46 +112,45 @@ trim = apagaEspacos . apagaEspacosFim
 
 identificaItem::String->[Item]->Maybe Item
 identificaItem _ [] = Nothing
-identificaItem nomeItem (item:itemSequente)
-    | Models.Item.nome item == nomeItem = Just item
-    | otherwise = identificaItem nomeItem itemSequente
-    
+identificaItem nomeItem (a:as)
+    | comparaString (getNomeItem a) nomeItem = Just a
+    | otherwise = identificaItem nomeItem as
+
 pegaItem::String->[Item]->Item
 pegaItem _ [] = error "Item errado" --nunca chega nesse codigo
 pegaItem nomeItem (a:as)
-    | Models.Item.nome a == nomeItem = a
+    | comparaString (getNomeItem a) nomeItem = a
     | otherwise = pegaItem nomeItem as
-    
+
 removeItem::String->[Item]->[Item]
 removeItem _ [] = []
 removeItem nomeItem (a:as)
-    | Models.Item.nome a == nomeItem = as
+    | comparaString (getNomeItem a) nomeItem = as
     | otherwise = a : removeItem nomeItem as
-    
+
 identificaPocao::String->[Pocao]->Maybe Pocao
 identificaPocao _ [] = Nothing
-identificaPocao nomePocao (pocao:pocaoSequente)
-    | Models.Pocao.nome pocao == nomePocao = Just pocao
-    | otherwise = identificaPocao nomePocao pocaoSequente
-    
+identificaPocao nomePocao (a:as)
+    | comparaString (getNomePocao a) nomePocao = Just a
+    | otherwise = identificaPocao nomePocao as
+
 identificaPocaoJaComprada::String->[Pocao]->Bool
 identificaPocaoJaComprada _ [] = False
 identificaPocaoJaComprada nomePocao (a:as)
-    | Models.Pocao.nome a == nomePocao = True
+    | comparaString (getNomePocao a) nomePocao = True
     | otherwise = identificaPocaoJaComprada nomePocao as
-    
+
 pegaPocao::String->[Pocao]->Pocao
 pegaPocao _ [] = error "Poção errada" --nunca chega nesse codigo
 pegaPocao nomePocao (a:as)
-    | Models.Pocao.nome a == nomePocao = a
+    | comparaString (getNomePocao a) nomePocao = a
     | otherwise = pegaPocao nomePocao as
-    
+
 removePocaoAntiga::String->[Pocao]->[Pocao]
 removePocaoAntiga _ [] = []
 removePocaoAntiga nomePocao (a:as)
-    | Models.Pocao.nome a == nomePocao = as
+    | comparaString (getNomePocao a) nomePocao = as
     | otherwise = a : removePocaoAntiga nomePocao as
-<<<<<<< HEAD
 
 resetPlayer:: IO Player
 resetPlayer = do
@@ -168,5 +162,12 @@ resetPlayer = do
 salvaInimigo:: Inimigo -> FilePath -> IO()
 salvaInimigo inimigo caminho = writeFile caminho (show inimigo)
 
-=======
->>>>>>> 3d1fcfd0f1f861fdafa1f7e657cf22bff71b40bf
+progressoHeroi:: IO Int
+progressoHeroi = getProgresso <$> resetPlayer
+
+voltaMenu:: IO()
+voltaMenu = do
+    clearScreen
+    putStrLn "Então nosso heroi precisa voltar ao menu para pensar sobre a vida não é? Tudo bem mas por favor volte o mundo precisa de você"
+    esperandoEnter
+
