@@ -69,7 +69,7 @@ caramelo:: String
 caramelo = "Inimigo {nome = \"Cachorros Caramelos\", ataque = 15, defesa = 5, vida = 50, habilidadeEspecial = 0}"
 
 kanva:: String
-kanva = "Inimigo {nome = \"Kanva\", ataque = 30, defesa = 10, vida = 200, habilidadeEspecial = 0}"
+kanva = "Inimigo {nome = \"Kanva\", ataque = 25, defesa = 10, vida = 200, habilidadeEspecial = 45}"
 
 ia2 :: String
 ia2 = "Inimigo {nome = \"ia2\", ataque = 60, defesa = 30, vida = 500, habilidadeEspecial = 0}"

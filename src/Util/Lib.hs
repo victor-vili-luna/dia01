@@ -162,3 +162,14 @@ resetPlayer = do
 salvaInimigo:: Inimigo -> FilePath -> IO()
 salvaInimigo inimigo caminho = writeFile caminho (show inimigo)
 
+pocaoInicial :: String
+pocaoInicial = "./src/pacote/PocaoInicial.txt"
+
+pocaoFinal :: String
+pocaoFinal = "./src/pacote/PocaoFinal.txt"
+
+itemInicial :: String
+itemInicial = "./src/pacote/ItensIniciais.txt"
+
+itemFinal :: String
+itemFinal = "./src/pacote/ItensFinais.txt"

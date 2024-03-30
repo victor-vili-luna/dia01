@@ -6,18 +6,20 @@ C:\Users\victo\OneDrive\Documentos\plp\haskell\dia01\dia01.cabal:
   hash: 6fc9b4a0474c007bc21db969c13be94731e2b4984a913b66cafc15da18cf1070
 C:\Users\victo\OneDrive\Documentos\plp\haskell\dia01\src\Combate.hs:
   hash: 6954b013271b861b04eeea071fc9f155ee4241181f3436697ddebf8e8c79b851
+C:\Users\victo\OneDrive\Documentos\plp\haskell\dia01\src\CombateGPT.hs:
+  hash: 4602fe525de7e030e8d690b0d4e73b1aeb5c053d1948816ee7dd3bb958b791e2
 C:\Users\victo\OneDrive\Documentos\plp\haskell\dia01\src\CombateKanva.hs:
-  hash: 1b486829c5437d28cd8348525e9851ad988bf5ba1c391a7284edab808d97e328
+  hash: 8ebc9d7d00f09d92c36047aad2ca98f8e0908e47d2451497ee43bdf18db29905
 C:\Users\victo\OneDrive\Documentos\plp\haskell\dia01\src\Historia.hs:
-  hash: c040c51ce321c649ed68955cbf7683f10603c927cd3bc7cca56edbdfef96c4da
+  hash: ebc5f1a475cde6aee5d223228b4b321eafd306e8c259ba1a23e90504f0fb3b5c
 C:\Users\victo\OneDrive\Documentos\plp\haskell\dia01\src\Historia\Fase1.hs:
-  hash: fecc14d91351595f110575e0d2cabe3b097fab7495acbf41f0bcbca274b84c9f
+  hash: ff0c67fb7101c6b6e26a309ccda65422473eda6d51a735e62bcfed57039b3394
 C:\Users\victo\OneDrive\Documentos\plp\haskell\dia01\src\Historia\Fase2.hs:
-  hash: c44fd11ae96fb2f30a061dc9fb332bef5b84be0b70ac2e6c0e439335852c90c6
+  hash: f6c452a5652385ddf07fc6b859c35d388b8e96ef546222220d33fa2c000582c1
 C:\Users\victo\OneDrive\Documentos\plp\haskell\dia01\src\Historia\Prologo.hs:
   hash: 6e0ea6604b2700588db8351ef4e766909087f216e2bbb665f73604c0868fb541
 C:\Users\victo\OneDrive\Documentos\plp\haskell\dia01\src\Loja.hs:
-  hash: c92b3e5b134d094aceb8de08a9dca1562e0bc20da751e5f24bb3cce93fce87d5
+  hash: 468694e5f5cd432a858cdbdd6cd61e4bc2a4780d7e8b7c0b511602291c6a860b
 C:\Users\victo\OneDrive\Documentos\plp\haskell\dia01\src\Main.hs:
   hash: cedabe3668e841ea85b31d4d02256949bb6da92a4153672e4db8f93c452814ad
 C:\Users\victo\OneDrive\Documentos\plp\haskell\dia01\src\Models\Conquista.hs:
@@ -35,6 +37,6 @@ C:\Users\victo\OneDrive\Documentos\plp\haskell\dia01\src\SistemaGold.hs:
 C:\Users\victo\OneDrive\Documentos\plp\haskell\dia01\src\Util\CombateFuncoes.hs:
   hash: 04ea8bd6a3a4d48fa90dfb75d509ed5f11479e462a97a69b74abc6fee5c1cd21
 C:\Users\victo\OneDrive\Documentos\plp\haskell\dia01\src\Util\ControleSalvamento.hs:
-  hash: 7aaf8623d37892541caa762015d5d9a41048c60164fe20d1ee02ef0172d367ac
+  hash: 2a96842d2edae33b7c5f0d13674535fa9b3e3c2910470ba612644afd69a891de
 C:\Users\victo\OneDrive\Documentos\plp\haskell\dia01\src\Util\Lib.hs:
-  hash: 6584aa6594fab0f029cca5796b86d3d0b130908a211c66c0652c19ce042be43f
+  hash: a902722303342b7e0cfccf8fb807955bd0fec8a29a6992b8b8f30e2ef4e72b57
