@@ -43,7 +43,7 @@ cursoHistoria1 :: String
 cursoHistoria1 = textoFormatado "C.W.: Olá Heanes, agora vou lhe explicar como você conseguirá enfrentar seus desafios. Basicamente, quando você entrar em combate, terá opções variadas que se escolhidas corretamente quando combinadas com seus atributos básicos, podem derrotar o seu inimigo.\n\nHeanes: Entendi essa parte, mas como vou saber meus atributos básicos?.\n\nMestre dos Magos (C.W.): Se você visitou a loja, sabe que existem itens e poções que aumentam seus atributos. Claro, para isso você tem que trabalhar e ganhar dinheiro nesse mundo. Apesar de ser um mago, ainda não produzo dinheiro, e quanto a ele... você pode ganhar de duas formas:\n"
 
 kanvaHistoria1 :: String
-kanvaHistoria1 = textoFormatado "C.W.: Tudo bem, já que você está preparado, recomendo ir ao Museu, lá existem feras que estão fora de controle\n" 
+kanvaHistoria1 = textoFormatado "C.W.: Tudo bem, vejo que você já que você está preparado, espero que tenha se equipado ao maximo, recomendo ir ao Museu, lá existem feras que estão fora de controle\n" 
 
 kanvaHistoria2 :: String
 kanvaHistoria2 = textoFormatado "*Na frente do museu, Heanes vê um homem completamente desesperado de estatura mediana e cabelos bagunçados*\n" 
@@ -61,13 +61,13 @@ kanvaHistoria6 :: String
 kanvaHistoria6 = textoFormatado "*Enquanto Leandro falava, grandes sombras de cor caramelo surgiam ao redor*\n"
 
 kanvaHistoria7 :: String
-kanvaHistoria7 = textoFormatado "Leandro: EITA PREULA DOG, OS CACHORROS CARAMELOS DA UFCC AQUI????\n"
+kanvaHistoria7 = textoFormatado "Leandro: Meu Deus, os fiéis companheiros do Kanva seus cachorros caramelos distorcidos, olha só aquele tem 3 focinho\n"
 
 menuInicial :: String
 menuInicial = textoFormatado "O que você deseja fazer??\n\n(1) Explorar a cidade.\n(2) Seguir Carl Wilson.\n(3) voltar ao menu"
 
 caramelosKanva:: String
-caramelosKanva = textoFormatado "Leandro: Esses são os cachorros criados pelo kanva, fique de costas para mim para nao sermos cercados completamente!!!\n"
+caramelosKanva = textoFormatado "OS CACHORROS FAREJAM VOCES E VÃO EM SUA DIREÇÃO! Heanes e Leandro são cercados por cachorros caramelos gigantes disformes.\nLeandro: Esses são os cachorros criados pelo kanva, fique de costas para mim para nao sermos cercados completamente!!!\n"
 
 dialogoFerreira01::String
 dialogoFerreira01 = textoFormatado "\nHeanes: Ferreira, se eu vou salvar o mundo, por que você só não me dá os melhores itens de uma vez?\n\nFerreira: *cerra os olhos e diz* Negócios são negócios, como vou pagar o meu café que tomo em seu Élho?\n\n*Ferreira não está mais aberto a conversas, acho melhor fazer alguma outra coisa decente*\n"
@@ -90,15 +90,38 @@ propagandaMaquina = "NINGUEM NUNCA VEIO TÃO LONGE MEU AMIGO HUMANO, em comemora
 opcoesCidadela:: String
 opcoesCidadela = textoFormatado "Após a luta de ontem você desperta, mas vê que ainda são 6h da manhã O que você deseja fazer??\n\n(1) Explorar a cidade pela manhã.\n(2) Descansar mais um pouco\n(3) Voltar ao menu"
 
+aposFinalDeSemana:: String
+aposFinalDeSemana = textoFormatado "Após descansar por 2 dias nosso heroi acorda e vê que é segunda denovo, parece que nem em outro mundo você se livra disso, enfim o que deseja fazer??\n\n(1) Explorar a cidade em uma segunda infernal.\n(2) Dar uma procrastinada\n(3) Voltar ao menu"
+
 dialogoFerreira02::String
 dialogoFerreira02 = textoFormatado "Heanes: Ei os seus itens quebraram apos um uso? não tem nada sobre a garantia, algo como se quebrar em até 14 dias devolvemos seu dinheiro?\n\nFerreira: *arrega os olhos e diz*  Você tem a brilhante ideia de lutar contra cachorros e uma IA e quebrar os itens, e tem a cara de pau de falar que eles são defeituosos?\n\nHeanes: é pensando por esse lado..."
 
+dialogoFerreira03::String
+dialogoFerreira03 = textoFormatado "Heanes: Mais uma vez estou aqui sem nada, mas pelo que me disseram estou para ir enfrentar o ultimo desafio o que acha de me dar essa armadura que você está polindo?\n\nFerreira: *olhando com desgosto e descontentamento diz* Heroi parece que você não gosta de ser bem tratado na minha loja não é...\nHeanes: Desculpa... era apenas uma brincadeira\nHeanes sai do local parece que ferreira sabe ser cruel com as palavras."
+
+dialogoFerreira04:: String
+dialogoFerreira04 = textoFormatado "Heanes: ferreira hoje eu não tenho nada para pedir a você finalmente acabou\nFerreira: *lhe da um sorriso sincero* sim Heanes você conseguiu salvou a todos muito obrigado\nHeanes fica sem palavras, aquele homem que era rabugento e gostava de seu dinheiro sabia sorrir então.\nHeanes: De nada meu amigo Ferreira nada disso poderia ter acontecido sem sua ajuda."
+
 dialogoLeandro01:: String
-dialogoLeandro01 = textoFormatado "Meu amigo, graças a você eu não vejo mais por aí aquelas imagens que cheira a plástico rodeando o museu muito obrigado\nHeanes: de nada meu amigo fico feliz em ajudar\nLeandro: Palavras não são o bastante para expressar minha felicidade venha a mim qualquer dia vou pintar você e colocar o nome de mano liso, será minha obra de arte\nHeanes: Isso não demoraria muito tempo pra ficando parado para você me pintar tenho que salvar o mundo\nLeandro: A arte sempre vem em primeiro lugar."
+dialogoLeandro01 = textoFormatado "Leandro: Meu amigo, graças a você eu não vejo mais por aí aquelas imagens que cheira a plástico rodeando o museu muito obrigado\nHeanes: de nada meu amigo fico feliz em ajudar\nLeandro: Palavras não são o bastante para expressar minha felicidade venha a mim qualquer dia vou pintar você e colocar o nome de mano liso, será minha obra de arte\nHeanes: Isso não demoraria muito tempo pra ficando parado para você me pintar tenho que salvar o mundo\nLeandro: A arte sempre vem em primeiro lugar."
+
+dialogoProfessorDublador::String
+dialogoProfessorDublador = textoFormatado "Professor G: Heanes, meu heroi graças a você não preciso mais corrigir trabalhos errados por quê as crianças optaram por usar a IA, não gostaria de entrar e tomar uma xicara de café?\nWendell carneiro: Perai G, Heanes é ocupado, após ele derrotar todas as IA faça esse pedido, enfim obrigado Heanes graças a você aquela voz irritante sumiu\nHeanes: de nada é meu trabalho, após terminar tudo irei tomar um cafezinho e wendell tem certeza que não nos conhecemos sua voz é familiar?\nWendell: coincidência meu amigo coincidência."
+
+dialogoTodos::String
+dialogoTodos = textoFormatado "Multidão: HEANES HEANES HEANES HEANES\nHeanes não é muito orgulhoso mas fica com uma sensação boa de ouvir uma cidade gritar seu nome."
+
+dialogoPadeiro02::String
+dialogoPadeiro02 = textoFormatado "Heanes com seus instintos forjados na batalha sente algo em um beco e decide investigar, lá ele encontra ele O PADEIRO\nPadeiro: Nós encontramos de novo Heanes parabéns você cumpriu sua missão\nHeanes: Quem é você ou melhor o que é você?\nPadeiro: Ainda não é a hora de você saber disso heroi enfim meu tempo está acabando mas NOS VEMOS EM PROLOG\nO padeiro some mais uma vez e Heanes fica sem entender o que aconteceu"
 
 cursoHistoria2::String
 cursoHistoria2 = textoFormatado "*Você percebe que não descansou o suficiente, e que ninguem é de ferro, assim indo tirar um cochilo de mais meia hora\n*30 Minutes later*\nApos acordar você por algum motivo lembra de BoB Esponja e vê que é mais um dia de luta para salvar o mundo"
 
+cursoHistoria3::String
+cursoHistoria3 = textoFormatado "Segunda feira é um dia que tem algo que te puxa para baixo, você decide ir procrastinar e deixar para salvar o mundo para depois."
+
+finalHistoria:: String
+finalHistoria = textoFormatado "C.W: Parabéns Heanes, você é o salvador de todos nós e ficou bem essa faixa preta que você pegou do conversa\nHeanes: HAHA nada disso seria possivel sem sua ajuda mas... como eu volto pra casa\n*SILENCIO ENSURDECEDOR*\nC.W: aaaahnn MEU DEUS OLHA A HORA, nós vemos depois\nHeanes: EI VOLTA AQUI "
 vilaoKanva :: String
 vilaoKanva = textoFormatado "Eu sou o kanva e os caralho."
 
@@ -116,3 +139,6 @@ vitoriaGPT = textoFormatado "NICEEE DOGGGGG VOLTA PRO TEU MUNDO AGORA NINGUEM LI
 
 endGame :: String
 endGame = "endgame."
+
+final:: String
+final = textoFormatado "Você acorda e vê pessoas ao redor da sua casa, você é um heroi completo agora, saia e vá falar com seus fãs você merece a fama"

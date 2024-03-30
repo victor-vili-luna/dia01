@@ -9,11 +9,11 @@ import Models.Inimigo
 turnoPreparacao :: IO()
 turnoPreparacao = do
     clearScreen
-    putStrLn "O QUE TU VAI FAZER MEU DOG?\n"
-    putStrLn (textoFormatado ("(1) Equipar um item\n(2) Utilizar uma poção\n(3) Lutar.\n"))
-    input <- getLine
+    putStrLn "Qual Sua Escolha?\n"
+    putStrLn (textoFormatado "(1) Equipar um item\n(2) Utilizar uma poção\n(3) Lutar.\n")
+    resposta <- trim <$> getLine
 
-    case input of
+    case resposta of
         "1" -> do
             clearScreen
             equipaItem
@@ -31,8 +31,8 @@ equipaItem = do
     let equipamentos = Models.Player.equipamentos heroi
     putStrLn "Esses são os seus equipamentos:\n"
     print equipamentos
-        
-    putStrLn (textoFormatado ("\nDigite o nome do item que deseja equipar, logo depois disso seus status serão atualizados e exibidos. Caso você não tenha nenhum item comprado, não espere ser capaz de equipar um item.\n"))
+
+    putStrLn (textoFormatado "\nDigite o nome do item que deseja equipar, logo depois disso seus status serão atualizados e exibidos. Caso você não tenha nenhum item comprado, não espere ser capaz de equipar um item.\n")
     input <- getLine
     let maybeItem = identificaItem input equipamentos
     case maybeItem of
@@ -46,19 +46,19 @@ equipaItem = do
             print heanesAtualizado
         Nothing -> do
             clearScreen
-            putStrLn (textoFormatado("Creio que digitou errado, mas caso queria voltar ao turno digite: VOLTAR.\n"))
-            input01 <- getLine
+            putStrLn (textoFormatado "Creio que digitou errado, mas caso queria voltar ao turno digite: VOLTAR.\n")
+            input01 <- trim <$> getLine
             if input01 == "VOLTAR" then turnoPreparacao
             else equipaItem
-        
+
 usaPocao :: IO()
 usaPocao = do
     heroi <- carregaPlayer
     let pocoes = Models.Player.pocoes heroi
     putStrLn "Essas são as suas poções:\n"
     print pocoes
-        
-    putStrLn (textoFormatado("\nDigite o nome da poção que deseja usar, logo depois disso seus status serão atualizados e exibidos. Caso você não tenha nenhuma poção comprada, não espere ser capaz de usar uma.\n"))
+
+    putStrLn (textoFormatado "\nDigite o nome da poção que deseja usar, logo depois disso seus status serão atualizados e exibidos. Caso você não tenha nenhuma poção comprada, não espere ser capaz de usar uma.\n")
     input <- getLine
     let maybePocao = identificaPocao input pocoes
     case maybePocao of
@@ -69,7 +69,7 @@ usaPocao = do
                 pocaoInicial = pegaPocao input (Models.Player.pocoes heroi)
                 quantidadeAtualizada = Models.Pocao.quantidade pocaoInicial - 1
                 pocaoFinal = pocaoInicial {Models.Pocao.quantidade = quantidadeAtualizada}
-        
+
             if quantidadeAtualizada == 0 then do
                 let listaPocoesAtualizada = removePocaoAntiga input (Models.Player.pocoes heroi)
                     heanesAtualizado = heroi {Models.Player.ataque = ataqueAtualizado, Models.Player.defesa = defesaAtualizada, Models.Player.vida = vidaAtualizada, Models.Player.pocoes = listaPocoesAtualizada}
@@ -81,17 +81,17 @@ usaPocao = do
                 writeFile "./src/pacote/Heroi.txt" (show heanesAtualizado)
                 print heanesAtualizado
             putStrLn "Pocao utilizada com sucesso."
-        
+
         Nothing -> do
             clearScreen
-            putStrLn (textoFormatado("Pocao inválida, caso queira voltar ao turno ao digite: VOLTAR.\n"))
+            putStrLn (textoFormatado "Pocao inválida, caso queira voltar ao turno ao digite: VOLTAR.\n")
             input01 <- getLine
             if input01 == "VOLTAR" then turnoPreparacao
             else usaPocao
-        
+
 verificaMortoHeroi :: Player -> Bool
 verificaMortoHeroi heanes = Models.Player.vida heanes <= 0
-            
+
 verificaMortoInimigo :: Inimigo -> Bool
 verificaMortoInimigo inimigo = Models.Inimigo.vida inimigo <= 0
 

@@ -10,17 +10,17 @@ escolhaCaminhoCidadeFase2::IO()
 escolhaCaminhoCidadeFase2 = do
 
     putStrLn  opcoesCidadela
-    escolha02 <- getLine
+    escolha02 <- trim <$> getLine
 
-    if trim escolha02 == "1" then do
+    if escolha02 == "1" then do
         clearScreen
         putStrLn "Você escolheu explorar a cidade, para onde nosso bravo web-guerreiro irá?\n"
         abreMapa02 ["(1) Voltar a loja do ferreiro Ferreira para *ver* os itens disponíveis.", "(2) Conversar com o Ferreira.", "(3) Ir à praça da cidade.","(4) Ir tirar um cochilo.","(5) Voltar ao menu" ]
-    else if trim escolha02 == "2" then do
+    else if escolha02 == "2" then do
         clearScreen
         putStrLn cursoHistoria2
         historiaPrincipal ["(1) Ganhar dinheiro","(2) Comprar poções com C.W.","(3) Visitar o ferreiro Ferreira","(4) Me garanto em enfrentar a I.A.","(5) Voltar ao menu"]
-    else if trim escolha02 == "3" then
+    else if escolha02 == "3" then
         voltaMenu
     else do
         putStrLn "Escolha uma opção válida."
@@ -33,8 +33,7 @@ abreMapa02 opcoes = do
 
     putStrLn "\n------------------------------------------------------------------------------------\n"
 
-    input <- getLine
-    let resposta = trim input
+    resposta <- trim <$>getLine
     if resposta == "1" then do
         clearScreen
         verLoja

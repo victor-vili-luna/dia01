@@ -10,6 +10,8 @@ import Models.Pocao
 import Models.Inimigo
 import Historia.Fase1
 import Historia.Fase2
+import Historia.Fase3
+import Historia.Final
 import Historia.Prologo
 import Data.List ( delete )
 
@@ -42,7 +44,7 @@ inicializaDados = do
     salvaPlayer heanes
     salvaItens itens
     salvaPocao pocaoItem
-    salvainimigosFase1
+    salvaInimigosFase1
 
 heanesString :: String
 heanesString = "Player {nome = \"Heanes\", vida = 100, gold = 100, defesa = 5, ataque = 5, equipamentos = [], pocoes = [], progresso = 0}"
@@ -103,18 +105,18 @@ carregaJogo = do
             comecaJogo
         1 -> resetFase1
         2 -> resetFase2
-        3 -> putStrLn "fase3"
-        4 -> putStrLn "fase4"
+        3 -> escolhaCaminhoCidadeFase3
+        4 -> escolhaCaminhoCidadeFase4
 
 resetFase1:: IO()
 resetFase1 = do
-    salvainimigosFase1
+    salvaInimigosFase1
     verificaLoja [item espadaPedra , item armaduraCouro]
     escolhaCaminhoCidade
 
 resetFase2:: IO()
 resetFase2 = do
-    salvainimigoFase2
+    salvaInimigoFase2
     verificaLoja [item espadaFerro ,item armaduraFerro]
     let pocaoItem = [pocao cafe, pocao redBull]
     salvaPocao pocaoItem
@@ -126,15 +128,15 @@ verificaLoja loja = do
     let itensLoja = removeItensJogadorDeLoja loja (equipamentos heanes)
     salvaItens itensLoja
 
-salvainimigosFase1::IO()
-salvainimigosFase1 = do
+salvaInimigosFase1::IO()
+salvaInimigosFase1 = do
     let dog = inimigo caramelo
         kanvas = inimigo kanva
     salvaInimigo dog (criaCaminho (getNomeInimigo dog))
     salvaInimigo kanvas (criaCaminho (getNomeInimigo kanvas))
 
-salvainimigoFase2::IO()
-salvainimigoFase2 = do
+salvaInimigoFase2::IO()
+salvaInimigoFase2 = do
     let ia = inimigo ia2
     salvaInimigo ia (criaCaminho (getNomeInimigo ia))
 

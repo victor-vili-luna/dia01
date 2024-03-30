@@ -75,7 +75,7 @@ parseConquista :: String -> Conquista
 parseConquista texto = read texto :: Conquista
 
 fechaJogo :: String
-fechaJogo = "Você fugiu covardemente...Boa sorte em ensinar o Teorema do resto chinês."
+fechaJogo = "Então você decidiu dar uma pausa tudo bem...espero que você volte aqui não é o mesmo sem você."
 
 esperandoEnter :: IO ()
 esperandoEnter = do
@@ -182,3 +182,9 @@ itemInicial = "./src/pacote/ItensIniciais.txt"
 
 itemFinal :: String
 itemFinal = "./src/pacote/ItensFinais.txt"
+
+printString:: String -> IO()
+printString texto = do
+    clearScreen
+    putStrLn texto
+    esperandoEnter

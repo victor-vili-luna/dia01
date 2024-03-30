@@ -12,45 +12,17 @@ explicacaoCombate01 = textoFormatado "Você estará entrando em combate em breve
 
 combate01 :: IO()
 combate01 = do
-    putStrLn kanvaHistoria1
-    esperandoEnter
+    mapM_ printString [kanvaHistoria1, kanvaHistoria2 , kanvaHistoria3, kanvaHistoria4,kanvaHistoria5,kanvaHistoria6
+        , kanvaHistoria7, caramelosKanva, explicacaoCombate01]
     clearScreen
-    putStrLn kanvaHistoria2
-    esperandoEnter
-    clearScreen
-    putStrLn kanvaHistoria3
-    esperandoEnter
-    clearScreen
-    putStrLn kanvaHistoria4
-    esperandoEnter
-    clearScreen
-    putStrLn kanvaHistoria5
-    esperandoEnter
-    clearScreen
-    putStrLn kanvaHistoria6
-    esperandoEnter
-    clearScreen
-    putStrLn kanvaHistoria7
-    esperandoEnter
-    clearScreen
-    putStrLn "A WILD CACHORRO CARAMELO APPEARS! Heanes e Leandro são cercados por cachorros caramelos gigantes disformes.\n"
-    putStrLn caramelosKanva
-    esperandoEnter
-    clearScreen
-    putStrLn explicacaoCombate01
-    esperandoEnter
-    clearScreen
-
     putStrLn "Dê uma olhada nos seus status e nos status de seu inimigo. Quando utilizar um item ou poção os atributos vão ser adicionados aos seus status básicos. Quando você utiliza um equipamento ou poção, ele é descartado após o combate, logo, tenha cuidado no que vai usar.\n"
 
     arquivoCaramelos <- readFile' "./src/pacote/Cachorros Caramelos.txt"
     let caramelos = read arquivoCaramelos :: Inimigo
     print caramelos
-
     heanes <- carregaPlayer
     print heanes
-
-    putStrLn ( textoFormatado ("\nVocê terá 2 turnos, um de preparo e outro que vai ser seguido pelo ataque dos caramelos. Prepare-se antes que os caramelinhos te bazuquem na base da mordida!\n"))
+    putStrLn ( textoFormatado "\nVocê terá 2 turnos, um de preparo e outro que vai ser seguido pelo ataque dos caramelos. Prepare-se antes que os caramelinhos morda você!\n")
     esperandoEnter
     clearScreen
     turnoPreparacao
@@ -73,19 +45,19 @@ turnoHeanesCaramelo = do
     clearScreen
     heanes <- carregaPlayer
     if not (verificaMortoHeroi heanes) then do
-        putStrLn(("Escolha uma ação:\n"))
-        putStrLn(textoFormatado("(1) Ataque.\n(2) Usa poção.\n"))
-        input <- getLine
-    
-        if trim input == "1" then do
+        putStrLn "Escolha uma ação:\n"
+        putStrLn (textoFormatado "(1) Ataque.\n(2) Usa poção.\n")
+        input <- trim <$>getLine
+
+        if input == "1" then do
             clearScreen
             usaAtaque
             putStrLn "Voce desfere um ataque fatal a alguns cachorros que o cercavam. O IBAMA agora sabe onde você mora.\n"
-            inimigo <- carregaInimigo (criaCaminho "Cachorros Caramelos") 
+            inimigo <- carregaInimigo (criaCaminho "Cachorros Caramelos")
             print inimigo
             putStrLn "\n------------------------------------------------------------------------------------\n"
             esperandoEnter
-        else if trim input == "2" then do 
+        else if input == "2" then do
             clearScreen
             usaPocao
         else do
