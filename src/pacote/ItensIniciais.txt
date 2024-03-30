@@ -1,1 +1,6 @@
+<<<<<<< HEAD
+Item {nome = "Espada de ferro", preco = 300, ataque = 100, defesa = 0, descricao = "Espada um pouco enferrujada, se nao matar na espadada mata no tetano."}
+Item {nome = "Armadura de ferro", preco = 300, ataque = 0, defesa = 80, descricao = "Composta pelos mais refinados pedacos de sucata metalica, e garantido que esta armadura fara voce parecer o homem de ferro da shopee"}
+=======
 Item {nome = "Armadura de couro", preco = 30, ataque = 0, defesa = 30, descricao = "Armadura que protege contra as falacias da IA."}
+>>>>>>> 529700e665a6cf6e2a88f07223b33c04af3dc67f

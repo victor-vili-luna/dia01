@@ -11,7 +11,7 @@ import Models.Inimigo
 import Historia.Fase1
 import Historia.Fase2
 import Historia.Prologo
-import Data.List
+import Data.List ( delete )
 
 comecaJogo::IO()
 comecaJogo = do
@@ -51,13 +51,13 @@ armaduraCouro :: String
 armaduraCouro =  "Item {nome = \"Armadura de couro\", preco = 30, ataque = 0, defesa = 30, descricao = \"Armadura que protege contra as falacias da IA.\"}"
 
 armaduraFerro :: String
-armaduraFerro = "Item {nome = \"Armadura de ferro\", preco = 300, ataque = 0, defesa = 80, descricao = \"Composta pelos mais refinados pedaços de sucata metálica, é garantido que esta armadura fará você parecer o homem de ferro da shopee\"}"
+armaduraFerro = "Item {nome = \"Armadura de ferro\", preco = 300, ataque = 0, defesa = 80, descricao = \"Composta pelos mais refinados pedacos de sucata metalica, e garantido que esta armadura fara voce parecer o homem de ferro da shopee\"}"
 
 espadaPedra::  String
 espadaPedra = "Item {nome = \"Espada de pedra\", preco = 30, ataque = 30, defesa = 0, descricao = \"Se quiser espada tem, mas so usa espada quem nao se garante.\"}"
 
 espadaFerro:: String
-espadaFerro = "Item {nome = \"Espada de ferro\", preco = 300, ataque = 100, defesa = 0, descricao = \"Espada um pouco enferrujada, se não matar na espadada mata no tétano.\"}"
+espadaFerro = "Item {nome = \"Espada de ferro\", preco = 300, ataque = 100, defesa = 0, descricao = \"Espada um pouco enferrujada, se nao matar na espadada mata no tetano.\"}"
 
 cafe:: String
 cafe = "Pocao {nome = \"Cafe\", vida = 40, preco = 20, defesa = 0, ataque = 0, quantidade = 1}"
@@ -95,8 +95,7 @@ listaDeConquista = return (map parseConquista (lines conquistas))
 
 carregaJogo::IO()
 carregaJogo = do
-    heanes <- resetPlayer
-    let progresso = getProgresso heanes
+    progresso <- progressoHeroi
     case progresso of
         0 -> do
             putStrLn "Você não tem nenhum jogo salvo, ou você ainda não começou um jogo ou apenas não chegou ao fim do prólogo\nirei começar um jogo agora boa sorte na aventura!"
