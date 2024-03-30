@@ -88,4 +88,13 @@ vitoriaKanva :: String
 vitoriaKanva = textoFormatado "voce ganhou do kanva dog, nice!!"
 
 historiaConversaGPT :: String
-historiaConversaGPT = "historia da investigacao do conversaGPT"
+historiaConversaGPT = textoFormatado "historia da investigacao do conversaGPT"
+
+vilaoGPT :: String
+vilaoGPT = textoFormatado "historia do gpjhonsons"
+
+vitoriaGPT :: String
+vitoriaGPT = textoFormatado "NICEEE DOGGGGG VOLTA PRO TEU MUNDO AGORA NINGUEM LIGA PRA VOCE DOG WULF WULF"
+
+endGame :: String
+endGame = "endgame."

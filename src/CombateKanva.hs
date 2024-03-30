@@ -7,6 +7,7 @@ import Models.Pocao
 import System.IO
 import Util.CombateFuncoes
 import Models.Inimigo
+import Historia.Fase2 (escolhaCaminhoCidadeFase2)
 
 
 combateKanva :: IO()
@@ -41,7 +42,7 @@ turnoAcaoKanva = do
         if verificaMortoHeroi heanes then putStrLn "aqui o bicho vai voltar pro inicio"
         else do
             putStrLn vitoriaKanva
-            --kanvaCW
+            escolhaCaminhoCidadeFase2
     else turnoAcaoKanva
 
 turnoHeanesKanva :: IO()
