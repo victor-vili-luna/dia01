@@ -8,14 +8,18 @@ import Models.Inimigo
 
 turnoPreparacao :: IO()
 turnoPreparacao = do
-    putStrLn "(1)Equipar um item\n(2)Utilizar uma poção\n(3)Lutar."
+    clearScreen
+    putStrLn "O QUE TU VAI FAZER MEU DOG?\n"
+    putStrLn (textoFormatado ("(1) Equipar um item\n(2) Utilizar uma poção\n(3) Lutar.\n"))
     input <- getLine
 
     case input of
         "1" -> do
+            clearScreen
             equipaItem
             turnoPreparacao
         "2" -> do
+            clearScreen
             usaPocao
             turnoPreparacao
         "3" -> return ()
@@ -25,9 +29,10 @@ equipaItem :: IO()
 equipaItem = do
     heroi <- carregaPlayer
     let equipamentos = Models.Player.equipamentos heroi
+    putStrLn "Esses são os seus equipamentos:\n"
     print equipamentos
         
-    putStrLn "Digite o nome do item que deseja equipar, logo depois disso seus status serão atualizados e mostrados."
+    putStrLn (textoFormatado ("\nDigite o nome do item que deseja equipar, logo depois disso seus status serão atualizados e exibidos. Caso você não tenha nenhum item comprado, não espere ser capaz de equipar um item.\n"))
     input <- getLine
     let maybeItem = identificaItem input equipamentos
     case maybeItem of
@@ -40,18 +45,20 @@ equipaItem = do
             putStrLn "Item equipado com sucesso.\n"
             print heanesAtualizado
         Nothing -> do
-            putStrLn "Creio que digitou errado, mas caso queria voltar ao turno digite: voltar."
+            clearScreen
+            putStrLn (textoFormatado("Creio que digitou errado, mas caso queria voltar ao turno digite: VOLTAR.\n"))
             input01 <- getLine
-            if input01 == "voltar" then turnoPreparacao
+            if input01 == "VOLTAR" then turnoPreparacao
             else equipaItem
         
 usaPocao :: IO()
 usaPocao = do
     heroi <- carregaPlayer
     let pocoes = Models.Player.pocoes heroi
+    putStrLn "Essas são as suas poções:\n"
     print pocoes
         
-    putStrLn "Digite o nome da poção que deseja equipar, logo depois disso seus status serão atualizados e mostrados."
+    putStrLn (textoFormatado("\nDigite o nome da poção que deseja usar, logo depois disso seus status serão atualizados e exibidos. Caso você não tenha nenhuma poção comprada, não espere ser capaz de usar uma.\n"))
     input <- getLine
     let maybePocao = identificaPocao input pocoes
     case maybePocao of
@@ -76,9 +83,10 @@ usaPocao = do
             putStrLn "Pocao utilizada com sucesso."
         
         Nothing -> do
-            putStrLn "Pocao inválida, caso queira voltar ao turno ao invés de digitar a poção novamente, digite: voltar."
+            clearScreen
+            putStrLn (textoFormatado("Pocao inválida, caso queira voltar ao turno ao digite: VOLTAR.\n"))
             input01 <- getLine
-            if input01 == "voltar" then turnoPreparacao
+            if input01 == "VOLTAR" then turnoPreparacao
             else usaPocao
         
 verificaMortoHeroi :: Player -> Bool

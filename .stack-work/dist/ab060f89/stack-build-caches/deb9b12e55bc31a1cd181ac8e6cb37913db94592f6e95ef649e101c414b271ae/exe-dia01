@@ -5,30 +5,36 @@ C:\Users\dsout\GitRepos\dia01\README.md:
 C:\Users\dsout\GitRepos\dia01\dia01.cabal:
   hash: 6fc9b4a0474c007bc21db969c13be94731e2b4984a913b66cafc15da18cf1070
 C:\Users\dsout\GitRepos\dia01\src\Combate.hs:
-  hash: 01bfd25f4197b073537fe340f55002e2dae52f564519e176b354d1959efe2f0b
+  hash: 047f07b0f21954239b52b04f5b97bc3568e72c814cc2d17b7875bbd623a0b478
+C:\Users\dsout\GitRepos\dia01\src\CombateKanva.hs:
+  hash: 1b486829c5437d28cd8348525e9851ad988bf5ba1c391a7284edab808d97e328
 C:\Users\dsout\GitRepos\dia01\src\Historia.hs:
-  hash: a97d6a39743d4734a10d2e8ace9c8b72373c82572fec2daf9940d2ee2e1242d9
+  hash: 28eacbc2f0597124adbd968098bbbaa0dcb0f90faafd49ed557d98c9858c3f25
+C:\Users\dsout\GitRepos\dia01\src\Historia\Fase1.hs:
+  hash: fecc14d91351595f110575e0d2cabe3b097fab7495acbf41f0bcbca274b84c9f
+C:\Users\dsout\GitRepos\dia01\src\Historia\Fase2.hs:
+  hash: c44fd11ae96fb2f30a061dc9fb332bef5b84be0b70ac2e6c0e439335852c90c6
+C:\Users\dsout\GitRepos\dia01\src\Historia\Prologo.hs:
+  hash: 6e0ea6604b2700588db8351ef4e766909087f216e2bbb665f73604c0868fb541
 C:\Users\dsout\GitRepos\dia01\src\Loja.hs:
-  hash: cb0eba16ebc5e891b2af58f219d04c71433fed5fa84aea12261347aaf20a7d74
+  hash: c92b3e5b134d094aceb8de08a9dca1562e0bc20da751e5f24bb3cce93fce87d5
 C:\Users\dsout\GitRepos\dia01\src\Main.hs:
-  hash: 703e63071a724bfa3e3a63b6dee473dbb721a04c3ade52342126523a21de6757
-C:\Users\dsout\GitRepos\dia01\src\Models\Caramelo.hs:
-  hash: 24b1c9987f6bfd58bdebce9678d63f32727de9c2d19c99680887f91968a705b0
+  hash: cedabe3668e841ea85b31d4d02256949bb6da92a4153672e4db8f93c452814ad
 C:\Users\dsout\GitRepos\dia01\src\Models\Conquista.hs:
-  hash: 587e62c9c56c79dcac3c54e4897bfd8ac4e3eb61ce1751c13c24af5d121f8788
+  hash: e4bcedabda395ec359fe95ae7580018015ce0dd18afa39014ec6500808343d0d
+C:\Users\dsout\GitRepos\dia01\src\Models\Inimigo.hs:
+  hash: 7555dcab1c25f4debfb7a2015272a8a87dc944a0e26bb596508f4e632311c297
 C:\Users\dsout\GitRepos\dia01\src\Models\Item.hs:
-  hash: 8d703574e23887195bbaae5b8f703cd4f11249fe1dcde741fddafc31e376f15b
-C:\Users\dsout\GitRepos\dia01\src\Models\Kanva.hs:
-  hash: 3bc9468b5b2ed22fe892c3b32c07c7ffd1eeb6766db09b82b0c7a38106e08c0c
+  hash: d899b0cb823a2f83748b05ea0dcba0e91b3c2ab5bed3ee20449ff99490c6d0a9
 C:\Users\dsout\GitRepos\dia01\src\Models\Player.hs:
-  hash: 820ceccfefe66a5130835b12f70e5167c07f0755e1c7ad33ed45019a46776b4b
+  hash: 41cf8a1fdf7d8783840a73fe9b0c05a5a03a0bb9712ceeef803e41d64cf6527e
 C:\Users\dsout\GitRepos\dia01\src\Models\Pocao.hs:
-  hash: 453109d82683dafceeb096394cb8d896c61e85646e6f0d3c3923497b0bfabccd
-C:\Users\dsout\GitRepos\dia01\src\MundoCidadela.hs:
-  hash: b681b9c0ce5097ddf84e8e4e488eb60cbcd3e0293d846c87eba0208919cd68f2
+  hash: fe9d60a8410356a650c0dced78dda4a01f3f222dc327c1a8574fd11fb2146742
 C:\Users\dsout\GitRepos\dia01\src\SistemaGold.hs:
-  hash: d4a3b5017b08d42663eeb688093cefc81ade56acb886ba1945e0218026918fa6
+  hash: 48a9272c82f9c6480c8fef789e11838881d313ad97ef920ace4c33700bba2568
+C:\Users\dsout\GitRepos\dia01\src\Util\CombateFuncoes.hs:
+  hash: 77d6b6a3305fb4ec353d316ba33ee64bbccce6157bb6c0a0cd3a57a9704e0ad5
 C:\Users\dsout\GitRepos\dia01\src\Util\ControleSalvamento.hs:
-  hash: 7606edab4c26b15aef7b8d36cb4579d445277cdc41d6db45a0808565c06013c5
+  hash: 5c37acafe95d9906e19b4fa89d1b765bcaee17a90f441e590678fbd94f92c9e2
 C:\Users\dsout\GitRepos\dia01\src\Util\Lib.hs:
-  hash: 33142a87d2fa02876b6109f3948ac98dbeea4c782249fb4129a70addefdbc76a
+  hash: 6584aa6594fab0f029cca5796b86d3d0b130908a211c66c0652c19ce042be43f
