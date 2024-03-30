@@ -56,7 +56,7 @@ questao01 heanes = do
     putStrLn (textoFormatado "Vending Machine: QUAL A MELHOR LINGUAGEM DE PROGRAMAÇÃO JÁ CRIADA?\n")
     input <- getLine
     clearScreen
-    if comparaStrings input "Haskell" then do
+    if comparaString input "Haskell" then do
         let heanesMaisRico = modificaGold heanes 30
         salvaPlayer heanesMaisRico
         putStrLn "\nVending Machine: MUITO BEM, HUMANO! AINDA BEM QUE MEU PROGRAMADOR NÃO ME FEZ EM HASKELL... ECA!"
@@ -90,7 +90,7 @@ questao03 heanes = do
     putStrLn (textoFormatado "Vending Machine: QUAL O MAIOR TIME DE FUTEBOL DA PARAÍBA?\n")
     input <- getLine
     clearScreen
-    if comparaStrings input "Galo" || comparaStrings input "Treze" then do
+    if comparaString input "Galo" || comparaString input "Treze" then do
         let heanesMaisRico = modificaGold heanes 30
         salvaPlayer heanesMaisRico
         putStrLn  "\nVending Machine: MUITO BEM, HUMANO! UH É GALO DOIDO!"
@@ -103,7 +103,7 @@ questao04 heanes = do
     putStrLn (textoFormatado "Vending Machine: QUAL A SEGUNDA LINGUAGEM DE PROGRAMAÇÃO QUE SERÁ UTILIZADA NA CADEIRA DE PLP?\n")
     input <- getLine
     clearScreen
-    if comparaStrings input "Prolog" || comparaStrings input "prolog" then do
+    if comparaString input "Prolog" || comparaString input "prolog" then do
         let heanesMaisRico = modificaGold heanes 30
         salvaPlayer heanesMaisRico
         

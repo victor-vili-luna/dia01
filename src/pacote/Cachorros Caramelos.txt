@@ -1,5 +1,1 @@
-<<<<<<< HEAD
 Inimigo {nome = "Cachorros Caramelos", ataque = 15, defesa = 5, vida = 50, habilidadeEspecial = 0}
-=======
-Inimigo {nome = "Cachorros Caramelos", ataque = 15, defesa = 5, vida = -10, habilidadeEspecial = 0}
->>>>>>> 529700e665a6cf6e2a88f07223b33c04af3dc67f
