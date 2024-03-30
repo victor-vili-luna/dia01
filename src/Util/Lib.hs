@@ -171,3 +171,14 @@ voltaMenu = do
     putStrLn "Então nosso heroi precisa voltar ao menu para pensar sobre a vida não é? Tudo bem mas por favor volte o mundo precisa de você"
     esperandoEnter
 
+pocaoInicial :: String
+pocaoInicial = "./src/pacote/PocaoInicial.txt"
+
+pocaoFinal :: String
+pocaoFinal = "./src/pacote/PocaoFinal.txt"
+
+itemInicial :: String
+itemInicial = "./src/pacote/ItensIniciais.txt"
+
+itemFinal :: String
+itemFinal = "./src/pacote/ItensFinais.txt"

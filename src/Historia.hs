@@ -83,3 +83,9 @@ cursoHistoria2 = textoFormatado "*Você percebe que não descansou o suficiente,
 
 vilaoKanva :: String
 vilaoKanva = textoFormatado "Eu sou o kanva e os caralho."
+
+vitoriaKanva :: String
+vitoriaKanva = textoFormatado "voce ganhou do kanva dog, nice!!"
+
+historiaConversaGPT :: String
+historiaConversaGPT = "historia da investigacao do conversaGPT"
