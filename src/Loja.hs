@@ -14,7 +14,7 @@ abreLojaItens filepath = do
     arquivo02 <- readFile' filepath
     let lojaItens = map (read::String->Item) (lines arquivo02)
     print lojaItens
-    putStrLn (textoFormatado "Deseja comprar algo?\n(1)Sim.\n(2)Não.")
+    putStrLn (textoFormatado "\nDeseja comprar algo?\n\n(1) Sim.\n(2) Não.\n")
     input <- getLine
     if trim input == "1" then compraItem filepath lojaItens
     else putStrLn "Não quer comprar hein...tudo bem."
@@ -27,14 +27,17 @@ abreLojaPocoes filepath = do
     arquivoPocao <- readFile' filepath
     let lojaPocao = map (read::String->Pocao) (lines arquivoPocao)
     print lojaPocao
-    putStrLn (textoFormatado "Deseja comprar algo?\n(1)Sim.\n(2)Não.")
+    putStrLn (textoFormatado "\n Deseja comprar algo?\n\n(1) Sim.\n(2) Não.\n")
     input <- getLine
     if trim input == "1" then compraPocao filepath lojaPocao
-    else putStrLn "Não quer comprar hein...tudo bem."
+    else do
+        clearScreen
+        putStrLn (textoFormatado("Não quer comprar hein...tudo bem.\n"))
+        esperandoEnter
 
 compraItem::String->[Item]->IO()
 compraItem filepath lojaItens = do
-    putStrLn "Digite o nome do item que você deseja comprar."
+    putStrLn "\nDigite o nome do item que você deseja comprar.\n"
     input <- getLine
     let maybeItem = identificaItem input lojaItens
     case maybeItem of
@@ -49,9 +52,14 @@ compraItem filepath lojaItens = do
                     listaAtualItens = removeItem input lojaItens
                 salvaPlayer heanesAdulto
                 salvaItens listaAtualItens
-                putStrLn "Compra realizada com sucesso."
+                clearScreen
+                putStrLn(textoFormatado("Compra realizada com sucesso.\n"))
+                esperandoEnter
+                clearScreen
             else do
+                clearScreen
                 putStrLn "Está pobre, tente novamente"
+                esperandoEnter
                 abreLojaItens filepath
         Nothing -> do
             putStrLn "Por favor tente novamente."
@@ -60,7 +68,7 @@ compraItem filepath lojaItens = do
 
 compraPocao::String -> [Pocao] -> IO()
 compraPocao filepath lojaPocao = do
-    putStrLn "Digite o nome da pocao que você deseja comprar."
+    putStrLn "\nDigite o nome da pocao que você deseja comprar.\n"
     pocaoNome <- getLine
     let maybePocao = identificaPocao pocaoNome lojaPocao
     case maybePocao of
@@ -77,7 +85,9 @@ compraPocao filepath lojaPocao = do
                         listaPocoesAtualizada = removePocaoAntiga pocaoNome (pocoes heanesPre) ++ [pocaoFinal]
                         heanesAdulto = heanesPre { gold = goldAtual, pocoes = listaPocoesAtualizada}
                     salvaPlayer heanesAdulto
-                    putStrLn "Compra realizada com sucesso."
+                    putStrLn(textoFormatado("Compra realizada com sucesso.\n"))
+                    esperandoEnter
+                    clearScreen
                 else do
                     let goldAtual = gold - precoPocao
                         heanesAdulto = heanesPre { gold = goldAtual, pocoes = pocoes heanesPre ++ [pocao] }
@@ -85,6 +95,7 @@ compraPocao filepath lojaPocao = do
                     putStrLn "Compra realizada com sucesso."
             else do
                 putStrLn "Está pobre"
+                esperandoEnter
                 abreLojaPocoes filepath
         Nothing -> do
             putStrLn "Por favor tente novamente"

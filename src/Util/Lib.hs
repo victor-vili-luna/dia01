@@ -110,6 +110,10 @@ apagaEspacosFim = reverse . apagaEspacos . reverse
 trim :: String -> String
 trim = apagaEspacos . apagaEspacosFim
 
+uppercase::String->String
+uppercase "" = ""
+uppercase (a:as) = [(toUpper a)] ++ uppercase as
+
 identificaItem::String->[Item]->Maybe Item
 identificaItem _ [] = Nothing
 identificaItem nomeItem (a:as)
@@ -168,7 +172,7 @@ progressoHeroi = getProgresso <$> resetPlayer
 voltaMenu:: IO()
 voltaMenu = do
     clearScreen
-    putStrLn "Então nosso heroi precisa voltar ao menu para pensar sobre a vida não é? Tudo bem mas por favor volte o mundo precisa de você"
+    putStrLn (textoFormatado("Então nosso heroi precisa voltar ao menu para pensar sobre a vida não é? Tudo bem mas por favor volte o mundo precisa de você\n"))
     esperandoEnter
 
 pocaoInicial :: String

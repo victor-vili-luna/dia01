@@ -25,7 +25,7 @@ menu = do
     case escolha of
         "1" -> comecaJogo >> menu
         "2" -> carregaJogo >> menu
-        "3" -> help >> esperandoEnter >> clearScreen >>menu
+        "3" -> help >> esperandoEnter >> clearScreen >> menu
         "4" -> putStrLn fechaJogo
         _   -> putStrLn "Opção inválida. Por favor, escolha uma opção válida.\n" >> esperandoEnter >> clearScreen >> menu
 

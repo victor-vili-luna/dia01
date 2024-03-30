@@ -64,7 +64,7 @@ kanvaHistoria7 :: String
 kanvaHistoria7 = textoFormatado "Leandro: EITA PREULA DOG, OS CACHORROS CARAMELOS DA UFCC AQUI????\n"
 
 menuInicial :: String
-menuInicial = textoFormatado "O que você deseja fazer??\n\n(1) Explorar a cidade.\n(2) Seguir Carl Wilson.\n(3) voltar ao menu"
+menuInicial = textoFormatado "O que você deseja fazer??\n\n(1) Explorar a cidade.\n(2) Seguir Carl Wilson.\n(3) Voltar ao menu\n"
 
 caramelosKanva:: String
 caramelosKanva = textoFormatado "Leandro: Esses são os cachorros criados pelo kanva, fique de costas para mim para nao sermos cercados completamente!!!\n"
@@ -81,14 +81,20 @@ dialogoPadeiro01 = textoFormatado "\n*Você encontra a Panificadora Alfa no cami
 explicacaoBasica01 :: String
 explicacaoBasica01 = textoFormatado "\nC.W.: Ótimo! Então me ajude a carregar essas caixas, e dependendo de quantas você levar, eu pago a quantia adequada.\n"
 
-promptPerguntas::String
-promptPerguntas = "*Heanes se encaminha para um lugar de procedência duvidosa, lá ele encontra uma Vending Machine*\n\nVending Machine: OLÁ HUMANO! VOCÊ É CAPAZ DE RESPONDER A MINHA PERGUNTA?\nA cada vez que você derrotar uma IA terei uma pergunta fresquinha para você\nSó que tem um adendo, eu tenho um leve defeito de repetir a pergunta se o participante se afastar e voltar mas sei que você não abusaria desse \nbug para lucrar por que confio no seu carater\nvocê não faria isso? não é mesmo HEROI."
+promptPerguntas1::String
+promptPerguntas1 = textoFormatado "*Heanes se encaminha para um lugar de procedência duvidosa, lá ele encontra uma Vending Machine*\n"
+
+promptPerguntas2::String
+promptPerguntas2 = textoFormatado "Vending Machine: OLÁ HUMANO! VOCÊ É CAPAZ DE RESPONDER A MINHA PERGUNTA?\n"
+
+promptPerguntas3::String
+promptPerguntas3 = textoFormatado "Vending Machine: A CADA VEZ QUE VOCÊ DERROTAR UMA IA TEREI UMA PERGUNTA FRESQUINHA PARA VOCÊ! MAS EU TENHO UM LEVE DEFEITO DE REPETIR A PERGUNTA SE VOCÊ SE AFASTAR DE MIM E VOLTAR. MAS SEI QUE VOCÊ NÃO ABUSARIA DESSE BUG PARA LUCRAR, NÃO É MESMO HERÓI?\n"
 
 propagandaMaquina::String
 propagandaMaquina = "NINGUEM NUNCA VEIO TÃO LONGE MEU AMIGO HUMANO, em comemoração a sua vasta inteligência irei lhe fazer uma promoção duas perguntas pelo preço de uma vinda\n será que você tem o que é necessario para responder tamanhas perguntas, essas últimas pergunta são de um nivel jamais visto nesse mundo\n meu criador conseguiu ela através de um erro no espaço tempo que chegou a uma outra dimesão e um outro planeta, você terá que responder algo sobre CAMPINA GRANDE\n vamos ver como você se sai, BOA SORTE"
 
 opcoesCidadela:: String
-opcoesCidadela = textoFormatado "Após a luta de ontem você desperta, mas vê que ainda são 6h da manhã O que você deseja fazer??\n\n(1) Explorar a cidade pela manhã.\n(2) Descansar mais um pouco\n(3) Voltar ao menu"
+opcoesCidadela = textoFormatado "Após a luta de ontem você desperta, mas vê que ainda são 6h da manhã O que você deseja fazer??\n\n(1) Explorar a cidade pela manhã.\n(2) Descansar mais um pouco\n(3) Voltar ao menu\n"
 
 dialogoFerreira02::String
 dialogoFerreira02 = textoFormatado "Heanes: Ei os seus itens quebraram apos um uso? não tem nada sobre a garantia, algo como se quebrar em até 14 dias devolvemos seu dinheiro?\n\nFerreira: *arrega os olhos e diz*  Você tem a brilhante ideia de lutar contra cachorros e uma IA e quebrar os itens, e tem a cara de pau de falar que eles são defeituosos?\n\nHeanes: é pensando por esse lado..."
@@ -100,7 +106,7 @@ cursoHistoria2::String
 cursoHistoria2 = textoFormatado "*Você percebe que não descansou o suficiente, e que ninguem é de ferro, assim indo tirar um cochilo de mais meia hora\n*30 Minutes later*\nApos acordar você por algum motivo lembra de BoB Esponja e vê que é mais um dia de luta para salvar o mundo"
 
 vilaoKanva :: String
-vilaoKanva = textoFormatado "Eu sou o kanva e os caralho."
+vilaoKanva = textoFormatado "Kanva: OLÁ HUMANO, BEM-VINDO A SEU MAIOR PESADELO, VAMOS ALTERAR O SEU ATRIBUTO .ALIVE PARA = DEAD?\n"
 
 vitoriaKanva :: String
 vitoriaKanva = textoFormatado "voce ganhou do kanva dog, nice!!"
