@@ -47,10 +47,9 @@ turnoAcaoKanva = do
     heanes <- carregaPlayer
     inimigo <- carregaInimigo (criaCaminho "Kanva")
     if verificaMortoHeroi heanes || verificaMortoInimigo inimigo then do
-        if verificaMortoHeroi heanes then putStrLn "aqui o bicho vai voltar pro inicio"
+        if verificaMortoHeroi heanes then morte
         else do
-            putStrLn vitoriaKanva
-            escolhaCaminhoCidadeFase2
+            vitoriaKanva
     else turnoAcaoKanva
 
 turnoHeanesKanva :: IO()
@@ -123,3 +122,11 @@ turnoVidaBaixaKanva = do
         vidaAtualizadaHeanes = (defesaHeanes + vidaHeanes) - ataqueInimigo
         heanesAtualizado = heanes {Models.Player.vida = vidaAtualizadaHeanes}
     writeFile "./src/pacote/Heroi.txt" (show heanesAtualizado)
+
+
+vitoriaKanva::IO()
+vitoriaKanva = do
+    
+    putStrLn vitoriaKanvaDialogo
+    comecaFase2
+    escolhaCaminhoCidadeFase2

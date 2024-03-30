@@ -68,7 +68,7 @@ questao01 heanes = do
     putStrLn (textoFormatado "Vending Machine: QUAL A MELHOR LINGUAGEM DE PROGRAMAÇÃO JÁ CRIADA?\n")
     input <- getLine
     clearScreen
-    if ((uppercase input) /= "HASKELL") then do
+    if comparaString input "HASKELL" then do
         let heanesMaisRico = modificaGold heanes 30
         salvaPlayer heanesMaisRico
         putStrLn "Vending Machine: MUITO BEM, HUMANO! AINDA BEM QUE MEU PROGRAMADOR NÃO ME FEZ EM HASKELL... ECA!"

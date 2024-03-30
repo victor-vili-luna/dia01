@@ -26,9 +26,7 @@ turnoAcaoPlayHub = do
     inimigo <- carregaInimigo (criaCaminho "PlayHub")
     if verificaMortoHeroi heanes || verificaMortoInimigo inimigo then do
         if verificaMortoHeroi heanes then morte
-        else do
-            putStrLn "Você agora vai se ver com meu pai, o conversaGPT."
-            escolhaCaminhoCidadeFase3
+        else vitoriaPlayHub
     else turnoAcaoPlayHub
 
 turnoHeanesPlayHub :: IO()
@@ -101,3 +99,10 @@ turnoVidaBaixaPlayHub = do
         vidaAtualizadaHeanes = (defesaHeanes + vidaHeanes) - ataqueInimigo
         heanesAtualizado = heanes {Models.Player.vida = vidaAtualizadaHeanes}
     writeFile "./src/pacote/Heroi.txt" (show heanesAtualizado)
+
+
+vitoriaPlayHub::IO()
+vitoriaPlayHub = do
+    putStrLn "vitoriaKanvaDialogo"
+    comecaFase3
+    escolhaCaminhoCidadeFase3

@@ -192,3 +192,72 @@ printString texto = do
     clearScreen
     putStrLn texto
     esperandoEnter
+
+heanesString :: String
+heanesString = "Player {nome = \"Heanes\", vida = 100, gold = 100, defesa = 5, ataque = 5, equipamentos = [], pocoes = [], progresso = 0}"
+
+armaduraCouro :: String
+armaduraCouro =  "Item {nome = \"Armadura de couro\", preco = 30, ataque = 0, defesa = 30, descricao = \"Armadura que protege contra as falacias da IA.\"}"
+
+armaduraFerro :: String
+armaduraFerro = "Item {nome = \"Armadura de ferro\", preco = 200, ataque = 0, defesa = 80, descricao = \"Composta pelos mais refinados pedacos de sucata metalica, e garantido que esta armadura fara voce parecer o homem de ferro da shopee\"}"
+
+espadaPedra::  String
+espadaPedra = "Item {nome = \"Espada de pedra\", preco = 30, ataque = 30, defesa = 0, descricao = \"Se quiser espada tem, mas so usa espada quem nao se garante.\"}"
+
+espadaFerro:: String
+espadaFerro = "Item {nome = \"Espada de ferro\", preco = 200, ataque = 100, defesa = 0, descricao = \"Espada um pouco enferrujada, se nao matar na espadada mata no tetano.\"}"
+
+espadaDiamante :: String
+espadaDiamante = "Item {nome = \"Espada de diamante\", preco = 300, ataque = 100, defesa = 0, descricao = \"Espada do minecraft.\"}"
+
+armaduraDiamante :: String
+armaduraDiamante = "Item {nome = \"Armadura de diamante\", preco = 300, ataque = 0, defesa = 80, descricao = \"Armadura do minecraft.\"}"
+
+cafe:: String
+cafe = "Pocao {nome = \"Cafe\", vida = 40, preco = 20, defesa = 0, ataque = 0, quantidade = 1}"
+
+redBull:: String
+redBull = "Pocao {nome = \"red Bull\", vida = 0, preco = 60, defesa = 0, ataque = 0, quantidade =1}"
+
+caramelo:: String
+caramelo = "Inimigo {nome = \"Cachorros Caramelos\", ataque = 15, defesa = 5, vida = 50, habilidadeEspecial = 0}"
+
+kanva:: String
+kanva = "Inimigo {nome = \"Kanva\", ataque = 25, defesa = 10, vida = 200, habilidadeEspecial = 45}"
+
+playHub :: String
+playHub = "Inimigo {nome = \"PlayHub\", ataque = 60, defesa = 0, vida = 5, habilidadeEspecial = 0}"
+
+conversaGPT :: String
+conversaGPT = "Inimigo {nome = \"ConversaGPT\", ataque = 80, defesa = 30, vida = 5000, habilidadeEspecial = 100}"
+
+inimigo:: String -> Inimigo
+inimigo = read
+
+item::String -> Item
+item = read
+
+player ::Player
+player = read heanesString
+
+pocao :: String -> Pocao
+pocao = read
+
+comecaFase2::IO()
+comecaFase2 = do
+    atualizaProgresso 2
+    let hub = inimigo playHub
+    salvaInimigo hub (criaCaminho (getNomeInimigo hub))
+    salvaItens [item espadaFerro ,item armaduraFerro]
+    let pocaoItem = [pocao cafe, pocao redBull]
+    salvaPocao pocaoItem
+
+comecaFase3::IO()
+comecaFase3 = do
+    atualizaProgresso 3
+    let gpt = inimigo conversaGPT
+    salvaInimigo gpt (criaCaminho (getNomeInimigo gpt))
+    salvaItens [item espadaDiamante, item armaduraDiamante]
+
+

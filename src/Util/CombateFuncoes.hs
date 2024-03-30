@@ -51,7 +51,7 @@ equipaItem = do
             clearScreen
             putStrLn (textoFormatado "Creio que digitou errado, mas caso queria voltar ao turno digite: VOLTAR.\n")
             input01 <- trim <$> getLine
-            if input01 == "VOLTAR" then turnoPreparacao
+            if comparaString input01 "VOLTAR" then turnoPreparacao
             else equipaItem
 
 usaPocao :: IO()
@@ -89,7 +89,7 @@ usaPocao = do
             clearScreen
             putStrLn (textoFormatado "Pocao inválida, caso queira voltar ao turno ao digite: VOLTAR.\n")
             input01 <- getLine
-            if input01 == "VOLTAR" then turnoPreparacao
+            if comparaString input01 "VOLTAR" then turnoPreparacao
             else usaPocao
 
 verificaMortoHeroi :: Player -> Bool

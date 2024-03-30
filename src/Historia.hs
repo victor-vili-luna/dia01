@@ -135,8 +135,8 @@ vilaoPlayHub = textoFormatado "Eu sou o playhub e os caralho."
 vilaoKanva :: String
 vilaoKanva = textoFormatado "Kanva: OLÁ HUMANO, BEM-VINDO A SEU MAIOR PESADELO, VAMOS ALTERAR O SEU ATRIBUTO .ALIVE PARA = DEAD?\n"
 
-vitoriaKanva :: String
-vitoriaKanva = textoFormatado "voce ganhou do kanva dog, nice!!"
+vitoriaKanvaDialogo :: String
+vitoriaKanvaDialogo = textoFormatado "voce ganhou do kanva dog, nice!!"
 
 historiaConversaGPT :: String
 historiaConversaGPT = textoFormatado "historia da investigacao do conversaGPT"
