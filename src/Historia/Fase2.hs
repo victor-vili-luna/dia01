@@ -5,6 +5,7 @@ import Historia
 import Loja
 import SistemaGold
 import Util.Lib
+import CombatePlayHub
 
 escolhaCaminhoCidadeFase2::IO()
 escolhaCaminhoCidadeFase2 = do
@@ -79,7 +80,7 @@ historiaPrincipal opcoes = do
         historiaPrincipal opcoes
     else if opcaoJogador == "4" then do
         clearScreen
-        putStrLn "combate02"
+        combatePlayHub
     else if opcaoJogador == "5" then
         voltaMenu
     else do 

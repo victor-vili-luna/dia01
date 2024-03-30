@@ -10,8 +10,6 @@ import Models.Pocao
 import Models.Inimigo
 import Historia.Fase1
 import Historia.Fase2
-import Historia.Fase3
-import Historia.Final
 import Historia.Prologo
 import Data.List ( delete )
 
@@ -53,13 +51,19 @@ armaduraCouro :: String
 armaduraCouro =  "Item {nome = \"Armadura de couro\", preco = 30, ataque = 0, defesa = 30, descricao = \"Armadura que protege contra as falacias da IA.\"}"
 
 armaduraFerro :: String
-armaduraFerro = "Item {nome = \"Armadura de ferro\", preco = 300, ataque = 0, defesa = 80, descricao = \"Composta pelos mais refinados pedacos de sucata metalica, e garantido que esta armadura fara voce parecer o homem de ferro da shopee\"}"
+armaduraFerro = "Item {nome = \"Armadura de ferro\", preco = 200, ataque = 0, defesa = 80, descricao = \"Composta pelos mais refinados pedacos de sucata metalica, e garantido que esta armadura fara voce parecer o homem de ferro da shopee\"}"
 
 espadaPedra::  String
 espadaPedra = "Item {nome = \"Espada de pedra\", preco = 30, ataque = 30, defesa = 0, descricao = \"Se quiser espada tem, mas so usa espada quem nao se garante.\"}"
 
 espadaFerro:: String
-espadaFerro = "Item {nome = \"Espada de ferro\", preco = 300, ataque = 100, defesa = 0, descricao = \"Espada um pouco enferrujada, se nao matar na espadada mata no tetano.\"}"
+espadaFerro = "Item {nome = \"Espada de ferro\", preco = 200, ataque = 100, defesa = 0, descricao = \"Espada um pouco enferrujada, se nao matar na espadada mata no tetano.\"}"
+
+espadaDiamante :: String
+espadaDiamante = "Item {nome = \"Espada de diamante\", preco = 300, ataque = 100, defesa = 0, descricao = \"Espada do minecraft.\"}"
+
+armaduraDiamante :: String
+armaduraDiamante = "Item {nome = \"Armadura de diamante\", preco = 300, ataque = 0, defesa = 80, descricao = \"Armadura do minecraft.\"}"
 
 cafe:: String
 cafe = "Pocao {nome = \"Cafe\", vida = 40, preco = 20, defesa = 0, ataque = 0, quantidade = 1}"
@@ -75,6 +79,9 @@ kanva = "Inimigo {nome = \"Kanva\", ataque = 25, defesa = 10, vida = 200, habili
 
 ia2 :: String
 ia2 = "Inimigo {nome = \"ia2\", ataque = 60, defesa = 30, vida = 500, habilidadeEspecial = 0}"
+
+conversaGPT :: String
+conversaGPT = "Inimigo {nome = \"ConversaGPT\", ataque = 80, defesa = 30, vida = 5000, habilidadeEspecial = 100}"
 
 inimigo:: String -> Inimigo
 inimigo = read
@@ -105,8 +112,8 @@ carregaJogo = do
             comecaJogo
         1 -> resetFase1
         2 -> resetFase2
-        3 -> escolhaCaminhoCidadeFase3
-        4 -> escolhaCaminhoCidadeFase4
+        3 -> resetFase3
+        4 -> putStrLn "fase4"
 
 resetFase1:: IO()
 resetFase1 = do
@@ -118,6 +125,14 @@ resetFase2:: IO()
 resetFase2 = do
     salvaInimigoFase2
     verificaLoja [item espadaFerro ,item armaduraFerro]
+    let pocaoItem = [pocao cafe, pocao redBull]
+    salvaPocao pocaoItem
+    escolhaCaminhoCidadeFase2
+
+resetFase3::IO()
+resetFase3 = do
+    salvaInimigoFase3
+    verificaLoja [item espadaDiamante, item armaduraDiamante]
     let pocaoItem = [pocao cafe, pocao redBull]
     salvaPocao pocaoItem
     escolhaCaminhoCidadeFase2
@@ -140,12 +155,10 @@ salvaInimigoFase2 = do
     let ia = inimigo ia2
     salvaInimigo ia (criaCaminho (getNomeInimigo ia))
 
+salvaInimigoFase3::IO()
+salvaInimigoFase3 = do
+    let gpt = inimigo conversaGPT
+    salvaInimigo gpt (criaCaminho (getNomeInimigo gpt))
+
 removeItensJogadorDeLoja :: [Item] -> [Item] -> [Item]
 removeItensJogadorDeLoja = foldr delete
-
-
-
-
-
-
-

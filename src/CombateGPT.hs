@@ -24,12 +24,12 @@ turnoAcaoGPT = do
     turnoHeanesGPT
     turnoGPT
     heanes <- carregaPlayer
-    inimigo <- carregaInimigo (criaCaminho "ConversaGPT")
-    if verificaMortoHeroi heanes || verificaMortoInimigo inimigo then do
-        if verificaMortoHeroi heanes then putStrLn "aqui o bicho foi de vala."
-        else do
-            putStrLn vitoriaGPT
-            putStrLn endGame
+    if verificaMortoHeroi heanes then do
+        putStrLn "VOCÊ VAI MORRER HEANES!!! HAHAHAHA!! *voce lembra de algo sobre IAs, elas...*\nHeanes: Você, tem certeza disso?"
+        putStrLn "(1) Você aceita sua derrota e se rende?.\n(2) Não, não me curvo perante a IAs."
+        escolha <- getLine
+
+        escolhaTreatmentGPT escolha 0
     else turnoAcaoGPT
 
 turnoHeanesGPT :: IO()
@@ -37,16 +37,16 @@ turnoHeanesGPT = do
     heanes <- carregaPlayer
     if not (verificaMortoHeroi heanes) then do
         putStrLn "(1)Ataque.\n(2)Usa poção."
-        input <- trim <$>getLine
+        input <- getLine
 
-        if input == "1" then do
+        if trim input == "1" then do
             usaAtaqueGPT
             putStrLn "Você faz a I.A. correr com o rabo entre as pernas, mas você é impiedoso e o mata pelas costas jogando o teorema do resto chinês nele."
-        else if input == "2" then usaPocao
+        else if trim input == "2" then usaPocao
         else do
             putStrLn "Digite uma opção válida."
             turnoHeanesGPT
-    else putStrLn "Voce errou"
+    else putStrLn "Você conseguiu dog!!"
 
 usaAtaqueGPT :: IO ()
 usaAtaqueGPT = do
@@ -89,7 +89,7 @@ turnoAtaqueGPT = do
 escolheAtaqueGPT :: [String] -> IO String
 escolheAtaqueGPT lista = do
     inimigo <- carregaInimigo (criaCaminho "ConversaGPT")
-    let index = Models.Inimigo.vida inimigo `mod` 4
+    let index = Models.Inimigo.vida inimigo `mod` 3
     return (lista !! index)
 
 turnoVidaBaixaGPT :: IO()
@@ -102,3 +102,46 @@ turnoVidaBaixaGPT = do
         vidaAtualizadaHeanes = (defesaHeanes + vidaHeanes) - ataqueInimigo
         heanesAtualizado = heanes {Models.Player.vida = vidaAtualizadaHeanes}
     writeFile "./src/pacote/Heroi.txt" (show heanesAtualizado)
+
+combateGPT02 :: IO ()
+combateGPT02 = do
+    putStrLn "ConversaGPT: Que comece o verdadeiro combate!!"
+    inimigo <- carregaInimigo (criaCaminho "ConversaGPT")
+    let vidaAtualizada = 500
+    gptAtualizado = inimigo {Models.Player.vida = vidaAtualizada}
+    writeFile "./src/pacote/ConversaGPT.txt"
+    turnoAcaoGPT02 
+
+turnoAcaoGPT02 :: IO()
+turnoAcaoGPT02 = do
+    turnoHeanesGPT
+    turnoGPT
+    heanes <- carregaPlayer
+    inimigo <- carregaInimigo (criaCaminho "conversaGPT")
+    if verificaMortoHeroi heanes || verificaMortoInimigo inimigo then do
+        if verificaMortoHeroi heanes then putStrLn "Você morreu definitivamente, foi um bom combate."
+        else do
+            putStrLn vitoriaGPT
+            putStrLn endgame  
+    else turnoAcaoGPT02
+
+corrigeGPT :: Int -> IO ()
+corrigeGPT 8 = combateGPT02 
+corrigeGPT vezes_negado = do
+    putStrLn "ConversaGPT: Desculpe se não entendi. A resposta é: _______"
+    putStrLn $ "(1) Aceitar a morte miseravelmente.\n" ++ "(2) " ++ concat (replicate vezes_negado "Você tem certeza disso? ")
+    putStrLn "\n------------------------------------------------------------------------------------\n"
+    escolha <- getLine
+    escolhaTreatmentGPT escolha vezes_negado
+
+escolhaTreatmentGPT :: String-> Int -> IO()
+escolhaTreatmentGPT escolha vezes_negado = do
+
+    clearScreen
+
+    case escolha of
+        "1" -> putStrLn "Você é um covarde."
+        "2" -> corrigeGPT (vezes_negado + 1)
+        _ -> do
+            putStrLn "Digite a opção novamente"
+            corrigeGPT vezes_negado
