@@ -58,11 +58,11 @@ turnoHeanesKanva = do
     if not (verificaMortoHeroi heanes) then do
         putStrLn "(1) Ataque.\n(2) Usa poção.\n"
         putStrLn "------------------------------------------------------------------------------------\n"
-        input <- getLine
-        if trim input == "1" then do
+        input <- trim <$> getLine
+        if input == "1" then do
             usaAtaqueKanva
             putStrLn "Você faz a I.A. aposentar os pincéis."
-        else if trim input == "2" then usaPocao
+        else if input == "2" then usaPocao
         else do
             putStrLn "Digite uma opção válida."
             turnoHeanesKanva

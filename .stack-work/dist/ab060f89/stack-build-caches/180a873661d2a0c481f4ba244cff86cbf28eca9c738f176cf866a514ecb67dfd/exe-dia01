@@ -5,21 +5,25 @@ D:\Documents\VsCode\Fmcc\dia01\README.md:
 D:\Documents\VsCode\Fmcc\dia01\dia01.cabal:
   hash: 6fc9b4a0474c007bc21db969c13be94731e2b4984a913b66cafc15da18cf1070
 D:\Documents\VsCode\Fmcc\dia01\src\Combate.hs:
-  hash: bd592f762fba937ace11eb69f106951ce8e3c25bae3baef17b4249a8628d1403
+  hash: 1f99f922c08b2f86b3248b49c4b6a90f767a999801bdf79c78773e979e6248e2
 D:\Documents\VsCode\Fmcc\dia01\src\CombateKanva.hs:
-  hash: 0c4681253330385489d3a6a0680bf2c2a1ad57e71e2b445c063d621ca73219e8
+  hash: c41faeed2ee070563c70d2cd7fd529c81a6042bf96ffcdfa61cbc39073d259da
 D:\Documents\VsCode\Fmcc\dia01\src\Historia.hs:
-  hash: 28bd6585eb0d26aae6bf4515cbf9949c609bf7a62330afa75e4d503bc6c57fe9
+  hash: a5c9088d40b62089344b84eda171dfa39f9291608d37c35e1fdcd332d6215b97
 D:\Documents\VsCode\Fmcc\dia01\src\Historia\Fase1.hs:
-  hash: 7dcc5e7800964c63071f3feba031c33cf3009c7201abf5c90d110426a579e053
+  hash: 291bff3b2a650e95dd9f001c0eb734092ce8b270c10f05b6995077973afdb8f8
 D:\Documents\VsCode\Fmcc\dia01\src\Historia\Fase2.hs:
-  hash: 84d64591a264a2b4a3804e096c879c1f21b581a1c7a22bb5b2744e77ae19c7d3
+  hash: f5de579499128e8f209e910630b1130a0b4794ef52c2a869936c397bf5089145
+D:\Documents\VsCode\Fmcc\dia01\src\Historia\Fase3.hs:
+  hash: bfa9d4621a604f676df314a0eb73a9a5386fffd17c4301a5542c790be1bef93e
+D:\Documents\VsCode\Fmcc\dia01\src\Historia\Final.hs:
+  hash: bce457bdb14d3c2a782c0a2f5a1f42a5c537633a91983e91e5d26c8b4c8ffc93
 D:\Documents\VsCode\Fmcc\dia01\src\Historia\Prologo.hs:
-  hash: 6e0ea6604b2700588db8351ef4e766909087f216e2bbb665f73604c0868fb541
+  hash: 1151474fdf7bc0c327c71a7bfd0b128bc7a0b1a528494fb2a0a997af24ffa0f4
 D:\Documents\VsCode\Fmcc\dia01\src\Loja.hs:
-  hash: 7b322cd7b9ab80a7f61cf0046429116ed8376e417b4e3c3d4bba941d3502c53c
+  hash: 21b4f2d0dafb1d67fd43bc77aea4db9b2d52813b50d223aadcedb6e3f6d6cda3
 D:\Documents\VsCode\Fmcc\dia01\src\Main.hs:
-  hash: 66068db24625c3eff4c2c546b7b3344cd36cbca6663a6a83b720e81d5d2049dc
+  hash: dfd4e81a7b585288849c3d3967d78049464e67d1337a2bda9d648d319311f5ca
 D:\Documents\VsCode\Fmcc\dia01\src\Models\Conquista.hs:
   hash: e4bcedabda395ec359fe95ae7580018015ce0dd18afa39014ec6500808343d0d
 D:\Documents\VsCode\Fmcc\dia01\src\Models\Inimigo.hs:
@@ -27,14 +31,14 @@ D:\Documents\VsCode\Fmcc\dia01\src\Models\Inimigo.hs:
 D:\Documents\VsCode\Fmcc\dia01\src\Models\Item.hs:
   hash: d899b0cb823a2f83748b05ea0dcba0e91b3c2ab5bed3ee20449ff99490c6d0a9
 D:\Documents\VsCode\Fmcc\dia01\src\Models\Player.hs:
-  hash: 41cf8a1fdf7d8783840a73fe9b0c05a5a03a0bb9712ceeef803e41d64cf6527e
+  hash: 88a0d997361c7e178855f557dcf0c734b6c74cd89468061e356a2ba6f9c4c21c
 D:\Documents\VsCode\Fmcc\dia01\src\Models\Pocao.hs:
   hash: fe9d60a8410356a650c0dced78dda4a01f3f222dc327c1a8574fd11fb2146742
 D:\Documents\VsCode\Fmcc\dia01\src\SistemaGold.hs:
   hash: c6c97537a6da31567e0f232abe6c338fc3f736ac9cc0d0f3e6ed8dc45290df97
 D:\Documents\VsCode\Fmcc\dia01\src\Util\CombateFuncoes.hs:
-  hash: 6e59c937647dd568ce54cadb5f9472161a14d4077332990da7aa039b5a9f01c7
+  hash: 0b9dedcede05af0c5a02c978609077421357843ca8b4ec6c21c96dfc9645080d
 D:\Documents\VsCode\Fmcc\dia01\src\Util\ControleSalvamento.hs:
-  hash: 967fdb0c09bd817743968029ff7d03b491f776bdaf69c899f61b7fec211c638b
+  hash: 33785b9a0190e1064cafa70d0a7f380dfd1f2d73319c77b8b4ee287e9870a8d4
 D:\Documents\VsCode\Fmcc\dia01\src\Util\Lib.hs:
-  hash: 479235fec35d83290d102ee387ad64e4bc442cfacfaec92b6c77c68dcb805178
+  hash: cec9f4529150e19237795de7eef00d2ffc412982be9f2d41b23e70b4d2ca8701

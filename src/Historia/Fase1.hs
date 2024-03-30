@@ -11,18 +11,18 @@ escolhaCaminhoCidade::IO()
 escolhaCaminhoCidade = do
 
     putStrLn menuInicial
-    escolha02 <- getLine
+    escolha02 <- trim <$> getLine
     clearScreen
 
-    if trim escolha02 == "1" then do
+    if escolha02 == "1" then do
         putStrLn "Você escolheu explorar a cidade, para onde nosso bravo web-guerreiro irá?\n"
         abreMapa01 ["(1) Voltar a loja do ferreiro Ferreira para *ver* os itens disponíveis.", "(2) Conversar com o Ferreira.", "(3) Ir à praça da cidade.","(4) Seguir Carl Wilson.","(5) Voltar ao menu\n" ]
-    else if trim escolha02 == "2" then do
+    else if escolha02 == "2" then do
         putStrLn "*Carl Wilson percebe que você começa a seguir ele e se vira rapidamente em sua direção*\n"
         putStrLn cursoHistoria1
         sistemaGold
         historiaPrincipal ["(1) Ganhar dinheiro","(2) Comprar poções com C.W.","(3) Visitar o ferreiro Ferreira","(4) Me garanto em enfrentar a I.A.","(5) Voltar para o menu"]
-    else if trim escolha02 == "3" then 
+    else if escolha02 == "3" then 
         voltaMenu
     else do
         putStrLn "Escolha uma opção válida."
@@ -35,8 +35,7 @@ abreMapa01 opcoes = do
 
     putStrLn "\n------------------------------------------------------------------------------------\n"
 
-    input <- getLine
-    let resposta = trim input
+    resposta <- trim <$> getLine
     if resposta == "1" then do
         clearScreen
         verLoja
@@ -71,8 +70,7 @@ historiaPrincipal opcoes = do
     mapM_ putStrLn opcoes
     putStrLn "\n------------------------------------------------------------------------------------\n"
 
-    input <- getLine
-    let opcaoJogador = trim input
+    opcaoJogador <- trim <$>getLine
     if opcaoJogador == "1" then do
         clearScreen
         putStrLn "Ganhar alguns mangos sempre é bom, talvez assim nosso herói não precise aderir a nenhuma greve. Como iremos angariar fundos?\n"
@@ -87,7 +85,6 @@ historiaPrincipal opcoes = do
         abreLojaItens itemInicial
         historiaPrincipal opcoes
     else if opcaoJogador == "4" then do
-        clearScreen
         combate01
     else if opcaoJogador == "5" then
         voltaMenu

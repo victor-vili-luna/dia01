@@ -37,12 +37,12 @@ turnoHeanesGPT = do
     heanes <- carregaPlayer
     if not (verificaMortoHeroi heanes) then do
         putStrLn "(1)Ataque.\n(2)Usa poção."
-        input <- getLine
+        input <- trim <$>getLine
 
-        if trim input == "1" then do
+        if input == "1" then do
             usaAtaqueGPT
             putStrLn "Você faz a I.A. correr com o rabo entre as pernas, mas você é impiedoso e o mata pelas costas jogando o teorema do resto chinês nele."
-        else if trim input == "2" then usaPocao
+        else if input == "2" then usaPocao
         else do
             putStrLn "Digite uma opção válida."
             turnoHeanesGPT

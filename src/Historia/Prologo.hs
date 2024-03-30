@@ -49,10 +49,3 @@ jubilado vezes_negado = do
     putStrLn "\n------------------------------------------------------------------------------------\n"
     escolha <- getLine
     escolhaTreatment escolha vezes_negado
-
-
-printString:: String -> IO()
-printString texto = do
-    clearScreen
-    putStrLn texto
-    esperandoEnter

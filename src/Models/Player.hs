@@ -41,4 +41,7 @@ module Models.Player where
         progresso = progresso heanes
         }
 
+    toString :: Player -> String
+    toString heanes = "Vida: " ++ show (vida heanes) ++ "/100\nAtaque: "++ show (ataque heanes) ++"\nDefesa:" ++ show (defesa heanes)
+
 

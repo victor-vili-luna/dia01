@@ -19,8 +19,7 @@ menu = do
     putStrLn "3 - Ajuda"
     putStrLn "4 - Sair\n"
 
-    input <- getLine
-    let escolha = trim input
+    escolha <- trim <$> getLine 
     clearScreen
     case escolha of
         "1" -> comecaJogo >> menu
