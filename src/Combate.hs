@@ -1,12 +1,9 @@
 module Combate where
 import Util.Lib
 import Util.CombateFuncoes
-import Loja
 import Historia
 import Models.Player
 import Models.Inimigo
-import Models.Item
-import Models.Pocao
 import System.IO
 import CombateKanva
 
@@ -35,8 +32,8 @@ combate01 = do
 
 turnoAcao01 :: IO()
 turnoAcao01 = do
-    turnoHeanes
-    turnoInimigo
+    turnoHeanesCaramelo
+    turnoCaramelo
     heanes <- carregaPlayer
     inimigo <- carregaInimigo (criaCaminho "Cachorros Caramelos")
     if verificaMortoHeroi heanes || verificaMortoInimigo inimigo then do
@@ -44,29 +41,20 @@ turnoAcao01 = do
         else combateKanva
     else turnoAcao01
 
-carregaInimigoAux::String
-carregaInimigoAux = "Cachorros Caramelos.txt"
-
-verificaMortoHeroi :: Player -> Bool
-verificaMortoHeroi heanes = Models.Player.vida heanes <= 0
-
-verificaMortoInimigo :: Inimigo -> Bool
-verificaMortoInimigo inimigo = Models.Inimigo.vida inimigo <= 0
-
-turnoHeanes :: IO()
-turnoHeanes = do
+turnoHeanesCaramelo :: IO()
+turnoHeanesCaramelo = do
     heanes <- carregaPlayer
     if not (verificaMortoHeroi heanes) then do
         putStrLn "(1)Ataque.\n(2)Usa poção."
         input <- getLine
-
+    
         if trim input == "1" then do
             usaAtaque
             putStrLn "Voce desfere um ataque fatal a alguns cachorros que o cercavam."
         else if trim input == "2" then usaPocao
         else do
             putStrLn "Digite uma opção válida."
-            turnoHeanes
+            turnoHeanesCaramelo
     else putStrLn "voce morreu dog. os cachorros tinham raiva."
 
 usaAtaque :: IO()
@@ -82,18 +70,18 @@ usaAtaque = do
     writeFile filepath (show inimigoAtualizado)
 
 
-turnoInimigo :: IO()
-turnoInimigo = do
+turnoCaramelo :: IO()
+turnoCaramelo = do
     inimigo <- carregaInimigo (criaCaminho "Cachorros Caramelos")
     if not (verificaMortoInimigo inimigo) then do
         putStrLn "UM CACHORRO TE MORDE VIOLENTAMENTE E VOCE GRITA: TIRA DOG TIRAAAA AYELLLLLLLLL ME AJUDA"
-        turnoAtaqueInimigo
+        turnoAtaqueCaramelo
         heanes <- carregaPlayer
         print heanes
     else putStrLn "Leandro: Você conseguiu, matou todos os cachorros mágicos, eu sabia que você era forte."
 
-turnoAtaqueInimigo :: IO()
-turnoAtaqueInimigo = do
+turnoAtaqueCaramelo :: IO()
+turnoAtaqueCaramelo = do
     heanes <- carregaPlayer
     inimigo <- carregaInimigo (criaCaminho "Cachorros Caramelos")
     let ataqueInimigo = Models.Inimigo.ataque inimigo
@@ -103,6 +91,7 @@ turnoAtaqueInimigo = do
         heanesAtualizado = heanes {Models.Player.vida = vidaAtualizadaHeanes}
     writeFile "./src/pacote/Heroi.txt" (show heanesAtualizado)
 
+<<<<<<< HEAD
 turnoPreparacao :: IO()
 turnoPreparacao = do
     putStrLn "Começou a primeira fase, você terá 2 turnos, um de preparo e outro que vai ser seguido pelo ataque dos caramelos."
@@ -179,3 +168,5 @@ usaPocao = do
             if comparaString input01 "voltar" then turnoPreparacao
             else usaPocao
 
+=======
+>>>>>>> 3d1fcfd0f1f861fdafa1f7e657cf22bff71b40bf

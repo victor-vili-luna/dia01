@@ -48,9 +48,12 @@ kanvaHistoria = textoFormatado "*Pensando sobre o que o C.W. disse, preciso ir a
 menuInicial :: String
 menuInicial = textoFormatado "O que você deseja fazer??\n\n(1) Explorar a cidade.\n(2) Seguir Carl Wilson.\n"
 
+<<<<<<< HEAD
 caramelosKanva:: String
 caramelosKanva = textoFormatado "Leandro: Esses são os cachorros criados pelo kanva, fique de costas para mim para nao sermos cercados completamente!!!"
 
+=======
+>>>>>>> 3d1fcfd0f1f861fdafa1f7e657cf22bff71b40bf
 dialogoFerreira01::String
 dialogoFerreira01 = textoFormatado "\nHeanes: Ferreira, se eu vou salvar o mundo, por que você só não me dá os melhores itens de uma vez?\n\nFerreira: *cerra os olhos e diz* Negócios são negócios, como vou pagar o meu café que tomo em seu Élho?\n\n*Ferreira não está mais aberto a conversas, acho melhor fazer alguma outra coisa decente*\n"
 
@@ -69,6 +72,7 @@ promptPerguntas = "*Heanes se encaminha para um lugar de procedência duvidosa, 
 propagandaMaquina::String
 propagandaMaquina = "NINGUEM NUNCA VEIO TÃO LONGE MEU AMIGO HUMANO, em comemoração a sua vasta inteligência irei lhe fazer uma promoção duas perguntas pelo preço de uma vinda\n será que você tem o que é necessario para responder tamanhas perguntas, essas últimas pergunta são de um nivel jamais visto nesse mundo\n meu criador conseguiu ela através de um erro no espaço tempo que chegou a uma outra dimesão e um outro planeta, você terá que responder algo sobre CAMPINA GRANDE\n vamos ver como você se sai, BOA SORTE"
 
+<<<<<<< HEAD
 opcoesCidadela:: String
 opcoesCidadela = textoFormatado "Após a luta de ontem você desperta, mas vê que ainda são 6h da manhã O que você deseja fazer??\n\n(1) Explorar a cidade pela manhã.\n(2) Descansar mais um pouco"
 
@@ -80,3 +84,10 @@ dialogoLeandro01 = textoFormatado "Meu amigo, graças a você eu não vejo mais 
 
 cursoHistoria2::String
 cursoHistoria2 = textoFormatado "*Você percebe que não descansou o suficiente, e que ninguem é de ferro, assim indo tirar um cochilo de mais meia hora\n*30 Minutes later*\nApos acordar você por algum motivo lembra de BoB Esponja e vê que é mais um dia de luta para salvar o mundo"
+=======
+caramelosKanva :: String
+caramelosKanva = textoFormatado "Leandro: Esses são os cachorros criados pelo kanva, fique de costas para mim para nao sermos cercados completamente!!!"
+
+vilaoKanva :: String
+vilaoKanva = textoFormatado "Eu sou o kanva e os caralho."
+>>>>>>> 3d1fcfd0f1f861fdafa1f7e657cf22bff71b40bf

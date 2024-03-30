@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 Player {nome = "Heanes", vida = 100, gold = 0, defesa = 5, ataque = 5, equipamentos = [Item {nome = "Espada de pedra", preco = 30, ataque = 30, defesa = 0, descricao = "Se quiser espada tem, mas so usa espada quem nao se garante."}], pocoes = [], progresso = 2}
+=======
+Player {nome = "Heanes", vida = 100, gold = 70, defesa = 5, ataque = 35, equipamentos = [], pocoes = [Pocao {nome = "Monster", vida = 0, preco = 0, defesa = 0, ataque = 50, quantidade = 3}], progresso = 1}
+>>>>>>> 3d1fcfd0f1f861fdafa1f7e657cf22bff71b40bf
