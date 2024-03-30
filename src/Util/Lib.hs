@@ -93,13 +93,8 @@ atualizaProgresso novoProgresso = do
     let novoHeanes = attProgresso heanes novoProgresso
     salvaPlayer novoHeanes
 
-<<<<<<< HEAD
-comparaString :: String -> String -> Bool
-comparaString str1 str2 = clean str1 == clean str2
-=======
 comparaStrings :: String -> String -> Bool
 comparaStrings str1 str2 = clean str1 == clean str2
->>>>>>> 3d1fcfd0f1f861fdafa1f7e657cf22bff71b40bf
     where clean = map toLower . trim
 
 {-esse droWhile ficando fazendo o drop da lista enquanto o boll que passamos é verdadeiro só que nesse caso
@@ -156,7 +151,6 @@ removePocaoAntiga _ [] = []
 removePocaoAntiga nomePocao (a:as)
     | Models.Pocao.nome a == nomePocao = as
     | otherwise = a : removePocaoAntiga nomePocao as
-<<<<<<< HEAD
 
 resetPlayer:: IO Player
 resetPlayer = do
@@ -168,5 +162,3 @@ resetPlayer = do
 salvaInimigo:: Inimigo -> FilePath -> IO()
 salvaInimigo inimigo caminho = writeFile caminho (show inimigo)
 
-=======
->>>>>>> 3d1fcfd0f1f861fdafa1f7e657cf22bff71b40bf

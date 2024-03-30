@@ -11,19 +11,13 @@ import Models.Inimigo
 combateKanva :: IO()
 combateKanva = do
     putStrLn "Sem tempo para comemorar a vitória você é puxado para dentro do museu deixando Leandro para trás."
-<<<<<<< HEAD
-    putStrLn kanvaHistoria
-=======
     putStrLn vilaoKanva
->>>>>>> 3d1fcfd0f1f861fdafa1f7e657cf22bff71b40bf
     putStrLn "Voce consegue se soltar enquanto ele divaga e dístraido, você tem chance de se preparar para o combate."
     putStrLn "Esses são seus status atuais, mas C.W. te acompanha de longe e liberou uma poção a mais no seu inventário, veja o que quer fazer tendo em vista que essa poção não pode ser comprada, se utilizar todos os exemplares ela sumirá para sempre."
 
     adicionaPocaoCW
     heanes <- carregaPlayer
     print heanes
-<<<<<<< HEAD
-=======
 
     putStrLn "Kanva finalmente notou que você se aproxima para o combate!!\nTOME SUA DECISÃO HÉROI!!"
     turnoAcaoKanva
@@ -36,7 +30,6 @@ adicionaPocaoCW = do
         pocoesAtualizada = Models.Player.pocoes heroi ++ [pocaoMonster]
         heanesAtualizado = heroi {Models.Player.pocoes = pocoesAtualizada}
     writeFile "./src/pacote/Heroi.txt" (show heanesAtualizado)
-
 turnoAcaoKanva :: IO()
 turnoAcaoKanva = do
     turnoHeanesKanva
@@ -54,8 +47,7 @@ turnoHeanesKanva = do
     if not (verificaMortoHeroi heanes) then do
         putStrLn "(1)Ataque.\n(2)Usa poção."
         input <- getLine
->>>>>>> 3d1fcfd0f1f861fdafa1f7e657cf22bff71b40bf
-    
+
         if trim input == "1" then do
             usaAtaqueKanva
             putStrLn "Voce desfere um ataque fatal a alguns cachorros que o cercavam."
@@ -81,8 +73,8 @@ turnoKanva :: IO()
 turnoKanva = do
     inimigo <- carregaInimigo (criaCaminho "Kanva")
     if not (verificaMortoInimigo inimigo) then do
-        if (Models.Inimigo.vida inimigo > 35) then do
-            ataqueEscolhido <- (escolheAtaqueKanva ["Kanva desenha uma bola de fogo indo na sua direção", "Repentinamente várias telas saltam sobre você!! CUIDADO!", "Mais algum ataque do giga"])
+        if Models.Inimigo.vida inimigo > 35 then do
+            ataqueEscolhido <- escolheAtaqueKanva ["Kanva desenha uma bola de fogo indo na sua direção", "Repentinamente várias telas saltam sobre você!! CUIDADO!", "Mais algum ataque do giga"]
             print ataqueEscolhido
             turnoAtaqueKanva
         else do
@@ -106,7 +98,7 @@ turnoAtaqueKanva = do
 escolheAtaqueKanva :: [String] -> IO String
 escolheAtaqueKanva lista = do
     inimigo <- carregaInimigo (criaCaminho "Kanva")
-    let index = ((Models.Inimigo.vida inimigo) `mod` 3)-1
+    let index = (Models.Inimigo.vida inimigo `mod` 3)-1
     return (lista !! index)
 
 turnoVidaBaixaKanva :: IO()

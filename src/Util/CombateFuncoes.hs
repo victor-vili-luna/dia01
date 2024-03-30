@@ -85,8 +85,4 @@ verificaMortoHeroi :: Player -> Bool
 verificaMortoHeroi heanes = Models.Player.vida heanes <= 0
             
 verificaMortoInimigo :: Inimigo -> Bool
-<<<<<<< HEAD
 verificaMortoInimigo inimigo = Models.Inimigo.vida inimigo <= 0
-=======
-verificaMortoInimigo inimigo = Models.Inimigo.vida inimigo <= 0
->>>>>>> 3d1fcfd0f1f861fdafa1f7e657cf22bff71b40bf

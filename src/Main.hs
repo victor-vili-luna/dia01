@@ -4,7 +4,7 @@ module Main(
 import Util.Lib
 import System.Directory (createDirectory, doesDirectoryExist)
 import Util.ControleSalvamento
-import Util.Lib (carregaPlayer)
+
 main::IO()
 main = menu
 

@@ -20,8 +20,6 @@ comecaJogo = do
     comecoHistoria
 
 
-
-
 help::IO()
 help = putStrLn menuAjuda
     where
