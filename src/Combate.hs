@@ -64,9 +64,7 @@ turnoAcao01 = do
     heanes <- carregaPlayer
     inimigo <- carregaInimigo (criaCaminho "Cachorros Caramelos")
     if verificaMortoHeroi heanes || verificaMortoInimigo inimigo then do
-        if verificaMortoHeroi heanes then do
-            clearScreen
-            putStrLn "YOU DEAD."
+        if verificaMortoHeroi heanes then morte
         else combateKanva
     else turnoAcao01
 
@@ -131,4 +129,3 @@ turnoAtaqueCaramelo = do
         vidaAtualizadaHeanes = (defesaHeanes + vidaHeanes) - ataqueInimigo
         heanesAtualizado = heanes {Models.Player.vida = vidaAtualizadaHeanes}
     writeFile "./src/pacote/Heroi.txt" (show heanesAtualizado)
-

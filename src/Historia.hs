@@ -64,7 +64,7 @@ kanvaHistoria7 :: String
 kanvaHistoria7 = textoFormatado "Leandro: EITA PREULA DOG, OS CACHORROS CARAMELOS DA UFCC AQUI????\n"
 
 menuInicial :: String
-menuInicial = textoFormatado "O que você deseja fazer??\n\n(1) Explorar a cidade.\n(2) Seguir Carl Wilson.\n"
+menuInicial = textoFormatado "O que você deseja fazer??\n\n(1) Explorar a cidade.\n(2) Seguir Carl Wilson.\n(3) voltar ao menu"
 
 caramelosKanva:: String
 caramelosKanva = textoFormatado "Leandro: Esses são os cachorros criados pelo kanva, fique de costas para mim para nao sermos cercados completamente!!!\n"
@@ -88,7 +88,7 @@ propagandaMaquina::String
 propagandaMaquina = "NINGUEM NUNCA VEIO TÃO LONGE MEU AMIGO HUMANO, em comemoração a sua vasta inteligência irei lhe fazer uma promoção duas perguntas pelo preço de uma vinda\n será que você tem o que é necessario para responder tamanhas perguntas, essas últimas pergunta são de um nivel jamais visto nesse mundo\n meu criador conseguiu ela através de um erro no espaço tempo que chegou a uma outra dimesão e um outro planeta, você terá que responder algo sobre CAMPINA GRANDE\n vamos ver como você se sai, BOA SORTE"
 
 opcoesCidadela:: String
-opcoesCidadela = textoFormatado "Após a luta de ontem você desperta, mas vê que ainda são 6h da manhã O que você deseja fazer??\n\n(1) Explorar a cidade pela manhã.\n(2) Descansar mais um pouco"
+opcoesCidadela = textoFormatado "Após a luta de ontem você desperta, mas vê que ainda são 6h da manhã O que você deseja fazer??\n\n(1) Explorar a cidade pela manhã.\n(2) Descansar mais um pouco\n(3) Voltar ao menu"
 
 dialogoFerreira02::String
 dialogoFerreira02 = textoFormatado "Heanes: Ei os seus itens quebraram apos um uso? não tem nada sobre a garantia, algo como se quebrar em até 14 dias devolvemos seu dinheiro?\n\nFerreira: *arrega os olhos e diz*  Você tem a brilhante ideia de lutar contra cachorros e uma IA e quebrar os itens, e tem a cara de pau de falar que eles são defeituosos?\n\nHeanes: é pensando por esse lado..."
@@ -101,3 +101,9 @@ cursoHistoria2 = textoFormatado "*Você percebe que não descansou o suficiente,
 
 vilaoKanva :: String
 vilaoKanva = textoFormatado "Eu sou o kanva e os caralho."
+
+vitoriaKanva :: String
+vitoriaKanva = textoFormatado "voce ganhou do kanva dog, nice!!"
+
+historiaConversaGPT :: String
+historiaConversaGPT = "historia da investigacao do conversaGPT"

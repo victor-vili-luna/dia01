@@ -1,0 +1,2 @@
+Pocao {nome = "Red bull", vida = 50, preco = 50, defesa = 40, ataque = 40, quantidade = 1}
+Pocao {nome = "Cafe", vida = 40, preco = 20, defesa = 0, ataque = 0, quantidade = 1}

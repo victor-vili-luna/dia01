@@ -6,34 +6,34 @@ import Util.Lib
 import System.IO (readFile')
 import Models.Pocao
 
-abreLojaItensInicial::IO()
-abreLojaItensInicial = do
+abreLojaItens :: String -> IO()
+abreLojaItens filepath = do
     clearScreen
 
     putStrLn (textoFormatado "Ferreira, o ferreiro: Olá herói! Aqui está uma lista de itens que você pode comprar caso tenha as moedas, claro:\n")
-    arquivo02 <- readFile' "./src/pacote/ItensIniciais.txt"
+    arquivo02 <- readFile' filepath
     let lojaItens = map (read::String->Item) (lines arquivo02)
     print lojaItens
     putStrLn (textoFormatado "Deseja comprar algo?\n(1)Sim.\n(2)Não.")
     input <- getLine
-    if trim input == "1" then compraItem lojaItens
+    if trim input == "1" then compraItem filepath lojaItens
     else putStrLn "Não quer comprar hein...tudo bem."
 
-abreLojaPocoesInicial::IO()
-abreLojaPocoesInicial = do
+abreLojaPocoes::String -> IO()
+abreLojaPocoes filepath = do
     clearScreen
 
-    putStrLn (textoFormatado "Ferreira, o ferreiro: Olá herói! Aqui está uma lista de poções que você pode comprar caso tenha as moedas, claro:\n")
-    arquivoPocaoInicial <- readFile' "./src/pacote/PocaoInicial.txt"
-    let lojaPocao = map (read::String->Pocao) (lines arquivoPocaoInicial)
+    putStrLn (textoFormatado "Olá herói! Aqui está uma lista de poções que você pode comprar caso tenha as moedas, claro:\n")
+    arquivoPocao <- readFile' filepath
+    let lojaPocao = map (read::String->Pocao) (lines arquivoPocao)
     print lojaPocao
     putStrLn (textoFormatado "Deseja comprar algo?\n(1)Sim.\n(2)Não.")
     input <- getLine
-    if trim input == "1" then compraPocao lojaPocao
+    if trim input == "1" then compraPocao filepath lojaPocao
     else putStrLn "Não quer comprar hein...tudo bem."
 
-compraItem::[Item]->IO()
-compraItem lojaItens = do
+compraItem::String->[Item]->IO()
+compraItem filepath lojaItens = do
     putStrLn "Digite o nome do item que você deseja comprar."
     input <- getLine
     let maybeItem = identificaItem input lojaItens
@@ -51,15 +51,15 @@ compraItem lojaItens = do
                 salvaItens listaAtualItens
                 putStrLn "Compra realizada com sucesso."
             else do
-                putStrLn "Está pobre, tente outro item."
-                abreLojaItensInicial
+                putStrLn "Está pobre, tente novamente"
+                abreLojaItens filepath
         Nothing -> do
             putStrLn "Por favor tente novamente."
-            abreLojaItensInicial
+            compraItem filepath lojaItens
 
 
-compraPocao::[Pocao]->IO()
-compraPocao lojaPocao = do
+compraPocao::String -> [Pocao] -> IO()
+compraPocao filepath lojaPocao = do
     putStrLn "Digite o nome da pocao que você deseja comprar."
     pocaoNome <- getLine
     let maybePocao = identificaPocao pocaoNome lojaPocao
@@ -85,14 +85,14 @@ compraPocao lojaPocao = do
                     putStrLn "Compra realizada com sucesso."
             else do
                 putStrLn "Está pobre"
-                abreLojaPocoesInicial
+                abreLojaPocoes filepath
         Nothing -> do
             putStrLn "Por favor tente novamente"
-            abreLojaPocoesInicial
+            abreLojaPocoes filepath
 
 verLoja::IO()
 verLoja = do
-    putStrLn "Ferreira, o ferreiro: Olá Herói! Esses são os itens e os preços que quando você trabalhar, poderá comprar: \n"
+    putStrLn "Ferreira, o ferreiro: Olá Herói! Esses são os itens e os preços que se você tiver dinheiro, poderá comprar: \n"
     arquivo02 <- readFile' "./src/pacote/ItensIniciais.txt"
     let loja = map (read::String->Item) (lines arquivo02)
     print loja

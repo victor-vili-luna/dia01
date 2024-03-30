@@ -94,3 +94,8 @@ verificaMortoHeroi heanes = Models.Player.vida heanes <= 0
             
 verificaMortoInimigo :: Inimigo -> Bool
 verificaMortoInimigo inimigo = Models.Inimigo.vida inimigo <= 0
+
+morte:: IO()
+morte = do
+    putStrLn "Você morreu, sei que é complicado digerir isso mas é um jogo então sempre da pra voltar! mas você perdeu TODAS AS MOEDAS\nIrei lhe direcionar ao menu decida se quer continuar a jogar\n"
+    esperandoEnter
