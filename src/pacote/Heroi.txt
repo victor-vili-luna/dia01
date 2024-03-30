@@ -1,1 +1,13 @@
+<<<<<<< HEAD
 Player {nome = "Heanes", vida = 100, gold = 100, defesa = 5, ataque = 5, equipamentos = [], pocoes = [], progresso = 0}
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+Player {nome = "Heanes", vida = 120, gold = 30, defesa = 35, ataque = 35, equipamentos = [], pocoes = [Pocao {nome = "Cafe", vida = 40, preco = 20, defesa = 0, ataque = 0, quantidade = 1},Pocao {nome = "Monster", vida = 0, preco = 0, defesa = 0, ataque = 50, quantidade = 3},Pocao {nome = "Monster", vida = 0, preco = 0, defesa = 0, ataque = 50, quantidade = 3},Pocao {nome = "Monster", vida = 0, preco = 0, defesa = 0, ataque = 50, quantidade = 3}], progresso = 1}
+=======
+Player {nome = "Heanes", vida = 100, gold = 0, defesa = 5, ataque = 5, equipamentos = [], pocoes = [], progresso = 1}
+>>>>>>> bfb3e5a88eb11a47af2e57ca369a3a5a2f23b2b9
+=======
+Player {nome = "Heanes", vida = 30, gold = 253, defesa = 5, ataque = 85, equipamentos = [], pocoes = [Pocao {nome = "Monster", vida = 0, preco = 0, defesa = 0, ataque = 50, quantidade = 2}], progresso = 1}
+>>>>>>> ee9252e11c952be6395541308d4b862a95f72b2d
+>>>>>>> d3e2eb3b6a96fbb89b2b21b461e5ce36c04a633e

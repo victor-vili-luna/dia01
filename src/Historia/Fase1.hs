@@ -12,13 +12,12 @@ escolhaCaminhoCidade = do
 
     putStrLn menuInicial
     escolha02 <- trim <$> getLine
+    clearScreen
 
     if escolha02 == "1" then do
-        clearScreen
         putStrLn "Você escolheu explorar a cidade, para onde nosso bravo web-guerreiro irá?\n"
-        abreMapa01 ["(1) Voltar a loja do ferreiro Ferreira para *ver* os itens disponíveis.", "(2) Conversar com o Ferreira.", "(3) Ir à praça da cidade.","(4) Seguir Carl Wilson.","(5) voltar ao menu" ]
+        abreMapa01 ["(1) Voltar a loja do ferreiro Ferreira para *ver* os itens disponíveis.", "(2) Conversar com o Ferreira.", "(3) Ir à praça da cidade.","(4) Seguir Carl Wilson.","(5) Voltar ao menu\n" ]
     else if escolha02 == "2" then do
-        clearScreen
         putStrLn "*Carl Wilson percebe que você começa a seguir ele e se vira rapidamente em sua direção*\n"
         putStrLn cursoHistoria1
         sistemaGold
@@ -60,11 +59,13 @@ abreMapa01 opcoes = do
     else if resposta == "5" then 
         voltaMenu
     else do
-        putStrLn "Escreva uma opção válida."
+        clearScreen
+        putStrLn "Escreva uma opção válida.\n"
         abreMapa01 opcoes
 
 historiaPrincipal::[String]->IO()
 historiaPrincipal opcoes = do
+    clearScreen
     putStrLn "O que deseja fazer agora que está de volta a cidade?\n"
     mapM_ putStrLn opcoes
     putStrLn "\n------------------------------------------------------------------------------------\n"

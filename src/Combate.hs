@@ -89,7 +89,7 @@ turnoCaramelo = do
         print heanes
         putStrLn "\n------------------------------------------------------------------------------------\n"
         esperandoEnter
-    else putStrLn "Leandro: Você conseguiu, matou todos os cachorros mágicos, eu sabia que você era forte."
+    else putStrLn "Leandro: Você conseguiu! Matou todos os cachorros mágicos, eu sabia que você era forte.\n"
 
 turnoAtaqueCaramelo :: IO()
 turnoAtaqueCaramelo = do

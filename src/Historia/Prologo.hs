@@ -23,7 +23,7 @@ escolhaTreatment escolha vezes_negado = do
             setupInicial
         "2" -> jubilado (vezes_negado + 1)
         _ -> do
-            putStrLn "A liberdade de expressão era uma mentira...\n"
+            putStrLn (textoFormatado("A liberdade de expressão era uma mentira...\n"))
             esperandoEnter
             setupInicial
 

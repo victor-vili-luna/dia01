@@ -1,1 +1,13 @@
+<<<<<<< HEAD
 Inimigo {nome = "Kanva", ataque = 25, defesa = 10, vida = 200, habilidadeEspecial = 45}
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+Inimigo {nome = "Kanva", ataque = 25, defesa = 10, vida = 175, habilidadeEspecial = 45}
+=======
+Inimigo {nome = "Kanva", ataque = 25, defesa = 10, vida = 200, habilidadeEspecial = 45}
+>>>>>>> bfb3e5a88eb11a47af2e57ca369a3a5a2f23b2b9
+=======
+Inimigo {nome = "Kanva", ataque = 25, defesa = 10, vida = -25, habilidadeEspecial = 45}
+>>>>>>> ee9252e11c952be6395541308d4b862a95f72b2d
+>>>>>>> d3e2eb3b6a96fbb89b2b21b461e5ce36c04a633e

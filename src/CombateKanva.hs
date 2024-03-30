@@ -12,16 +12,23 @@ import Historia.Fase2 (escolhaCaminhoCidadeFase2)
 
 combateKanva :: IO()
 combateKanva = do
-    putStrLn "Sem tempo para comemorar a vitória você é puxado para dentro do museu deixando Leandro para trás."
+    putStrLn (textoFormatado("*Sem tempo para comemorar a vitória você é puxado para dentro do museu deixando Leandro para trás.*\n"))
+    esperandoEnter
+    clearScreen
     putStrLn vilaoKanva
-    putStrLn "Voce consegue se soltar enquanto ele divaga e dístraido, você tem chance de se preparar para o combate."
-    putStrLn "Esses são seus status atuais, mas C.W. te acompanha de longe e liberou uma poção a mais no seu inventário, veja o que quer fazer tendo em vista que essa poção não pode ser comprada, se utilizar todos os exemplares ela sumirá para sempre."
+    esperandoEnter
+    clearScreen
+    putStrLn "Se prepare rapidamente para o combate!.\n"
+    putStrLn "Esses são seus status atuais, mas C.W. te acompanhou de longe e liberou uma poção a mais no seu inventário, essa poção é uma nova criação do Mestre dos Magos, enão pode ser comprada.\n"
 
     adicionaPocaoCW
     heanes <- carregaPlayer
     print heanes
+    putStrLn(textoFormatado(""))
+    esperandoEnter
+    clearScreen
 
-    putStrLn "Kanva finalmente notou que você se aproxima para o combate!!\nTOME SUA DECISÃO HÉROI!!"
+    putStrLn "Kanva finalmente notou que você se aproxima para o combate!!!\n\nTOME SUA DECISÃO HÉROI!!\n"
     turnoAcaoKanva
 
 adicionaPocaoCW :: IO()
@@ -50,7 +57,8 @@ turnoHeanesKanva :: IO()
 turnoHeanesKanva = do
     heanes <- carregaPlayer
     if not (verificaMortoHeroi heanes) then do
-        putStrLn "(1)Ataque.\n(2)Usa poção."
+        putStrLn "(1) Ataque.\n(2) Usa poção.\n"
+        putStrLn "------------------------------------------------------------------------------------\n"
         input <- trim <$> getLine
         if input == "1" then do
             usaAtaqueKanva

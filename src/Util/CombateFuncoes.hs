@@ -42,8 +42,11 @@ equipaItem = do
                 listaItensAtualizada = removeItem input (Models.Player.equipamentos heroi)
                 heanesAtualizado = heroi {Models.Player.ataque = ataqueAtualizado, Models.Player.defesa = defesaAtualizada, Models.Player.equipamentos = listaItensAtualizada}
             writeFile "./src/pacote/Heroi.txt" (show heanesAtualizado)
+            clearScreen
             putStrLn "Item equipado com sucesso.\n"
             print heanesAtualizado
+            putStr (textoFormatado(""))
+            esperandoEnter
         Nothing -> do
             clearScreen
             putStrLn (textoFormatado "Creio que digitou errado, mas caso queria voltar ao turno digite: VOLTAR.\n")
@@ -97,5 +100,5 @@ verificaMortoInimigo inimigo = Models.Inimigo.vida inimigo <= 0
 
 morte:: IO()
 morte = do
-    putStrLn "Você morreu, sei que é complicado digerir isso mas é um jogo então sempre da pra voltar! mas você perdeu TODAS AS MOEDAS\nIrei lhe direcionar ao menu decida se quer continuar a jogar\n"
+    putStrLn "Você morreu, sei que é complicado digerir isso mas é um jogo então sempre da pra voltar! Porém, você perdeu TODAS AS MOEDAS.\n"
     esperandoEnter
