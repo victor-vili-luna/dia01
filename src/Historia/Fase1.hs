@@ -1,19 +1,16 @@
 module Historia.Fase1(
     escolhaCaminhoCidade
 ) where
-import Models.Player
 import Historia
 import Loja
 import SistemaGold
-import System.IO
-import System.Directory
 import Combate
 import Util.Lib
 
 escolhaCaminhoCidade::IO()
 escolhaCaminhoCidade = do
 
-    putStrLn (textoFormatado menuInicial)
+    putStrLn menuInicial
     escolha02 <- getLine
 
     if trim escolha02 == "1" then do
@@ -23,7 +20,7 @@ escolhaCaminhoCidade = do
     else if trim escolha02 == "2" then do
         clearScreen
         putStrLn "*Carl Wilson percebe que você começa a seguir ele e se vira rapidamente em sua direção*\n"
-        putStrLn cursoHistoria02
+        putStrLn cursoHistoria1
         sistemaGold
         historiaPrincipal ["(1) Ganhar dinheiro","(2) Comprar poções com C.W.","(3) Visitar o ferreiro Ferreira","(4) Me garanto em enfrentar a I.A."]
     else do
@@ -42,6 +39,8 @@ abreMapa01 opcoes = do
     if resposta == "1" then do
         clearScreen
         verLoja
+        putStrLn "\nMas como você ainda não possui nenhum tostão, acho melhor você pensar em fazer alguma outra coisa..."
+        putStrLn (textoFormatado "")
         abreMapa01 opcoes
     else if resposta == "2" then do
         clearScreen
@@ -53,7 +52,7 @@ abreMapa01 opcoes = do
         abreMapa01 opcoes
     else if resposta == "4" then do
         clearScreen
-        putStrLn cursoHistoria02
+        putStrLn cursoHistoria1
         sistemaGold
         putStrLn cursoAventura01
         historiaPrincipal ["(1) Ganhar dinheiro","(2) Comprar poções com C.W.","(3) Visitar o ferreiro Ferreira","(4) Me garanto em enfrentar a I.A."]
@@ -63,7 +62,6 @@ abreMapa01 opcoes = do
 
 historiaPrincipal::[String]->IO()
 historiaPrincipal opcoes = do
-
     putStrLn "O que deseja fazer agora que está de volta a cidade?\n"
     mapM_ putStrLn opcoes
     putStrLn "\n------------------------------------------------------------------------------------\n"

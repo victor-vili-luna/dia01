@@ -6,7 +6,7 @@ module Models.Item where
         ataque::Int,
         defesa::Int,
         descricao::String
-    } deriving (Show, Read)
+    } deriving (Show, Read, Eq)
 
     getPrecoItem :: Item -> Int
     getPrecoItem = preco

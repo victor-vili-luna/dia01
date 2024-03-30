@@ -1,6 +1,6 @@
 module Models.Player where
-    import Models.Pocao
-    import Models.Item
+    import Models.Pocao hiding (nome, vida, ataque, defesa)
+    import Models.Item hiding (nome, ataque, defesa)
 
     data Player = Player {
         nome::String,
@@ -13,6 +13,7 @@ module Models.Player where
         progresso::Int
     } deriving (Show, Read)
 
+
     getProgresso :: Player -> Int
     getProgresso = progresso
 
@@ -24,4 +25,20 @@ module Models.Player where
 
     modificaGold:: Player -> Int -> Player
     modificaGold heanes goldExtra = heanes{gold = getGold heanes + goldExtra}
+
+    getVida:: Player -> Int
+    getVida = vida
+
+    reset :: Player -> Player
+    reset heanes = Player {
+        nome = "Heanes",
+        vida = 100,
+        gold = 0,
+        defesa = 5,
+        ataque = 5,
+        equipamentos = equipamentos heanes,
+        pocoes = pocoes heanes,
+        progresso = progresso heanes
+        }
+
 

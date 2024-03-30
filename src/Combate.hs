@@ -25,15 +25,9 @@ combate01 = do
     print caramelos
 
     putStrLn "\nDê uma olhada nos seus status também, quando utilizar um item ou poção os atributos vão ser adicionados aos seus status básicos.\n"
-<<<<<<< HEAD
+    putStrLn "Dica: Quando você utiliza um equipamento ou poção, ele é descartado após o combate, logo, tenha cuidado no que vai usar."
     heanes <- carregaPlayer
     print heanes
-=======
-    putStrLn "Dica: Quando você utiliza um equipamento ou poção, ele é descartado após o combate, logo, tenha cuidado no que vai usar."
-    arquivoHeroi <- readFile' "./src/pacote/Heroi.txt"
-    let heroi = read arquivoHeroi :: Player
-    print heroi
->>>>>>> 6e501f9bddc64916e35b6ae1f276d4d0b639e3bb
 
     putStrLn "Começou a primeira fase, você terá 2 turnos, um de preparo e outro que vai ser seguido pelo ataque dos caramelos."
     turnoPreparacao
@@ -109,7 +103,6 @@ turnoAtaqueInimigo = do
         heanesAtualizado = heanes {Models.Player.vida = vidaAtualizadaHeanes}
     writeFile "./src/pacote/Heroi.txt" (show heanesAtualizado)
 
-<<<<<<< HEAD
 turnoPreparacao :: IO()
 turnoPreparacao = do
     putStrLn "Começou a primeira fase, você terá 2 turnos, um de preparo e outro que vai ser seguido pelo ataque dos caramelos."
@@ -147,7 +140,7 @@ equipaItem = do
         Nothing -> do
             putStrLn "Creio que digitou errado, mas caso queria voltar ao turno digite: voltar."
             input01 <- getLine
-            if comparaStrings input01 "voltar" then turnoPreparacao
+            if comparaString input01 "voltar" then turnoPreparacao
             else equipaItem
 
 usaPocao :: IO()
@@ -183,8 +176,6 @@ usaPocao = do
         Nothing -> do
             putStrLn "Pocao inválida, caso queira voltar ao turno ao invés de digitar a poção novamente, digite: voltar."
             input01 <- getLine
-            if comparaStrings input01 "voltar" then turnoPreparacao
+            if comparaString input01 "voltar" then turnoPreparacao
             else usaPocao
-=======
->>>>>>> 6e501f9bddc64916e35b6ae1f276d4d0b639e3bb
 

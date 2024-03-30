@@ -79,7 +79,7 @@ fechaJogo = "Você fugiu covardemente...Boa sorte em ensinar o Teorema do resto 
 
 esperandoEnter :: IO ()
 esperandoEnter = do
-    putStr "Pressione Enter para continuar..."
+    putStr "Pressione Enter para continuar...\n"
     hFlush stdout
     _ <- getChar
     return ()
@@ -93,9 +93,8 @@ atualizaProgresso novoProgresso = do
     let novoHeanes = attProgresso heanes novoProgresso
     salvaPlayer novoHeanes
 
-<<<<<<< HEAD
-comparaStrings :: String -> String -> Bool
-comparaStrings str1 str2 = clean str1 == clean str2
+comparaString :: String -> String -> Bool
+comparaString str1 str2 = clean str1 == clean str2
     where clean = map toLower . trim
 
 {-esse droWhile ficando fazendo o drop da lista enquanto o boll que passamos é verdadeiro só que nesse caso
@@ -110,7 +109,7 @@ apagaEspacosFim = reverse . apagaEspacos . reverse
 
 trim :: String -> String
 trim = apagaEspacos . apagaEspacosFim
-=======
+
 identificaItem::String->[Item]->Maybe Item
 identificaItem _ [] = Nothing
 identificaItem nomeItem (item:itemSequente)
@@ -152,4 +151,14 @@ removePocaoAntiga _ [] = []
 removePocaoAntiga nomePocao (a:as)
     | Models.Pocao.nome a == nomePocao = as
     | otherwise = a : removePocaoAntiga nomePocao as
->>>>>>> 6e501f9bddc64916e35b6ae1f276d4d0b639e3bb
+
+resetPlayer:: IO Player
+resetPlayer = do
+    heanes <- carregaPlayer
+    let heanesReset = reset heanes
+    salvaPlayer heanesReset
+    return heanesReset
+
+salvaInimigo:: Inimigo -> FilePath -> IO()
+salvaInimigo inimigo caminho = writeFile caminho (show inimigo)
+

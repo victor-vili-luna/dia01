@@ -2,7 +2,9 @@ module Main(
     main
 ) where
 import Util.Lib
+import System.Directory (createDirectory, doesDirectoryExist)
 import Util.ControleSalvamento
+import Util.Lib (carregaPlayer)
 main::IO()
 main = menu
 
@@ -18,8 +20,9 @@ menu = do
     putStrLn "4 - Sair\n"
 
     input <- getLine
+    let escolha = trim input
     clearScreen
-    case input of
+    case escolha of
         "1" -> do
             comecaJogo
         "2" -> carregaJogo

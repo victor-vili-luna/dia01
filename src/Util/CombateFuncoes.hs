@@ -4,6 +4,7 @@ import Models.Player
 import Models.Item
 import Models.Pocao
 import Util.Lib
+import Models.Inimigo
 
 turnoPreparacao :: IO()
 turnoPreparacao = do
@@ -80,4 +81,8 @@ usaPocao = do
             if input01 == "voltar" then turnoPreparacao
             else usaPocao
         
-       
+verificaMortoHeroi :: Player -> Bool
+verificaMortoHeroi heanes = Models.Player.vida heanes <= 0
+            
+verificaMortoInimigo :: Inimigo -> Bool
+verificaMortoInimigo inimigo = Models.Inimigo.vida inimigo <= 0

@@ -1,5 +1,6 @@
 module Models.Inimigo(
-    Inimigo(..)
+    Inimigo(..),
+    getNomeInimigo
 ) where 
     
     data Inimigo = Inimigo {
@@ -9,3 +10,6 @@ module Models.Inimigo(
         vida::Int,
         habilidadeEspecial::Int
 }   deriving (Show, Read)
+
+    getNomeInimigo:: Inimigo -> String
+    getNomeInimigo = nome

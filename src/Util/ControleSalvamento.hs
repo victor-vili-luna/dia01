@@ -7,9 +7,11 @@ import Models.Item
 import Models.Player
 import Models.Conquista
 import Models.Pocao
-import Control.Exception
+import Models.Inimigo
 import Historia.Fase1
+import Historia.Fase2
 import Historia.Prologo
+import Data.List
 
 comecaJogo::IO()
 comecaJogo = do
@@ -37,25 +39,45 @@ help = putStrLn menuAjuda
 inicializaDados::IO()
 inicializaDados = do
     let heanes = player
-        itens = [item espada , item armadura]
-        pocaoItem = [pocao]
-    conquista <- listaDeConquista
+        itens = [item espadaPedra , item armaduraCouro]
+        pocaoItem = [pocao cafe]
     salvaPlayer heanes
     salvaItens itens
     salvaPocao pocaoItem
-    salvaConquista conquista
+    salvainimigosFase1
 
 heanesString :: String
 heanesString = "Player {nome = \"Heanes\", vida = 100, gold = 100, defesa = 5, ataque = 5, equipamentos = [], pocoes = [], progresso = 0}"
 
-armadura :: String
-armadura =  "Item {nome = \"Armadura de couro\", preco = 30, ataque = 0, defesa = 30, descricao = \"Armadura que protege contra as falacias da IA.\"}"
+armaduraCouro :: String
+armaduraCouro =  "Item {nome = \"Armadura de couro\", preco = 30, ataque = 0, defesa = 30, descricao = \"Armadura que protege contra as falacias da IA.\"}"
 
-espada::  String
-espada = "Item {nome = \"Espada de ferro\", preco = 30, ataque = 30, defesa = 0, descricao = \"Se quiser espada tem, mas so usa espada quem nao se garante.\"}"
+armaduraFerro :: String
+armaduraFerro = "Item {nome = \"Armadura de ferro\", preco = 300, ataque = 0, defesa = 80, descricao = \"Composta pelos mais refinados pedaços de sucata metálica, é garantido que esta armadura fará você parecer o homem de ferro da shopee\"}"
+
+espadaPedra::  String
+espadaPedra = "Item {nome = \"Espada de pedra\", preco = 30, ataque = 30, defesa = 0, descricao = \"Se quiser espada tem, mas so usa espada quem nao se garante.\"}"
+
+espadaFerro:: String
+espadaFerro = "Item {nome = \"Espada de ferro\", preco = 300, ataque = 100, defesa = 0, descricao = \"Espada um pouco enferrujada, se não matar na espadada mata no tétano.\"}"
 
 cafe:: String
 cafe = "Pocao {nome = \"Cafe\", vida = 40, preco = 20, defesa = 0, ataque = 0, quantidade = 1}"
+
+redBull:: String
+redBull = "Pocao {nome = \"red Bull\", vida = 0, preco = 60, defesa = 0, ataque = 0, quantidade =1}"
+
+caramelo:: String
+caramelo = "Inimigo {nome = \"Cachorros Caramelos\", ataque = 15, defesa = 5, vida = 50, habilidadeEspecial = 0}"
+
+kanva:: String
+kanva = "Inimigo {nome = \"Kanva\", ataque = 30, defesa = 10, vida = 200, habilidadeEspecial = 0}"
+
+ia2 :: String
+ia2 = "Inimigo {nome = \"ia2\", ataque = 60, defesa = 30, vida = 500, habilidadeEspecial = 0}"
+
+inimigo:: String -> Inimigo
+inimigo = read
 
 item::String -> Item
 item = read
@@ -63,8 +85,8 @@ item = read
 player ::Player
 player = read heanesString
 
-pocao :: Pocao
-pocao = read cafe
+pocao :: String -> Pocao
+pocao = read
 
 conquistas::String
 conquistas = "Conquista {nomeC = \"Jubilado\", descricao = \"Negue Carl Wilson 8 vezes\", alcancou = False}\nConquista {nomeC = \"Se voce nao parar eu Paro\", descricao = \"Tome 6 Pocoes\", alcancou = False}\nConquista {nomeC = \"Faixa Preta\", descricao = \"Derrotou ConversaGPT\", alcancou = False}"
@@ -75,23 +97,53 @@ listaDeConquista = return (map parseConquista (lines conquistas))
 
 carregaJogo::IO()
 carregaJogo = do
-    heanes <- carregaPlayer
+    heanes <- resetPlayer
     let progresso = getProgresso heanes
     case progresso of
         0 -> do
-            putStrLn "Você não tem nenhum jogo salvo, ou você ainda não começou um jogo ou apenas não chegou ao fim do prólogo\n irei começar um jogo agora boa sorte na aventura!"
+            putStrLn "Você não tem nenhum jogo salvo, ou você ainda não começou um jogo ou apenas não chegou ao fim do prólogo\nirei começar um jogo agora boa sorte na aventura!"
+            esperandoEnter
             comecaJogo
-        1 -> carregandoJogo progresso
-
-
-carregandoJogo::Int -> IO()
-carregandoJogo progresso = 
-    case progresso of
-        0 -> comecaJogo
-        1 -> escolhaCaminhoCidade
-        2 -> putStrLn "fase2"
+        1 -> resetFase1
+        2 -> resetFase2
         3 -> putStrLn "fase3"
         4 -> putStrLn "fase4"
+
+resetFase1:: IO()
+resetFase1 = do
+    salvainimigosFase1
+    verificaLoja [item espadaPedra , item armaduraCouro]
+    escolhaCaminhoCidade
+
+resetFase2:: IO()
+resetFase2 = do
+    salvainimigoFase2
+    verificaLoja [item espadaFerro ,item armaduraFerro]
+    let pocaoItem = [pocao cafe, pocao redBull]
+    salvaPocao pocaoItem
+    escolhaCaminhoCidadeFase2
+
+verificaLoja:: [Item] -> IO()
+verificaLoja loja = do
+    heanes <- carregaPlayer
+    let itensLoja = removeItensJogadorDeLoja loja (equipamentos heanes)
+    salvaItens itensLoja
+
+salvainimigosFase1::IO()
+salvainimigosFase1 = do
+    let dog = inimigo caramelo
+        kanvas = inimigo kanva
+    salvaInimigo dog (criaCaminho (getNomeInimigo dog))
+    salvaInimigo kanvas (criaCaminho (getNomeInimigo kanvas))
+
+salvainimigoFase2::IO()
+salvainimigoFase2 = do
+    let ia = inimigo ia2
+    salvaInimigo ia (criaCaminho (getNomeInimigo ia))
+
+removeItensJogadorDeLoja :: [Item] -> [Item] -> [Item]
+removeItensJogadorDeLoja = foldr delete
+
 
 
 

@@ -1,0 +1,1 @@
+Inimigo {nome = "ia2", ataque = 60, defesa = 30, vida = 500, habilidadeEspecial = 0}

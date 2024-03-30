@@ -13,13 +13,8 @@ sistemaGold = do
 
     input <- getLine
     clearScreen
-<<<<<<< HEAD
     if trim input == "1" then do
         putStrLn explicacaoBasica01
-=======
-    if input == "1" then do  
-        --putStrLn explicacaoBasica01 mudou o nome da funcao e nao consigo achar ela.
->>>>>>> 6e501f9bddc64916e35b6ae1f276d4d0b639e3bb
         putStrLn "*QUANDO QUISER PARAR, APERTE QUALQUER TECLA.*"
         sistemaGoldPassivoAux 0
     else if trim input == "2"
@@ -49,19 +44,19 @@ sistemaGoldAtivoAux = do
     putStrLn promptPerguntas
     putStrLn (textoFormatado "")
     let progresso = getProgresso heanes
-    clearScreen
     case progresso of
         1 -> questao01 heanes
         2 -> questao02 heanes
         3 -> ultimasPerguntas heanes
         _ -> return ()
+    esperandoEnter
 
 questao01:: Player ->IO()
 questao01 heanes = do
     putStrLn (textoFormatado "Vending Machine: QUAL A MELHOR LINGUAGEM DE PROGRAMAÇÃO JÁ CRIADA?\n")
     input <- getLine
     clearScreen
-    if (input /= "Haskell") && (input /= "haskell") then do
+    if comparaString input "Haskell" then do
         let heanesMaisRico = modificaGold heanes 30
         salvaPlayer heanesMaisRico
         putStrLn "\nVending Machine: MUITO BEM, HUMANO! AINDA BEM QUE MEU PROGRAMADOR NÃO ME FEZ EM HASKELL... ECA!"
@@ -95,7 +90,7 @@ questao03 heanes = do
     putStrLn (textoFormatado "Vending Machine: QUAL O MAIOR TIME DE FUTEBOL DA PARAÍBA?\n")
     input <- getLine
     clearScreen
-    if comparaStrings input "Galo" || comparaStrings input "Treze" then do
+    if comparaString input "Galo" || comparaString input "Treze" then do
         let heanesMaisRico = modificaGold heanes 30
         salvaPlayer heanesMaisRico
         putStrLn  "\nVending Machine: MUITO BEM, HUMANO! UH É GALO DOIDO!"
@@ -108,7 +103,7 @@ questao04 heanes = do
     putStrLn (textoFormatado "Vending Machine: QUAL A SEGUNDA LINGUAGEM DE PROGRAMAÇÃO QUE SERÁ UTILIZADA NA CADEIRA DE PLP?\n")
     input <- getLine
     clearScreen
-    if comparaStrings input "Prolog" || comparaStrings input "prolog" then do
+    if comparaString input "Prolog" || comparaString input "prolog" then do
         let heanesMaisRico = modificaGold heanes 30
         salvaPlayer heanesMaisRico
         
@@ -119,7 +114,7 @@ questao04 heanes = do
 
 
 parabenizaAcerto:: Player -> String
-parabenizaAcerto heanes = "\n*Você olha para sua carteira de professor, e vê " ++ show (getGold heanes) ++ " moedas de critais. Enquanto isso, o Mestre dos Magos é sumonado repentinamente*"
+parabenizaAcerto heanes = "\n*Você olha para sua carteira de professor, e vê " ++ show (getGold heanes) ++ " moedas de critais"
 
 maquinaIrritada :: String
 maquinaIrritada ="\nVending Machine: COMO VOCÊ PODE FALAR UMA COISA DESSAS??? REPENSE SUAS ATITUDEZINHAS, SEM REWARD PARA VOCÊ.\n*Você olha para sua carteira de professor, e ela está vazia, você pensa em entrar em greve. Enquanto isso, você se vê de volta a cidade meio cabisbaixo*"
