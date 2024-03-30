@@ -122,6 +122,10 @@ cursoHistoria3 = textoFormatado "Segunda feira é um dia que tem algo que te pux
 
 finalHistoria:: String
 finalHistoria = textoFormatado "C.W: Parabéns Heanes, você é o salvador de todos nós e ficou bem essa faixa preta que você pegou do conversa\nHeanes: HAHA nada disso seria possivel sem sua ajuda mas... como eu volto pra casa\n*SILENCIO ENSURDECEDOR*\nC.W: aaaahnn MEU DEUS OLHA A HORA, nós vemos depois\nHeanes: EI VOLTA AQUI "
+
+vilaoPlayHub :: String
+vilaoPlayHub = textoFormatado "Eu sou o playhub e os caralho."
+
 vilaoKanva :: String
 vilaoKanva = textoFormatado "Eu sou o kanva e os caralho."
 

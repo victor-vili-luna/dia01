@@ -32,6 +32,7 @@ adicionaPocaoCW = do
         pocoesAtualizada = Models.Player.pocoes heroi ++ [pocaoMonster]
         heanesAtualizado = heroi {Models.Player.pocoes = pocoesAtualizada}
     writeFile "./src/pacote/Heroi.txt" (show heanesAtualizado)
+
 turnoAcaoKanva :: IO()
 turnoAcaoKanva = do
     turnoHeanesKanva
@@ -53,12 +54,12 @@ turnoHeanesKanva = do
         input <- trim <$> getLine
         if input == "1" then do
             usaAtaqueKanva
-            putStrLn "Você faz a I.A. aposentar os pincéis."
+            putStrLn "Você desfere uma lapada de mão aberta."
         else if input == "2" then usaPocao
         else do
             putStrLn "Digite uma opção válida."
             turnoHeanesKanva
-    else putStrLn "Voce errou"
+    else putStrLn "Oh não dog, você..."
 
 usaAtaqueKanva :: IO ()
 usaAtaqueKanva = do
@@ -101,7 +102,7 @@ turnoAtaqueKanva = do
 escolheAtaqueKanva :: [String] -> IO String
 escolheAtaqueKanva lista = do
     inimigo <- carregaInimigo (criaCaminho "Kanva")
-    let index = Models.Inimigo.vida inimigo `mod` 4
+    let index = Models.Inimigo.vida inimigo `mod` 3
     return (lista !! index)
 
 turnoVidaBaixaKanva :: IO()
