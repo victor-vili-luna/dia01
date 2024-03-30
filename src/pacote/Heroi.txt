@@ -1,1 +1,1 @@
-Player {nome = "Heanes", vida = 30, gold = 253, defesa = 5, ataque = 85, equipamentos = [], pocoes = [Pocao {nome = "Monster", vida = 0, preco = 0, defesa = 0, ataque = 50, quantidade = 2}], progresso = 1}
+Player {nome = "Heanes", vida = 100, gold = 100, defesa = 5, ataque = 5, equipamentos = [], pocoes = [], progresso = 0}
