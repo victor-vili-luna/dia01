@@ -42,14 +42,32 @@ cursoParte07 = textoFormatado "C.W.: Bom, eu esqueci um energético no caldeirã
 cursoHistoria1 :: String
 cursoHistoria1 = textoFormatado "C.W.: Olá Heanes, agora vou lhe explicar como você conseguirá enfrentar seus desafios. Basicamente, quando você entrar em combate, terá opções variadas que se escolhidas corretamente quando combinadas com seus atributos básicos, podem derrotar o seu inimigo.\n\nHeanes: Entendi essa parte, mas como vou saber meus atributos básicos?.\n\nMestre dos Magos (C.W.): Se você visitou a loja, sabe que existem itens e poções que aumentam seus atributos. Claro, para isso você tem que trabalhar e ganhar dinheiro nesse mundo. Apesar de ser um mago, ainda não produzo dinheiro, e quanto a ele... você pode ganhar de duas formas:\n"
 
-kanvaHistoria :: String
-kanvaHistoria = textoFormatado "*Pensando sobre o que o C.W. disse, preciso ir ao museu e, pensando bem, acho que fica perto daquele padeiro estranho que conversei antes.* Na frente do museu heanes vê um homem, completamente desesperado, estatura mediana e cabelos bagunçados, repetindo para si mesmo: Isso não é arte. *Heanes se aproxima* e pergunta: Você é o Leandro?? Leandro: Sim, sou eu, e pelo que me disseram, você é o herói Heanes certo, não temos tempo a perder, dentro do museu o Kanva está alterando todo o museu, substituindo as pinturas mais perfeitas por suas imagens disformes. Heanes: Entendo, mas por que existem tantos cachorros grandes cercando o mu..."
+kanvaHistoria1 :: String
+kanvaHistoria1 = textoFormatado "C.W.: Tudo bem, já que você está preparado, recomendo ir ao Museu, lá existem feras que estão fora de controle\n" 
+
+kanvaHistoria2 :: String
+kanvaHistoria2 = textoFormatado "*Na frente do museu, Heanes vê um homem completamente desesperado de estatura mediana e cabelos bagunçados*\n" 
+
+kanvaHistoria3 :: String
+kanvaHistoria3 = textoFormatado "Homem completamente desesperado: Isso não é arte. Isso não é arte. Isso não é arte. Isso não é arte. Isso não é arte. Isso não é arte. Isso não é arte. Isso não é arte. Isso não é arte. Isso não é arte. Isso não é arte. Isso não é arte. Isso não é arte. Isso não é arte...\n"
+
+kanvaHistoria4 :: String
+kanvaHistoria4 = textoFormatado "Heanes: Você é o Leandro??\n"
+
+kanvaHistoria5 :: String
+kanvaHistoria5 = textoFormatado "Leandro: Sim, sou eu. E pelo que me disseram, você é o herói. Não temos tempo a perder, dentro do museu a I.A. chamada Kanva está alterando tudo, substituindo as pinturas mais perfeitas por suas imagens disformes.\n"
+
+kanvaHistoria6 :: String
+kanvaHistoria6 = textoFormatado "*Enquanto Leandro falava, grandes sombras de cor caramelo surgiam ao redor*\n"
+
+kanvaHistoria7 :: String
+kanvaHistoria7 = textoFormatado "Leandro: EITA PREULA DOG, OS CACHORROS CARAMELOS DA UFCC AQUI????\n"
 
 menuInicial :: String
 menuInicial = textoFormatado "O que você deseja fazer??\n\n(1) Explorar a cidade.\n(2) Seguir Carl Wilson.\n"
 
 caramelosKanva:: String
-caramelosKanva = textoFormatado "Leandro: Esses são os cachorros criados pelo kanva, fique de costas para mim para nao sermos cercados completamente!!!"
+caramelosKanva = textoFormatado "Leandro: Esses são os cachorros criados pelo kanva, fique de costas para mim para nao sermos cercados completamente!!!\n"
 
 dialogoFerreira01::String
 dialogoFerreira01 = textoFormatado "\nHeanes: Ferreira, se eu vou salvar o mundo, por que você só não me dá os melhores itens de uma vez?\n\nFerreira: *cerra os olhos e diz* Negócios são negócios, como vou pagar o meu café que tomo em seu Élho?\n\n*Ferreira não está mais aberto a conversas, acho melhor fazer alguma outra coisa decente*\n"
