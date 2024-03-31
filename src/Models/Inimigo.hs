@@ -1,6 +1,7 @@
 module Models.Inimigo(
     Inimigo(..),
-    getNomeInimigo
+    getNomeInimigo,
+    toStringInimigo
 ) where 
     
     data Inimigo = Inimigo {
@@ -13,3 +14,6 @@ module Models.Inimigo(
 
     getNomeInimigo:: Inimigo -> String
     getNomeInimigo = nome
+
+    toStringInimigo:: Inimigo -> String
+    toStringInimigo inimigo = "Nome: " ++ nome inimigo ++ "\nVida: " ++ show (vida inimigo) ++ "\nAtaque: " ++ show (ataque inimigo) ++",   Defesa: " ++ show (defesa inimigo)

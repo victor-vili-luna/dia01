@@ -12,19 +12,19 @@ import Historia.Fase2 (escolhaCaminhoCidadeFase2)
 
 combateKanva :: IO()
 combateKanva = do
-    putStrLn (textoFormatado("*Sem tempo para comemorar a vitória você é puxado para dentro do museu deixando Leandro para trás.*\n"))
+    putStrLn (textoFormatado "*Sem tempo para comemorar a vitória você é puxado para dentro do museu deixando Leandro para trás.*\n")
     esperandoEnter
     clearScreen
     putStrLn vilaoKanva
     esperandoEnter
     clearScreen
     putStrLn "Se prepare rapidamente para o combate!.\n"
-    putStrLn "Esses são seus status atuais, mas C.W. te acompanhou de longe e liberou uma poção a mais no seu inventário, essa poção é uma nova criação do Mestre dos Magos, enão pode ser comprada.\n"
+    putStrLn "Esses são seus status atuais, mas C.W. te acompanhou de longe e liberou uma poção a mais no seu inventário, essa poção é uma nova criação do Mestre dos Magos, e não pode ser comprada.\n"
 
     adicionaPocaoCW
     heanes <- carregaPlayer
     print heanes
-    putStrLn(textoFormatado(""))
+    putStrLn (textoFormatado "")
     esperandoEnter
     clearScreen
 
@@ -38,7 +38,7 @@ adicionaPocaoCW = do
     let pocaoMonster = read arquivoPocao :: Pocao
         pocoesAtualizada = Models.Player.pocoes heroi ++ [pocaoMonster]
         heanesAtualizado = heroi {Models.Player.pocoes = pocoesAtualizada}
-    writeFile "./src/pacote/Heroi.txt" (show heanesAtualizado)
+    salvaPlayer heanesAtualizado
 
 turnoAcaoKanva :: IO()
 turnoAcaoKanva = do
@@ -47,10 +47,9 @@ turnoAcaoKanva = do
     heanes <- carregaPlayer
     inimigo <- carregaInimigo (criaCaminho "Kanva")
     if verificaMortoHeroi heanes || verificaMortoInimigo inimigo then do
-        if verificaMortoHeroi heanes then putStrLn "aqui o bicho vai voltar pro inicio"
+        if verificaMortoHeroi heanes then morte
         else do
-            putStrLn vitoriaKanva
-            escolhaCaminhoCidadeFase2
+            vitoriaKanva
     else turnoAcaoKanva
 
 turnoHeanesKanva :: IO()
@@ -62,7 +61,7 @@ turnoHeanesKanva = do
         input <- trim <$> getLine
         if input == "1" then do
             usaAtaqueKanva
-            putStrLn "Você desfere uma lapada de mão aberta."
+            putStrLn "Com sua espada fervorosa você fere o Kanva destruindo alguns de seus grandes tentáculos-pincéis."
         else if input == "2" then usaPocao
         else do
             putStrLn "Digite uma opção válida."
@@ -79,21 +78,21 @@ usaAtaqueKanva = do
         vidaAtualizadaInimigo = (defesaInimigo + vidaInimigo) - ataqueHeanes
         filepath = criaCaminho (Models.Inimigo.nome inimigo)
         inimigoAtualizado = inimigo {Models.Inimigo.vida = vidaAtualizadaInimigo}
-    writeFile filepath (show inimigoAtualizado)
+    salvaInimigo inimigoAtualizado filepath
 
 turnoKanva :: IO()
 turnoKanva = do
     inimigo <- carregaInimigo (criaCaminho "Kanva")
     if not (verificaMortoInimigo inimigo) then do
         if Models.Inimigo.vida inimigo > 35 then do
-            ataqueEscolhido <- escolheAtaqueKanva ["Kanva desenha uma bola de fogo indo na sua direcao", "Repentinamente varias telas saltam sobre voce!! CUIDADO!", "Mais algum ataque do giga"]
+            ataqueEscolhido <- escolheAtaqueKanva ["Kanva desenha uma bola de fogo indo na sua direcao", "Repentinamente varias telas saltam sobre voce!! CUIDADO!", "Kanva joga varios pinceis enraivados contra voce!!"]
             print ataqueEscolhido
             turnoAtaqueKanva
         else do
             putStrLn "Kanvas se enfurece cada vez mais e utiliza sua habilidade especial!! O dano dele é aumentado!\n Não sei qual vai ser, mudem aqui."
             turnoVidaBaixaKanva
         heanes <- carregaPlayer
-        print heanes
+        print (toString heanes)
     else putStrLn "O Kanva foi derrotado, PARABÉNS HERÓI!!!! A CIDADE COMEMORA POR VOCÊ."
 
 turnoAtaqueKanva :: IO()
@@ -105,7 +104,7 @@ turnoAtaqueKanva = do
         vidaHeanes = Models.Player.vida heanes
         vidaAtualizadaHeanes = (defesaHeanes + vidaHeanes) - ataqueInimigo
         heanesAtualizado = heanes {Models.Player.vida = vidaAtualizadaHeanes}
-    writeFile "./src/pacote/Heroi.txt" (show heanesAtualizado)
+    salvaPlayer heanesAtualizado
 
 escolheAtaqueKanva :: [String] -> IO String
 escolheAtaqueKanva lista = do
@@ -122,4 +121,12 @@ turnoVidaBaixaKanva = do
         vidaHeanes = Models.Player.vida heanes
         vidaAtualizadaHeanes = (defesaHeanes + vidaHeanes) - ataqueInimigo
         heanesAtualizado = heanes {Models.Player.vida = vidaAtualizadaHeanes}
-    writeFile "./src/pacote/Heroi.txt" (show heanesAtualizado)
+    salvaPlayer heanesAtualizado
+
+
+vitoriaKanva::IO()
+vitoriaKanva = do
+    printString vitoriaKanvaDialogo
+    printString vitoriaKanvaSaida
+    comecaFase2
+    escolhaCaminhoCidadeFase2

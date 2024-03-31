@@ -1,5 +1,5 @@
 module CombateGPT where
-
+    
 import Historia
 import Util.Lib
 import Models.Player
@@ -17,6 +17,7 @@ combateGPT01 = do
     print heanes
 
     putStrLn "ConversaGPT te ataca vigorosamente, está será sua última batalha, USE TUDO."
+    turnoPreparacao
     turnoAcaoGPT
 
 turnoAcaoGPT :: IO()
@@ -84,7 +85,7 @@ turnoAtaqueGPT = do
         vidaHeanes = Models.Player.vida heanes
         vidaAtualizadaHeanes = (defesaHeanes + vidaHeanes) - ataqueInimigo
         heanesAtualizado = heanes {Models.Player.vida = vidaAtualizadaHeanes}
-    writeFile "./src/pacote/Heroi.txt" (show heanesAtualizado)
+    salvaPlayer heanesAtualizado
 
 escolheAtaqueGPT :: [String] -> IO String
 escolheAtaqueGPT lista = do
@@ -101,15 +102,15 @@ turnoVidaBaixaGPT = do
         vidaHeanes = Models.Player.vida heanes
         vidaAtualizadaHeanes = (defesaHeanes + vidaHeanes) - ataqueInimigo
         heanesAtualizado = heanes {Models.Player.vida = vidaAtualizadaHeanes}
-    writeFile "./src/pacote/Heroi.txt" (show heanesAtualizado)
+    salvaPlayer heanesAtualizado
 
 combateGPT02 :: IO ()
 combateGPT02 = do
     putStrLn "ConversaGPT: Que comece o verdadeiro combate!!"
     inimigo <- carregaInimigo (criaCaminho "ConversaGPT")
     let vidaAtualizada = 500
-    gptAtualizado = inimigo {Models.Player.vida = vidaAtualizada}
-    writeFile "./src/pacote/ConversaGPT.txt"
+        gptAtualizado = inimigo {Models.Inimigo.vida = vidaAtualizada}
+    writeFile "./src/pacote/ConversaGPT.txt" (show gptAtualizado)
     turnoAcaoGPT02 
 
 turnoAcaoGPT02 :: IO()

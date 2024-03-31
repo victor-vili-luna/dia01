@@ -40,7 +40,7 @@ cursoParte07 :: String
 cursoParte07 = textoFormatado "C.W.: Bom, eu esqueci um energético no caldeirão, fique livre para explorar a cidade e falar com todos, e quando se sentir tranquilo vá até a minha torre para você entender sobre as forças desse mundo.\n"
 
 cursoHistoria1 :: String
-cursoHistoria1 = textoFormatado "C.W.: Olá Heanes, agora vou lhe explicar como você conseguirá enfrentar seus desafios. Basicamente, quando você entrar em combate, terá opções variadas que se escolhidas corretamente quando combinadas com seus atributos básicos, podem derrotar o seu inimigo.\n\nHeanes: Entendi essa parte, mas como vou saber meus atributos básicos?.\n\nMestre dos Magos (C.W.): Se você visitou a loja, sabe que existem itens e poções que aumentam seus atributos. Claro, para isso você tem que trabalhar e ganhar dinheiro nesse mundo. Apesar de ser um mago, ainda não produzo dinheiro, e quanto a ele... você pode ganhar de duas formas:\n"
+cursoHistoria1 = textoFormatado "C.W.: Olá Heanes, agora vou lhe explicar como você conseguirá enfrentar seus desafios. Basicamente, quando você entrar em combate, terá opções variadas que se escolhidas corretamente quando combinadas com seus atributos básicos, podem derrotar o seu inimigo.\n\nHeanes: Entendi essa parte, mas como vou saber meus atributos básicos?.\n\nMestre dos Magos (C.W.): Se você visitou a loja, sabe que existem itens e poções que aumentam seus atributos\nC.w: Um exemplo é a poção Café que eu vendo ela faz com que você recupere 40 de vida bem util durante a batalha.\n Claro, para isso você tem que trabalhar e ganhar dinheiro nesse mundo. Apesar de ser um mago, ainda não produzo dinheiro, e quanto a ele... você pode ganhar de duas formas:\n"
 
 kanvaHistoria1 :: String
 kanvaHistoria1 = textoFormatado "C.W.: Tudo bem, vejo que você já que você está preparado, espero que tenha se equipado ao maximo, recomendo ir ao Museu, lá existem feras que estão fora de controle\n" 
@@ -135,8 +135,11 @@ vilaoPlayHub = textoFormatado "Eu sou o playhub e os caralho."
 vilaoKanva :: String
 vilaoKanva = textoFormatado "Kanva: OLÁ HUMANO, BEM-VINDO A SEU MAIOR PESADELO, VAMOS ALTERAR O SEU ATRIBUTO .ALIVE PARA = DEAD?\n"
 
-vitoriaKanva :: String
-vitoriaKanva = textoFormatado "voce ganhou do kanva dog, nice!!"
+vitoriaKanvaDialogo :: String
+vitoriaKanvaDialogo = textoFormatado "Após  desferir o ultimo ataque, Kanva que parecia imbativel desaba e desaparece em infinitos 0's e 1's, você vê que finalmente acabou e sai do museu"
+
+vitoriaKanvaSaida :: String
+vitoriaKanvaSaida = textoFormatado "*Depois de sair do museu*\nC.W: HAHAHAHA Heanes você conseguiu o que achou da minha nova criação é o Monster como você deve ter visto ele aumenta seu ataque em 50 pontos\nHeanes: Muito boa mas por que você não vai vender ela?\nC.W: Muito cara o custo de produção mas não se preocupe vou colocar na loja uma nova poção que se chama red Bull\nLeandro: Heanes você é realmente um heroi, bom agora me despeço pois irei começar a organizar o museu mas amanhã\nC.W: Vamos voltar também Heanes você merece um descanso\n*Heanes fecha o olhos e vai dormir seu corpo começa a se recuperar UAU você é realmente abençoado*"
 
 historiaConversaGPT :: String
 historiaConversaGPT = textoFormatado "historia da investigacao do conversaGPT"

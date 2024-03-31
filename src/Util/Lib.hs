@@ -25,7 +25,7 @@ clearScreen = do
 
 carregaPlayer :: IO Player
 carregaPlayer = do
-        handle <- openFile "./src/pacote/Heroi.txt" ReadMode
+        handle <- openFile playerCaminho ReadMode
         conteudo <- hGetContents' handle
         hClose handle
         return (read conteudo :: Player)
@@ -38,20 +38,20 @@ carregaInimigo filepath = do
         return (read conteudo :: Inimigo)
 
 salvaPlayer:: Player -> IO()
-salvaPlayer heanes = writeFile "./src/pacote/Heroi.txt" (show heanes)
+salvaPlayer heanes = writeFile playerCaminho (show heanes)
 
 salvaItens:: [Item] -> IO()
 salvaItens itens= do
     let listaItens = unlines (map show itens)
-    writeFile "./src/pacote/ItensIniciais.txt" listaItens
+    writeFile itemCaminho listaItens
 
 salvaPocao:: [Pocao] -> IO()
 salvaPocao pocoes =do
      let listaPocao= unlines (map show pocoes)
-     writeFile "./src/pacote/PocaoInicial.txt" listaPocao
+     writeFile pocaoCaminho listaPocao
 
 salvaConquista :: [Conquista] -> IO ()
-salvaConquista conquistas = writeFile "./src/pacote/Conquista.txt" $ unlines (map show conquistas)
+salvaConquista conquistas = writeFile conquistaCaminho $ unlines (map show conquistas)
 
 desbloqueaConquista :: String -> IO()
 desbloqueaConquista nomeConquista = do
@@ -61,7 +61,7 @@ desbloqueaConquista nomeConquista = do
 
 carregaConquista :: IO [Conquista]
 carregaConquista = do
-        handle <- openFile "./src/pacote/Conquista.txt" ReadMode
+        handle <- openFile conquistaCaminho ReadMode
         conteudo <- hGetContents' handle
         hClose handle
         return (map parseConquista (lines conteudo))
@@ -163,6 +163,13 @@ resetPlayer = do
     salvaPlayer heanesReset
     return heanesReset
 
+resetPlayerGold::IO()
+resetPlayerGold = do
+    heanes <- carregaPlayer
+    heanesResetado<- resetPlayer
+    let heanesGold = modificaGold heanesResetado (getGold heanes)
+    salvaPlayer heanesGold
+
 salvaInimigo:: Inimigo -> FilePath -> IO()
 salvaInimigo inimigo caminho = writeFile caminho (show inimigo)
 
@@ -175,20 +182,104 @@ voltaMenu = do
     putStrLn (textoFormatado("Então nosso heroi precisa voltar ao menu para pensar sobre a vida não é? Tudo bem mas por favor volte o mundo precisa de você\n"))
     esperandoEnter
 
-pocaoInicial :: String
-pocaoInicial = "./src/pacote/PocaoInicial.txt"
+pocaoCaminho :: String
+pocaoCaminho = "./src/pacote/Pocao.txt"
 
-pocaoFinal :: String
-pocaoFinal = "./src/pacote/PocaoFinal.txt"
+itemCaminho :: String
+itemCaminho = "./src/pacote/Itens.txt"
 
-itemInicial :: String
-itemInicial = "./src/pacote/ItensIniciais.txt"
+conquistaCaminho :: String
+conquistaCaminho = "./src/pacote/Conquista.txt"
 
-itemFinal :: String
-itemFinal = "./src/pacote/ItensFinais.txt"
+playerCaminho :: String
+playerCaminho = "./src/pacote/Heroi.txt"
 
 printString:: String -> IO()
 printString texto = do
     clearScreen
     putStrLn texto
     esperandoEnter
+
+heanesString :: String
+heanesString = "Player {nome = \"Heanes\", vida = 100, gold = 1000, defesa = 5, ataque = 5, equipamentos = [], pocoes = [], progresso = 0, pocoesTomadas = 0}"
+
+armaduraCouro :: String
+armaduraCouro =  "Item {nome = \"Armadura de couro\", preco = 30, ataque = 0, defesa = 30, descricao = \"Armadura que protege contra as falacias da IA.\"}"
+
+armaduraFerro :: String
+armaduraFerro = "Item {nome = \"Armadura de ferro\", preco = 100, ataque = 0, defesa = 60, descricao = \"Composta pelos mais refinados pedacos de sucata metalica, e garantido que esta armadura fara voce parecer o homem de ferro da shopee\"}"
+
+espadaPedra::  String
+espadaPedra = "Item {nome = \"Espada de pedra\", preco = 30, ataque = 30, defesa = 0, descricao = \"Se quiser espada tem, mas so usa espada quem nao se garante.\"}"
+
+espadaFerro:: String
+espadaFerro = "Item {nome = \"Espada de ferro\", preco = 100, ataque = 60, defesa = 0, descricao = \"Espada um pouco enferrujada, se nao matar na espadada mata no tetano.\"}"
+
+espadaDiamante :: String
+espadaDiamante = "Item {nome = \"Espada de diamante\", preco = 160, ataque = 100, defesa = 0, descricao = \"Espada do minecraft.\"}"
+
+armaduraDiamante :: String
+armaduraDiamante = "Item {nome = \"Armadura de diamante\", preco = 160, ataque = 0, defesa = 100, descricao = \"Armadura do minecraft.\"}"
+
+cafe:: String
+cafe = "Pocao {nome = \"Cafe\", vida = 40, preco = 20, defesa = 0, ataque = 0, quantidade = 1}"
+
+redBull:: String
+redBull = "Pocao {nome = \"Red Bull\", vida = 30, preco = 60, defesa = 20, ataque = 20, quantidade =1}"
+
+caramelo:: String
+caramelo = "Inimigo {nome = \"Cachorros Caramelos\", ataque = 40, defesa = 5, vida = 50, habilidadeEspecial = 0}"
+
+kanva:: String
+kanva = "Inimigo {nome = \"Kanva\", ataque = 55, defesa = 10, vida = 200, habilidadeEspecial = 75}"
+
+playHub :: String
+playHub = "Inimigo {nome = \"PlayHub\", ataque = 40, defesa = 0, vida = 300, habilidadeEspecial = 85}"
+
+conversaGPT :: String
+conversaGPT = "Inimigo {nome = \"ConversaGPT\", ataque = 120, defesa = 30, vida = 5000, habilidadeEspecial = 160}"
+
+inimigo:: String -> Inimigo
+inimigo = read
+
+item::String -> Item
+item = read
+
+player ::Player
+player = read heanesString
+
+pocao :: String -> Pocao
+pocao = read
+
+comecaFase2::IO()
+comecaFase2 = do
+    resetPlayerGold
+    atualizaProgresso 2
+    let hub = inimigo playHub
+    salvaInimigo hub (criaCaminho (getNomeInimigo hub))
+    salvaItens [item espadaFerro ,item armaduraFerro]
+    let pocaoItem = [pocao cafe, pocao redBull]
+    salvaPocao pocaoItem
+
+comecaFase3::IO()
+comecaFase3 = do
+    resetPlayerGold
+    atualizaProgresso 3
+    let gpt = inimigo conversaGPT
+    salvaInimigo gpt (criaCaminho (getNomeInimigo gpt))
+    salvaItens [item espadaDiamante, item armaduraDiamante]
+
+
+
+slogan:: String
+slogan =  "----------------------------------------------------------------------------------\n"++
+          " ███████████       ██           ███         ██████████         ██████████       | \n" ++
+          " ███               ████        ████        ███                ███               | \n" ++
+          " ███               ██ ██      ██ ██        ███                ███               |\n" ++
+          " ██████████        ██  ██    ██  ██        ███                ███               |\n" ++
+          " ███               ██    ██ ██   ██        ███                ███               |\n" ++ 
+          " ███               ██     ███    ██         ██████████         ██████████       |\n" ++
+          "----------------------------------------------------------------------------------"
+
+
+

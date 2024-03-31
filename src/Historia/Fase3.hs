@@ -66,10 +66,10 @@ historiaPrincipal opcoes = do
         sistemaGold
         historiaPrincipal opcoes
     else if opcaoJogador == "2" then do
-        abreLojaPocoes pocaoInicial
+        abreLojaPocoes
         historiaPrincipal opcoes
     else if opcaoJogador == "3" then do
-        abreLojaItens itemFinal
+        abreLojaItens
         historiaPrincipal opcoes
     else if opcaoJogador == "4" then do
         putStrLn "combate03"

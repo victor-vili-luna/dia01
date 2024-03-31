@@ -12,6 +12,7 @@ explicacaoCombate01 = textoFormatado "Você estará entrando em combate em breve
 
 combate01 :: IO()
 combate01 = do
+    corrigeMonster
     mapM_ printString [kanvaHistoria1, kanvaHistoria2 , kanvaHistoria3, kanvaHistoria4,kanvaHistoria5,kanvaHistoria6
         , kanvaHistoria7, caramelosKanva, explicacaoCombate01]
     clearScreen
@@ -19,15 +20,30 @@ combate01 = do
 
     arquivoCaramelos <- readFile' "./src/pacote/Cachorros Caramelos.txt"
     let caramelos = read arquivoCaramelos :: Inimigo
-    print caramelos
+    putStrLn "Status dos cachorros:"
+    putStrLn $ toStringInimigo caramelos
+    esperandoEnter
     heanes <- carregaPlayer
-    print heanes
+    putStrLn (textoFormatado "")
+    putStrLn "Seus Status:"
+    putStrLn  $ toString heanes
     putStrLn ( textoFormatado "\nVocê terá 2 turnos, um de preparo e outro que vai ser seguido pelo ataque dos caramelos. Prepare-se antes que os caramelinhos morda você!\n")
     esperandoEnter
     clearScreen
     turnoPreparacao
     clearScreen
     turnoAcao01
+
+corrigeMonster :: IO()
+corrigeMonster = do
+    heroi <- carregaPlayer
+    let maybePocao = identificaPocao "Monster" (Models.Player.pocoes heroi)
+    case maybePocao of
+        Just pocao -> do
+            let pocoesAtualizada = removePocaoAntiga "Monster" (Models.Player.pocoes heroi)
+                heanesMonster = heroi {Models.Player.pocoes = pocoesAtualizada}
+            salvaPlayer heanesMonster
+        Nothing -> putStrLn ""
 
 turnoAcao01 :: IO()
 turnoAcao01 = do
@@ -54,7 +70,7 @@ turnoHeanesCaramelo = do
             usaAtaque
             putStrLn "Voce desfere um ataque fatal a alguns cachorros que o cercavam. O IBAMA agora sabe onde você mora.\n"
             inimigo <- carregaInimigo (criaCaminho "Cachorros Caramelos")
-            print inimigo
+            putStrLn $ toStringInimigo inimigo
             putStrLn "\n------------------------------------------------------------------------------------\n"
             esperandoEnter
         else if input == "2" then do
@@ -86,7 +102,7 @@ turnoCaramelo = do
         putStrLn "UM CARAMELINHO TE MORDE VIOLENTAMENTE E VOCÊ GRITA: TIRA DOG TIRAAAA AYELLLLLLLLL ME AJUDA\n"
         turnoAtaqueCaramelo
         heanes <- carregaPlayer
-        print heanes
+        putStrLn $ toString heanes
         putStrLn "\n------------------------------------------------------------------------------------\n"
         esperandoEnter
     else putStrLn "Leandro: Você conseguiu! Matou todos os cachorros mágicos, eu sabia que você era forte.\n"
@@ -100,4 +116,4 @@ turnoAtaqueCaramelo = do
         vidaHeanes = Models.Player.vida heanes
         vidaAtualizadaHeanes = (defesaHeanes + vidaHeanes) - ataqueInimigo
         heanesAtualizado = heanes {Models.Player.vida = vidaAtualizadaHeanes}
-    writeFile "./src/pacote/Heroi.txt" (show heanesAtualizado)
+    salvaPlayer heanesAtualizado

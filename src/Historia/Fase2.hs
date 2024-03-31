@@ -64,22 +64,19 @@ historiaPrincipal opcoes = do
     putStrLn "\n------------------------------------------------------------------------------------\n"
 
     input <- getLine
+    clearScreen
     let opcaoJogador = trim input
-    if opcaoJogador == "1" then do
-        clearScreen
+    if opcaoJogador == "1" then do 
         putStrLn "Ganhar alguns mangos sempre é bom, talvez assim nosso herói não precise aderir a nenhuma greve. Como iremos angariar fundos?\n"
         sistemaGold
         historiaPrincipal opcoes
     else if opcaoJogador == "2" then do
-        clearScreen
-        abreLojaPocoes pocaoInicial
+        abreLojaPocoes
         historiaPrincipal opcoes
     else if opcaoJogador == "3" then do
-        clearScreen
-        abreLojaItens itemFinal
+        abreLojaItens
         historiaPrincipal opcoes
-    else if opcaoJogador == "4" then do
-        clearScreen
+    else if opcaoJogador == "4" then
         combatePlayHub
     else if opcaoJogador == "5" then
         voltaMenu

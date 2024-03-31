@@ -4,8 +4,9 @@ import Models.Inimigo
 import Models.Item
 import Models.Player
 import Util.Lib
-import Util.ControleSalvamento
 import Util.CombateFuncoes
+import Historia
+import Historia.Fase3
 
 combatePlayHub :: IO()
 combatePlayHub = do
@@ -15,6 +16,7 @@ combatePlayHub = do
     print heanes
 
     putStrLn "A fusão das IAs te amedronta, elas começam a te inebriar."
+    turnoPreparacao
     turnoAcaoPlayHub
 
 turnoAcaoPlayHub :: IO()
@@ -22,12 +24,11 @@ turnoAcaoPlayHub = do
     turnoHeanesPlayHub
     turnoPlayHub
     heanes <- carregaPlayer
+    inimigo <- carregaInimigo (criaCaminho "PlayHub")
     if verificaMortoHeroi heanes || verificaMortoInimigo inimigo then do
         if verificaMortoHeroi heanes then morte
-        else do
-            putStrLn "Você agora vai se ver com meu pai, o conversaGPT."
-            escolhaCaminhoCidadeFase3
-    else turnoAcaoGPT
+        else vitoriaPlayHub
+    else turnoAcaoPlayHub
 
 turnoHeanesPlayHub :: IO()
 turnoHeanesPlayHub = do
@@ -62,12 +63,12 @@ turnoPlayHub = do
     inimigo <- carregaInimigo (criaCaminho "PlayHub")
     if not (verificaMortoInimigo inimigo) then do
         if Models.Inimigo.vida inimigo > 35 then do
-            ataqueEscolhido <- escolheAtaqueKanva ["*Voce escuta uma voz...*Heanes: C.W.?\nDistraido, Heanes e atacado furiosamente.", "Voce foi transformado em um PDF e perdeu 3kbs, cuidadoo!", "A fusão das IAs te afunda no chão!!"]
+            ataqueEscolhido <- escolheAtaquePlayHub ["*Voce escuta uma voz...*Heanes: C.W.?\nDistraido, Heanes e atacado furiosamente.", "Voce foi transformado em um PDF e perdeu 3kbs, cuidadoo!", "A fusao das IAs te afunda no chao!!"]
             print ataqueEscolhido
-            turnoAtaqueKanva
+            turnoAtaquePlayHub
         else do
             putStrLn "PlayHub para de brincadeira e utiliza uma mixagem de todas as vozes que pegou para gritar e um som ensurdecedor afeta Heanes criticamente!!!"
-            turnoVidaBaixaKanva
+            turnoVidaBaixaPlayHub
         heanes <- carregaPlayer
         print heanes
     else putStrLn "OH-Ho, você conseguiu héroi!!"
@@ -81,7 +82,7 @@ turnoAtaquePlayHub = do
         vidaHeanes = Models.Player.vida heanes
         vidaAtualizadaHeanes = (defesaHeanes + vidaHeanes) - ataqueInimigo
         heanesAtualizado = heanes {Models.Player.vida = vidaAtualizadaHeanes}
-    writeFile "./src/pacote/Heroi.txt" (show heanesAtualizado)
+    salvaPlayer heanesAtualizado
 
 escolheAtaquePlayHub :: [String] -> IO String
 escolheAtaquePlayHub lista = do
@@ -98,4 +99,10 @@ turnoVidaBaixaPlayHub = do
         vidaHeanes = Models.Player.vida heanes
         vidaAtualizadaHeanes = (defesaHeanes + vidaHeanes) - ataqueInimigo
         heanesAtualizado = heanes {Models.Player.vida = vidaAtualizadaHeanes}
-    writeFile "./src/pacote/Heroi.txt" (show heanesAtualizado)
+    salvaPlayer heanesAtualizado
+
+vitoriaPlayHub::IO()
+vitoriaPlayHub = do
+    putStrLn "vitoriaKanvaDialogo"
+    comecaFase3
+    escolhaCaminhoCidadeFase3

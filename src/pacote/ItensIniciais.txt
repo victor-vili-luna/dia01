@@ -1,8 +1,0 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-Item {nome = "Espada de pedra", preco = 30, ataque = 30, defesa = 0, descricao = "Se quiser espada tem, mas so usa espada quem nao se garante."}
-=======
->>>>>>> ee9252e11c952be6395541308d4b862a95f72b2d
-Item {nome = "Armadura de couro", preco = 30, ataque = 0, defesa = 30, descricao = "Armadura que protege contra as falacias da IA."}
->>>>>>> bfb3e5a88eb11a47af2e57ca369a3a5a2f23b2b9
