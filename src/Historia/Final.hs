@@ -1,11 +1,11 @@
 module Historia.Final(
-    escolhaCaminhoCidadeFase4
+    fimDeJogo
 ) where
 import Historia
 import Util.Lib
 
-escolhaCaminhoCidadeFase4::IO()
-escolhaCaminhoCidadeFase4 = do
+fimDeJogo::IO()
+fimDeJogo = do
 
     putStrLn  final
     escolha03 <- trim <$> getLine

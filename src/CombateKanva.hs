@@ -12,19 +12,19 @@ import Historia.Fase2 (escolhaCaminhoCidadeFase2)
 
 combateKanva :: IO()
 combateKanva = do
-    putStrLn (textoFormatado("*Sem tempo para comemorar a vitória você é puxado para dentro do museu deixando Leandro para trás.*\n"))
+    putStrLn (textoFormatado "*Sem tempo para comemorar a vitória você é puxado para dentro do museu deixando Leandro para trás.*\n")
     esperandoEnter
     clearScreen
     putStrLn vilaoKanva
     esperandoEnter
     clearScreen
     putStrLn "Se prepare rapidamente para o combate!.\n"
-    putStrLn "Esses são seus status atuais, mas C.W. te acompanhou de longe e liberou uma poção a mais no seu inventário, essa poção é uma nova criação do Mestre dos Magos, enão pode ser comprada.\n"
+    putStrLn "Esses são seus status atuais, mas C.W. te acompanhou de longe e liberou uma poção a mais no seu inventário, essa poção é uma nova criação do Mestre dos Magos, e não pode ser comprada.\n"
 
     adicionaPocaoCW
     heanes <- carregaPlayer
     print heanes
-    putStrLn(textoFormatado(""))
+    putStrLn (textoFormatado "")
     esperandoEnter
     clearScreen
 
@@ -126,7 +126,7 @@ turnoVidaBaixaKanva = do
 
 vitoriaKanva::IO()
 vitoriaKanva = do
-    
-    putStrLn vitoriaKanvaDialogo
+    printString vitoriaKanvaDialogo
+    printString vitoriaKanvaSaida
     comecaFase2
     escolhaCaminhoCidadeFase2

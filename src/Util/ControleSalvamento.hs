@@ -10,6 +10,8 @@ import Models.Pocao
 import Models.Inimigo
 import Historia.Fase1
 import Historia.Fase2
+import Historia.Fase3
+import Historia.Final
 import Historia.Prologo
 import Data.List ( delete )
 
@@ -62,7 +64,7 @@ carregaJogo = do
         1 -> resetFase1
         2 -> resetFase2
         3 -> resetFase3
-        4 -> putStrLn "fase4"
+        4 -> fimDeJogo
 
 resetFase1:: IO()
 resetFase1 = do
@@ -84,7 +86,7 @@ resetFase3 = do
     verificaLoja [item espadaDiamante, item armaduraDiamante]
     let pocaoItem = [pocao cafe, pocao redBull]
     salvaPocao pocaoItem
-    escolhaCaminhoCidadeFase2
+    escolhaCaminhoCidadeFase3
 
 verificaLoja:: [Item] -> IO()
 verificaLoja loja = do
