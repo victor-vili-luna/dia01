@@ -6,7 +6,14 @@ import System.Directory (createDirectory, doesDirectoryExist)
 import Util.ControleSalvamento
 
 main::IO()
-main = menu
+main = start
+
+start::IO()
+start = do 
+    putStrLn slogan
+    esperandoEnter
+    menu
+
 
 menu :: IO ()
 menu = do

@@ -1,5 +1,5 @@
 module CombateGPT where
-
+    
 import Historia
 import Util.Lib
 import Models.Player

@@ -70,7 +70,7 @@ turnoHeanesCaramelo = do
             usaAtaque
             putStrLn "Voce desfere um ataque fatal a alguns cachorros que o cercavam. O IBAMA agora sabe onde você mora.\n"
             inimigo <- carregaInimigo (criaCaminho "Cachorros Caramelos")
-            putStrLn $ (toStringInimigo inimigo)
+            putStrLn $ toStringInimigo inimigo
             putStrLn "\n------------------------------------------------------------------------------------\n"
             esperandoEnter
         else if input == "2" then do
