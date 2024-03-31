@@ -22,9 +22,8 @@ combate01 = do
     let caramelos = read arquivoCaramelos :: Inimigo
     putStrLn "Status dos cachorros:"
     putStrLn $ toStringInimigo caramelos
-    esperandoEnter
+    putStrLn (textoFormatado(""))
     heanes <- carregaPlayer
-    putStrLn (textoFormatado "")
     putStrLn "Seus Status:"
     putStrLn  $ toString heanes
     putStrLn ( textoFormatado "\nVocê terá 2 turnos, um de preparo e outro que vai ser seguido pelo ataque dos caramelos. Prepare-se antes que os caramelinhos morda você!\n")

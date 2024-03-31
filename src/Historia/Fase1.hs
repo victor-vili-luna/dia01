@@ -69,21 +69,25 @@ historiaPrincipal opcoes = do
     putStrLn "O que deseja fazer agora que está de volta a cidade?\n"
     mapM_ putStrLn opcoes
     putStrLn "\n------------------------------------------------------------------------------------\n"
-    clearScreen
     opcaoJogador <- trim <$>getLine
     if opcaoJogador == "1" then do
+        clearScreen
         putStrLn "Ganhar alguns mangos sempre é bom, talvez assim nosso herói não precise aderir a nenhuma greve. Como iremos angariar fundos?\n"
         sistemaGold
         historiaPrincipal opcoes
     else if opcaoJogador == "2" then do
+        clearScreen
         abreLojaPocoes
         historiaPrincipal opcoes
     else if opcaoJogador == "3" then do
+        clearScreen
         abreLojaItens
         historiaPrincipal opcoes
-    else if opcaoJogador == "4" then
+    else if opcaoJogador == "4" then do
+        clearScreen
         combate01
-    else if opcaoJogador == "5" then
+    else if opcaoJogador == "5" then do
+        clearScreen
         voltaMenu
     else do 
         putStrLn "Digite uma opcão válida."

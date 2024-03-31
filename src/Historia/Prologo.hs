@@ -40,6 +40,7 @@ serJubilado = do
     putStrLn $ "Heanes: Quantas vezes vou ter que repetir eu não quero fazer isso???\n\n"
      ++ "Carl Wilson: Então você escolheu isso... não me culpe meu amigo\n\n*você foi ejetado para o limbo*\n"
     desbloqueaConquista "Jubilado"
+    esperandoEnter
 
 jubilado ::Int -> IO ()
 jubilado 8 = serJubilado

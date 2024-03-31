@@ -32,7 +32,7 @@ equipaItem = do
     putStrLn "Esses são os seus equipamentos:\n"
     putStrLn $ itensPlayer equipamentos
 
-    putStrLn (textoFormatado "\nDigite o nome do item que deseja equipar, logo depois disso seus status serão atualizados e exibidos. Caso você não tenha nenhum item comprado, não espere ser capaz de equipar um item.\nSe quiser retornar para o turno de preparação aperte Enter e então digite voltar")
+    putStrLn (textoFormatado "\nDigite o nome do item que deseja equipar, logo depois disso seus status serão atualizados e exibidos. Caso você não tenha nenhum item comprado, não espere ser capaz de equipar um item.\n\nSe quiser retornar para o turno de preparação aperte Enter e então digite voltar")
     input <- getLine
     let maybeItem = identificaItem input equipamentos
     case maybeItem of

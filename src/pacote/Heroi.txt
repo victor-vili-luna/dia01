@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-Player {nome = "Heanes", vida = 100, gold = 100, defesa = 5, ataque = 5, equipamentos = [], pocoes = [], progresso = 1}
-=======
-Player {nome = "Heanes", vida = 100, gold = 0, defesa = 5, ataque = 5, equipamentos = [], pocoes = [Pocao {nome = "Cafe", vida = 40, preco = 20, defesa = 0, ataque = 0, quantidade = 1},Pocao {nome = "red Bull", vida = 0, preco = 60, defesa = 0, ataque = 0, quantidade = 1},Pocao {nome = "Monster", vida = 0, preco = 0, defesa = 0, ataque = 50, quantidade = 2}], progresso = 3, pocoesTomadas = 1}
->>>>>>> 7cdc875544500a5a1c117671da0710ac8cef93c4
+Player {nome = "Heanes", vida = 100, gold = 0, defesa = 5, ataque = 5, equipamentos = [], pocoes = [Pocao {nome = "Cafe", vida = 40, preco = 20, defesa = 0, ataque = 0, quantidade = 2}], progresso = 1, pocoesTomadas = 0}
