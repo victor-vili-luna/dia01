@@ -34,20 +34,17 @@ abreMapa02 opcoes = do
     putStrLn "\n------------------------------------------------------------------------------------\n"
 
     resposta <- trim <$>getLine
-    if resposta == "1" then do
-        clearScreen
+    clearScreen
+    if resposta == "1" then do  
         verLoja
         abreMapa02 opcoes
     else if resposta == "2" then do
-        clearScreen
         putStrLn dialogoFerreira02
         abreMapa02 opcoes
     else if resposta == "3" then do
-        clearScreen
         putStrLn dialogoLeandro01
         abreMapa02 opcoes
     else if resposta == "4" then do
-        clearScreen
         putStrLn cursoHistoria2
         historiaPrincipal ["(1) Ganhar dinheiro","(2) Comprar poções com C.W.","(3) Visitar o ferreiro Ferreira","(4) Me garanto em enfrentar a I.A.", "(5) Voltar ao menu"]
     else if resposta == "5" then
@@ -58,7 +55,6 @@ abreMapa02 opcoes = do
 
 historiaPrincipal::[String]->IO()
 historiaPrincipal opcoes = do
-    clearScreen
     putStrLn "O que deseja fazer agora que está de volta a cidade?\n"
     mapM_ putStrLn opcoes
     putStrLn "\n------------------------------------------------------------------------------------\n"

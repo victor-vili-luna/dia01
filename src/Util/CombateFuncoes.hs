@@ -12,7 +12,6 @@ turnoPreparacao = do
     putStrLn "Qual Sua Escolha?\n"
     putStrLn (textoFormatado "(1) Equipar um item\n(2) Utilizar uma poção\n(3) Lutar.\n")
     resposta <- trim <$> getLine
-
     case resposta of
         "1" -> do
             clearScreen
@@ -51,7 +50,7 @@ equipaItem = do
             clearScreen
             putStrLn (textoFormatado "Creio que digitou errado, mas caso queria voltar ao turno digite: VOLTAR.\n")
             input01 <- trim <$> getLine
-            if comparaString input01 "VOLTAR" then turnoPreparacao
+            if comparaString input01 "VOLTAR" then  return ()
             else equipaItem
 
 usaPocao :: IO()
@@ -90,7 +89,7 @@ usaPocao = do
             clearScreen
             putStrLn (textoFormatado "Pocao inválida, caso queira voltar ao turno ao digite: VOLTAR.\n")
             input01 <- getLine
-            if comparaString input01 "VOLTAR" then turnoPreparacao
+            if comparaString input01 "VOLTAR" then return()
             else usaPocao
 
 verificaMortoHeroi :: Player -> Bool

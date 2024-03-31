@@ -25,13 +25,13 @@ abreLojaPocoes = do
     putStrLn (textoFormatado "Olá herói! Aqui está uma lista de poções que você pode comprar caso tenha as moedas, claro:\n")
     arquivoPocao <- readFile' pocaoCaminho
     let lojaPocao = map (read::String->Pocao) (lines arquivoPocao)
-    putStrLn(toStringPocaoLoja lojaPocao)
+    putStrLn (toStringPocaoLoja lojaPocao)
     putStrLn (textoFormatado "\n Deseja comprar algo?\n\n(1) Sim.\n(2) Não.\n")
     input <- getLine
     if trim input == "1" then compraPocao lojaPocao
     else do
         clearScreen
-        putStrLn (textoFormatado("Não quer comprar hein...tudo bem.\n"))
+        putStrLn (textoFormatado ("Não quer comprar hein...tudo bem.\n"))
         esperandoEnter
 
 compraItem::[Item]->IO()
@@ -53,7 +53,7 @@ compraItem lojaItens = do
                 salvaPlayer heanesAdulto
                 salvaItens listaAtualItens
                 clearScreen
-                putStrLn(textoFormatado("Compra realizada com sucesso.\n"))
+                putStrLn (textoFormatado ("Compra realizada com sucesso.\n"))
                 esperandoEnter
                 clearScreen
             else do
@@ -85,7 +85,7 @@ compraPocao lojaPocao = do
                         listaPocoesAtualizada = removePocaoAntiga pocaoNome (pocoes heanesPre) ++ [pocaoFinal]
                         heanesAdulto = heanesPre { gold = goldAtual, pocoes = listaPocoesAtualizada}
                     salvaPlayer heanesAdulto
-                    putStrLn(textoFormatado("Compra realizada com sucesso.\n"))
+                    putStrLn (textoFormatado ("Compra realizada com sucesso.\n"))
                 else do
                     let goldAtual = gold - precoPocao
                         heanesAdulto = heanesPre { gold = goldAtual, pocoes = pocoes heanesPre ++ [pocao] }
@@ -104,5 +104,5 @@ verLoja = do
     putStrLn "Ferreira, o ferreiro: Olá Herói! Esses são os itens e os preços que se você tiver dinheiro, poderá comprar: \n"
     arquivo02 <- readFile' itemCaminho
     let loja = map (read::String->Item) (lines arquivo02)
-    putStrLn $ (toStringItensLoja loja)
+    putStrLn $ toStringItensLoja loja
 

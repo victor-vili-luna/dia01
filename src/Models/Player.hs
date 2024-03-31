@@ -40,7 +40,7 @@ module Models.Player where
         equipamentos = equipamentos heanes,
         pocoes = pocoes heanes,
         progresso = progresso heanes,
-        pocoesTomadas = pocoesTomadas heanes
+        pocoesTomadas = 0
         }
 
     toString :: Player -> String

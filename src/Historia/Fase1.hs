@@ -30,47 +30,44 @@ escolhaCaminhoCidade = do
 
 abreMapa01 :: [String] -> IO()
 abreMapa01 opcoes = do
-
     mapM_ putStrLn opcoes
 
     putStrLn "\n------------------------------------------------------------------------------------\n"
-
     resposta <- trim <$> getLine
+    clearScreen
     if resposta == "1" then do
-        clearScreen
         verLoja
         putStrLn "\nMas como você ainda não possui nenhum tostão, acho melhor você pensar em fazer alguma outra coisa..."
         putStrLn (textoFormatado "")
         abreMapa01 opcoes
     else if resposta == "2" then do
-        clearScreen
         putStrLn dialogoFerreira01
+        esperandoEnter
         abreMapa01 opcoes
     else if resposta == "3" then do
-        clearScreen
         putStrLn dialogoPadeiro01
+        esperandoEnter
         abreMapa01 opcoes
     else if resposta == "4" then do
-        clearScreen
         putStrLn cursoHistoria1
+        esperandoEnter
         sistemaGold
         putStrLn cursoAventura01
+        esperandoEnter
         historiaPrincipal ["(1) Ganhar dinheiro","(2) Comprar poções com C.W.","(3) Visitar o ferreiro Ferreira","(4) Me garanto em enfrentar a I.A.","(5) Voltar ao menu"]
     else if resposta == "5" then 
         voltaMenu
     else do
-        clearScreen
         putStrLn "Escreva uma opção válida.\n"
         abreMapa01 opcoes
 
 historiaPrincipal::[String]->IO()
 historiaPrincipal opcoes = do
-    clearScreen
     putStrLn "O que deseja fazer agora que está de volta a cidade?\n"
     mapM_ putStrLn opcoes
     putStrLn "\n------------------------------------------------------------------------------------\n"
-    clearScreen
     opcaoJogador <- trim <$>getLine
+    clearScreen
     if opcaoJogador == "1" then do
         putStrLn "Ganhar alguns mangos sempre é bom, talvez assim nosso herói não precise aderir a nenhuma greve. Como iremos angariar fundos?\n"
         sistemaGold
