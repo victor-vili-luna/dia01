@@ -84,7 +84,7 @@ turnoAtaqueGPT = do
         vidaHeanes = Models.Player.vida heanes
         vidaAtualizadaHeanes = (defesaHeanes + vidaHeanes) - ataqueInimigo
         heanesAtualizado = heanes {Models.Player.vida = vidaAtualizadaHeanes}
-    writeFile "./src/pacote/Heroi.txt" (show heanesAtualizado)
+    salvaPlayer heanesAtualizado
 
 escolheAtaqueGPT :: [String] -> IO String
 escolheAtaqueGPT lista = do
@@ -101,7 +101,7 @@ turnoVidaBaixaGPT = do
         vidaHeanes = Models.Player.vida heanes
         vidaAtualizadaHeanes = (defesaHeanes + vidaHeanes) - ataqueInimigo
         heanesAtualizado = heanes {Models.Player.vida = vidaAtualizadaHeanes}
-    writeFile "./src/pacote/Heroi.txt" (show heanesAtualizado)
+    salvaPlayer heanesAtualizado
 
 combateGPT02 :: IO ()
 combateGPT02 = do

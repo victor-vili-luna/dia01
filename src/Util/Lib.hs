@@ -25,7 +25,7 @@ clearScreen = do
 
 carregaPlayer :: IO Player
 carregaPlayer = do
-        handle <- openFile "./src/pacote/Heroi.txt" ReadMode
+        handle <- openFile playerCaminho ReadMode
         conteudo <- hGetContents' handle
         hClose handle
         return (read conteudo :: Player)
@@ -38,20 +38,20 @@ carregaInimigo filepath = do
         return (read conteudo :: Inimigo)
 
 salvaPlayer:: Player -> IO()
-salvaPlayer heanes = writeFile "./src/pacote/Heroi.txt" (show heanes)
+salvaPlayer heanes = writeFile playerCaminho (show heanes)
 
 salvaItens:: [Item] -> IO()
 salvaItens itens= do
     let listaItens = unlines (map show itens)
-    writeFile "./src/pacote/ItensIniciais.txt" listaItens
+    writeFile itemCaminho listaItens
 
 salvaPocao:: [Pocao] -> IO()
 salvaPocao pocoes =do
      let listaPocao= unlines (map show pocoes)
-     writeFile "./src/pacote/PocaoInicial.txt" listaPocao
+     writeFile pocaoCaminho listaPocao
 
 salvaConquista :: [Conquista] -> IO ()
-salvaConquista conquistas = writeFile "./src/pacote/Conquista.txt" $ unlines (map show conquistas)
+salvaConquista conquistas = writeFile conquistaCaminho $ unlines (map show conquistas)
 
 desbloqueaConquista :: String -> IO()
 desbloqueaConquista nomeConquista = do
@@ -61,7 +61,7 @@ desbloqueaConquista nomeConquista = do
 
 carregaConquista :: IO [Conquista]
 carregaConquista = do
-        handle <- openFile "./src/pacote/Conquista.txt" ReadMode
+        handle <- openFile conquistaCaminho ReadMode
         conteudo <- hGetContents' handle
         hClose handle
         return (map parseConquista (lines conteudo))
@@ -163,6 +163,13 @@ resetPlayer = do
     salvaPlayer heanesReset
     return heanesReset
 
+resetPlayerGold::IO()
+resetPlayerGold = do
+    heanes <- carregaPlayer
+    heanesResetado<- resetPlayer
+    let heanesGold = modificaGold heanesResetado (getGold heanes)
+    salvaPlayer heanesGold
+
 salvaInimigo:: Inimigo -> FilePath -> IO()
 salvaInimigo inimigo caminho = writeFile caminho (show inimigo)
 
@@ -175,17 +182,17 @@ voltaMenu = do
     putStrLn (textoFormatado("Então nosso heroi precisa voltar ao menu para pensar sobre a vida não é? Tudo bem mas por favor volte o mundo precisa de você\n"))
     esperandoEnter
 
-pocaoInicial :: String
-pocaoInicial = "./src/pacote/PocaoInicial.txt"
+pocaoCaminho :: String
+pocaoCaminho = "./src/pacote/Pocao.txt"
 
-pocaoFinal :: String
-pocaoFinal = "./src/pacote/PocaoFinal.txt"
+itemCaminho :: String
+itemCaminho = "./src/pacote/Itens.txt"
 
-itemInicial :: String
-itemInicial = "./src/pacote/ItensIniciais.txt"
+conquistaCaminho :: String
+conquistaCaminho = "./src/pacote/Conquista.txt"
 
-itemFinal :: String
-itemFinal = "./src/pacote/ItensFinais.txt"
+playerCaminho :: String
+playerCaminho = "./src/pacote/Heroi.txt"
 
 printString:: String -> IO()
 printString texto = do
@@ -246,6 +253,7 @@ pocao = read
 
 comecaFase2::IO()
 comecaFase2 = do
+    resetPlayerGold
     atualizaProgresso 2
     let hub = inimigo playHub
     salvaInimigo hub (criaCaminho (getNomeInimigo hub))
@@ -255,6 +263,7 @@ comecaFase2 = do
 
 comecaFase3::IO()
 comecaFase3 = do
+    resetPlayerGold
     atualizaProgresso 3
     let gpt = inimigo conversaGPT
     salvaInimigo gpt (criaCaminho (getNomeInimigo gpt))

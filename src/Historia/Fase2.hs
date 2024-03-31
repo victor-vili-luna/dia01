@@ -72,11 +72,11 @@ historiaPrincipal opcoes = do
         historiaPrincipal opcoes
     else if opcaoJogador == "2" then do
         clearScreen
-        abreLojaPocoes pocaoInicial
+        abreLojaPocoes
         historiaPrincipal opcoes
     else if opcaoJogador == "3" then do
         clearScreen
-        abreLojaItens itemFinal
+        abreLojaItens
         historiaPrincipal opcoes
     else if opcaoJogador == "4" then do
         clearScreen

@@ -42,6 +42,6 @@ module Models.Player where
         }
 
     toString :: Player -> String
-    toString heanes = "Vida: " ++ show (vida heanes) ++ "/100\nAtaque: "++ show (ataque heanes) ++"\nDefesa:" ++ show (defesa heanes)
+    toString heanes = "Vida: " ++ show (vida heanes) ++ "/100\n" ++ "Ataque: "++ show (ataque heanes) ++",   Defesa: " ++ show (defesa heanes) ++ "\nPocoes\n" ++ pocaoPlayer (pocoes heanes)
 
 

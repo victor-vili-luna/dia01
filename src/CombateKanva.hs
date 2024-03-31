@@ -38,7 +38,7 @@ adicionaPocaoCW = do
     let pocaoMonster = read arquivoPocao :: Pocao
         pocoesAtualizada = Models.Player.pocoes heroi ++ [pocaoMonster]
         heanesAtualizado = heroi {Models.Player.pocoes = pocoesAtualizada}
-    writeFile "./src/pacote/Heroi.txt" (show heanesAtualizado)
+    salvaPlayer heanesAtualizado
 
 turnoAcaoKanva :: IO()
 turnoAcaoKanva = do
@@ -78,7 +78,7 @@ usaAtaqueKanva = do
         vidaAtualizadaInimigo = (defesaInimigo + vidaInimigo) - ataqueHeanes
         filepath = criaCaminho (Models.Inimigo.nome inimigo)
         inimigoAtualizado = inimigo {Models.Inimigo.vida = vidaAtualizadaInimigo}
-    writeFile filepath (show inimigoAtualizado)
+    salvaInimigo inimigoAtualizado filepath
 
 turnoKanva :: IO()
 turnoKanva = do
@@ -92,7 +92,7 @@ turnoKanva = do
             putStrLn "Kanvas se enfurece cada vez mais e utiliza sua habilidade especial!! O dano dele é aumentado!\n Não sei qual vai ser, mudem aqui."
             turnoVidaBaixaKanva
         heanes <- carregaPlayer
-        print heanes
+        print (toString heanes)
     else putStrLn "O Kanva foi derrotado, PARABÉNS HERÓI!!!! A CIDADE COMEMORA POR VOCÊ."
 
 turnoAtaqueKanva :: IO()
@@ -104,7 +104,7 @@ turnoAtaqueKanva = do
         vidaHeanes = Models.Player.vida heanes
         vidaAtualizadaHeanes = (defesaHeanes + vidaHeanes) - ataqueInimigo
         heanesAtualizado = heanes {Models.Player.vida = vidaAtualizadaHeanes}
-    writeFile "./src/pacote/Heroi.txt" (show heanesAtualizado)
+    salvaPlayer heanesAtualizado
 
 escolheAtaqueKanva :: [String] -> IO String
 escolheAtaqueKanva lista = do
@@ -121,7 +121,7 @@ turnoVidaBaixaKanva = do
         vidaHeanes = Models.Player.vida heanes
         vidaAtualizadaHeanes = (defesaHeanes + vidaHeanes) - ataqueInimigo
         heanesAtualizado = heanes {Models.Player.vida = vidaAtualizadaHeanes}
-    writeFile "./src/pacote/Heroi.txt" (show heanesAtualizado)
+    salvaPlayer heanesAtualizado
 
 
 vitoriaKanva::IO()

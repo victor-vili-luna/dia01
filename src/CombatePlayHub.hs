@@ -81,7 +81,7 @@ turnoAtaquePlayHub = do
         vidaHeanes = Models.Player.vida heanes
         vidaAtualizadaHeanes = (defesaHeanes + vidaHeanes) - ataqueInimigo
         heanesAtualizado = heanes {Models.Player.vida = vidaAtualizadaHeanes}
-    writeFile "./src/pacote/Heroi.txt" (show heanesAtualizado)
+    salvaPlayer heanesAtualizado
 
 escolheAtaquePlayHub :: [String] -> IO String
 escolheAtaquePlayHub lista = do
@@ -98,7 +98,7 @@ turnoVidaBaixaPlayHub = do
         vidaHeanes = Models.Player.vida heanes
         vidaAtualizadaHeanes = (defesaHeanes + vidaHeanes) - ataqueInimigo
         heanesAtualizado = heanes {Models.Player.vida = vidaAtualizadaHeanes}
-    writeFile "./src/pacote/Heroi.txt" (show heanesAtualizado)
+    salvaPlayer heanesAtualizado
 
 
 vitoriaPlayHub::IO()
