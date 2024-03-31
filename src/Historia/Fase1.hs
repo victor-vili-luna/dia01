@@ -41,19 +41,15 @@ abreMapa01 opcoes = do
         putStrLn (textoFormatado "")
         abreMapa01 opcoes
     else if resposta == "2" then do
-        putStrLn dialogoFerreira01
-        esperandoEnter
+        printString dialogoFerreira01
         abreMapa01 opcoes
     else if resposta == "3" then do
-        putStrLn dialogoPadeiro01
-        esperandoEnter
+        printString dialogoPadeiro01
         abreMapa01 opcoes
     else if resposta == "4" then do
-        putStrLn cursoHistoria1
-        esperandoEnter
+        printString cursoHistoria1
         sistemaGold
-        putStrLn cursoAventura01
-        esperandoEnter
+        printString cursoAventura01
         historiaPrincipal ["(1) Ganhar dinheiro","(2) Comprar poções com C.W.","(3) Visitar o ferreiro Ferreira","(4) Me garanto em enfrentar a I.A.","(5) Voltar ao menu"]
     else if resposta == "5" then 
         voltaMenu
@@ -69,23 +65,18 @@ historiaPrincipal opcoes = do
     opcaoJogador <- trim <$>getLine
     clearScreen
     if opcaoJogador == "1" then do
-        clearScreen
         putStrLn "Ganhar alguns mangos sempre é bom, talvez assim nosso herói não precise aderir a nenhuma greve. Como iremos angariar fundos?\n"
         sistemaGold
         historiaPrincipal opcoes
     else if opcaoJogador == "2" then do
-        clearScreen
         abreLojaPocoes
         historiaPrincipal opcoes
     else if opcaoJogador == "3" then do
-        clearScreen
         abreLojaItens
         historiaPrincipal opcoes
-    else if opcaoJogador == "4" then do
-        clearScreen
+    else if opcaoJogador == "4" then
         combate01
-    else if opcaoJogador == "5" then do
-        clearScreen
+    else if opcaoJogador == "5" then
         voltaMenu
     else do 
         putStrLn "Digite uma opcão válida."

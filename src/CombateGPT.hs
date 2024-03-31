@@ -1,5 +1,4 @@
 module CombateGPT where
-    
 import Historia
 import Util.Lib
 import Models.Player
@@ -7,16 +6,16 @@ import Models.Pocao
 import System.IO
 import Util.CombateFuncoes
 import Models.Inimigo
+import Historia.Final
 
 
 combateGPT01 :: IO()
 combateGPT01 = do
-    putStrLn vilaoGPT
+    printString vilaoGPT
+    putStrLn "ConversaGPT te ataca vigorosamente, está será sua última batalha, USE TUDO."
 
     heanes <- carregaPlayer
-    print heanes
-
-    putStrLn "ConversaGPT te ataca vigorosamente, está será sua última batalha, USE TUDO."
+    putStrLn $ toString heanes
     turnoPreparacao
     turnoAcaoGPT
 
@@ -121,9 +120,8 @@ turnoAcaoGPT02 = do
     inimigo <- carregaInimigo (criaCaminho "conversaGPT")
     if verificaMortoHeroi heanes || verificaMortoInimigo inimigo then do
         if verificaMortoHeroi heanes then putStrLn "Você morreu definitivamente, foi um bom combate."
-        else do
-            putStrLn vitoriaGPT
-            putStrLn endgame  
+        else
+            vitoriaGPT
     else turnoAcaoGPT02
 
 corrigeGPT :: Int -> IO ()
@@ -146,3 +144,9 @@ escolhaTreatmentGPT escolha vezes_negado = do
         _ -> do
             putStrLn "Digite a opção novamente"
             corrigeGPT vezes_negado
+        
+vitoriaGPT :: IO()
+vitoriaGPT = do
+    printString vitoriaGPTDialogo
+    clearScreen
+    fimDeJogo

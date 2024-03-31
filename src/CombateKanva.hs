@@ -23,12 +23,13 @@ combateKanva = do
 
     adicionaPocaoCW
     heanes <- carregaPlayer
-    print heanes
+    putStrLn $ toString heanes
     putStrLn (textoFormatado "")
     esperandoEnter
     clearScreen
 
-    putStrLn "Kanva finalmente notou que você se aproxima para o combate!!!\n\nTOME SUA DECISÃO HÉROI!!\n"
+    putStrLn "Kanva finalmente notou que você se aproxima para o combate!!!\nVocê percebe que não consegue ver os status das IA, a luta se torna mais complexa\nTOME SUA DECISÃO HÉROI!!\n\n"
+
     turnoAcaoKanva
 
 adicionaPocaoCW :: IO()
@@ -92,7 +93,7 @@ turnoKanva = do
             putStrLn "Kanvas se enfurece cada vez mais e utiliza sua habilidade especial!! O dano dele é aumentado!\n Não sei qual vai ser, mudem aqui."
             turnoVidaBaixaKanva
         heanes <- carregaPlayer
-        print (toString heanes)
+        putStrLn $ toString heanes
     else putStrLn "O Kanva foi derrotado, PARABÉNS HERÓI!!!! A CIDADE COMEMORA POR VOCÊ."
 
 turnoAtaqueKanva :: IO()
@@ -128,5 +129,6 @@ vitoriaKanva::IO()
 vitoriaKanva = do
     printString vitoriaKanvaDialogo
     printString vitoriaKanvaSaida
+    clearScreen
     comecaFase2
     escolhaCaminhoCidadeFase2

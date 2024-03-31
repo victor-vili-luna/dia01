@@ -12,13 +12,13 @@ abreLojaItens = do
     putStrLn (textoFormatado "Ferreira, o ferreiro: Olá herói! Aqui está uma lista de itens que você pode comprar caso tenha as moedas, claro:\n")
     arquivo02 <- readFile' itemCaminho
     let lojaItens = map (read::String->Item) (lines arquivo02)
-    putStrLn $ (toStringItensLoja lojaItens)
+    putStrLn $ toStringItensLoja lojaItens
     putStrLn (textoFormatado "\nDeseja comprar algo?\n\n(1) Sim.\n(2) Não.\n")
     input <- getLine
     if trim input == "1" then compraItem lojaItens
     else do
         clearScreen
-        putStrLn (textoFormatado("Não quer comprar hein... Tudo bem.\n"))
+        putStrLn (textoFormatado "Não quer comprar hein... Tudo bem.\n")
         esperandoEnter
 
 abreLojaPocoes:: IO()
@@ -28,22 +28,13 @@ abreLojaPocoes = do
     putStrLn (textoFormatado "Olá herói! Aqui está uma lista de poções que você pode comprar caso tenha as moedas, claro:\n")
     arquivoPocao <- readFile' pocaoCaminho
     let lojaPocao = map (read::String->Pocao) (lines arquivoPocao)
-<<<<<<< HEAD
     putStrLn (toStringPocaoLoja lojaPocao)
-    putStrLn (textoFormatado "\n Deseja comprar algo?\n\n(1) Sim.\n(2) Não.\n")
-=======
-    putStrLn(toStringPocaoLoja lojaPocao)
     putStrLn (textoFormatado "\nDeseja comprar algo?\n\n(1) Sim.\n(2) Não.\n")
->>>>>>> 775663d01aab740f5e8d0a57cfd3bbad16bbdaab
     input <- getLine
     if trim input == "1" then compraPocao lojaPocao
     else do
         clearScreen
-<<<<<<< HEAD
-        putStrLn (textoFormatado ("Não quer comprar hein...tudo bem.\n"))
-=======
-        putStrLn (textoFormatado("Não quer comprar hein... Tudo bem.\n"))
->>>>>>> 775663d01aab740f5e8d0a57cfd3bbad16bbdaab
+        putStrLn (textoFormatado "Não quer comprar hein... Tudo bem.\n")
         esperandoEnter
 
 compraItem::[Item]->IO()
@@ -65,17 +56,17 @@ compraItem lojaItens = do
                 salvaPlayer heanesAdulto
                 salvaItens listaAtualItens
                 clearScreen
-                putStrLn (textoFormatado ("Compra realizada com sucesso.\n"))
+                putStrLn (textoFormatado "Compra realizada com sucesso.\n")
                 esperandoEnter
                 clearScreen
             else do
                 clearScreen
-                putStrLn (textoFormatado("Está pobre, tente novamente\n"))
+                putStrLn (textoFormatado "Está pobre, tente novamente\n")
                 esperandoEnter
                 abreLojaItens
         Nothing -> do
             clearScreen
-            putStrLn (textoFormatado("Por favor tente novamente.\n"))
+            putStrLn (textoFormatado "Por favor tente novamente.\n")
             esperandoEnter
             abreLojaItens
 
@@ -99,22 +90,22 @@ compraPocao lojaPocao = do
                         listaPocoesAtualizada = removePocaoAntiga pocaoNome (pocoes heanesPre) ++ [pocaoFinal]
                         heanesAdulto = heanesPre { gold = goldAtual, pocoes = listaPocoesAtualizada}
                     salvaPlayer heanesAdulto
-                    putStrLn (textoFormatado ("Compra realizada com sucesso.\n"))
+                    putStrLn (textoFormatado "Compra realizada com sucesso.\n")
                 else do
                     let goldAtual = gold - precoPocao
                         heanesAdulto = heanesPre { gold = goldAtual, pocoes = pocoes heanesPre ++ [pocao] }
                     salvaPlayer heanesAdulto
                     clearScreen
-                    putStrLn (textoFormatado("Compra realizada com sucesso.\n"))
+                    putStrLn (textoFormatado "Compra realizada com sucesso.\n")
                     esperandoEnter
             else do
                 clearScreen
-                putStrLn (textoFormatado("Está pobre\n"))
+                putStrLn (textoFormatado "Está pobre\n")
                 esperandoEnter
                 abreLojaPocoes
         Nothing -> do
             clearScreen
-            putStrLn (textoFormatado("Por favor tente novamente\n"))
+            putStrLn (textoFormatado "Por favor tente novamente\n")
             esperandoEnter
             abreLojaPocoes
 

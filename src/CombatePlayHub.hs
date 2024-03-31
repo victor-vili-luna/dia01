@@ -10,12 +10,12 @@ import Historia.Fase3
 
 combatePlayHub :: IO()
 combatePlayHub = do
-    putStrLn vilaoPlayHub
+    printString vilaoPlayHub
+    printString vilaoPlayHubContinua
 
     heanes <- carregaPlayer
-    print heanes
-
-    putStrLn "A fusão das IAs te amedronta, elas começam a te inebriar."
+    putStrLn $ toString heanes
+    putStrLn "A fusão das IAs te amedronta, elas começam a te inebriar.\nParece que você realmente não é capaz de ver os status das IA's"
     turnoPreparacao
     turnoAcaoPlayHub
 
@@ -70,7 +70,7 @@ turnoPlayHub = do
             putStrLn "PlayHub para de brincadeira e utiliza uma mixagem de todas as vozes que pegou para gritar e um som ensurdecedor afeta Heanes criticamente!!!"
             turnoVidaBaixaPlayHub
         heanes <- carregaPlayer
-        print heanes
+        putStrLn $ toString heanes
     else putStrLn "OH-Ho, você conseguiu héroi!!"
 
 turnoAtaquePlayHub :: IO()
@@ -103,6 +103,8 @@ turnoVidaBaixaPlayHub = do
 
 vitoriaPlayHub::IO()
 vitoriaPlayHub = do
-    putStrLn "vitoriaKanvaDialogo"
+    printString vitoriaPlayHubDialogo
+    printString vitoriaPlayHubSaida
+    clearScreen
     comecaFase3
     escolhaCaminhoCidadeFase3

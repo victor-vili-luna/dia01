@@ -179,7 +179,7 @@ progressoHeroi = getProgresso <$> resetPlayer
 voltaMenu:: IO()
 voltaMenu = do
     clearScreen
-    putStrLn (textoFormatado("Então nosso heroi precisa voltar ao menu para pensar sobre a vida não é? Tudo bem mas por favor volte o mundo precisa de você\n"))
+    putStrLn (textoFormatado "Então nosso heroi precisa voltar ao menu para pensar sobre a vida não é? Tudo bem mas por favor volte o mundo precisa de você\n")
     esperandoEnter
 
 pocaoCaminho :: String
@@ -277,7 +277,7 @@ slogan =  "---------------------------------------------------------------------
           " ███               ████        ████        ███                ███               | \n" ++
           " ███               ██ ██      ██ ██        ███                ███               |\n" ++
           " ██████████        ██  ██    ██  ██        ███                ███               |\n" ++
-          " ███               ██    ██ ██   ██        ███                ███               |\n" ++ 
+          " ███               ██    ██ ██   ██        ███                ███               |\n" ++
           " ███               ██     ███    ██         ██████████         ██████████       |\n" ++
           "----------------------------------------------------------------------------------"
 
