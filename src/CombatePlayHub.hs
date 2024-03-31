@@ -16,6 +16,7 @@ combatePlayHub = do
     print heanes
 
     putStrLn "A fusão das IAs te amedronta, elas começam a te inebriar."
+    turnoPreparacao
     turnoAcaoPlayHub
 
 turnoAcaoPlayHub :: IO()
@@ -62,7 +63,7 @@ turnoPlayHub = do
     inimigo <- carregaInimigo (criaCaminho "PlayHub")
     if not (verificaMortoInimigo inimigo) then do
         if Models.Inimigo.vida inimigo > 35 then do
-            ataqueEscolhido <- escolheAtaquePlayHub ["*Voce escuta uma voz...*Heanes: C.W.?\nDistraido, Heanes e atacado furiosamente.", "Voce foi transformado em um PDF e perdeu 3kbs, cuidadoo!", "A fusão das IAs te afunda no chão!!"]
+            ataqueEscolhido <- escolheAtaquePlayHub ["*Voce escuta uma voz...*Heanes: C.W.?\nDistraido, Heanes e atacado furiosamente.", "Voce foi transformado em um PDF e perdeu 3kbs, cuidadoo!", "A fusao das IAs te afunda no chao!!"]
             print ataqueEscolhido
             turnoAtaquePlayHub
         else do
@@ -99,7 +100,6 @@ turnoVidaBaixaPlayHub = do
         vidaAtualizadaHeanes = (defesaHeanes + vidaHeanes) - ataqueInimigo
         heanesAtualizado = heanes {Models.Player.vida = vidaAtualizadaHeanes}
     salvaPlayer heanesAtualizado
-
 
 vitoriaPlayHub::IO()
 vitoriaPlayHub = do

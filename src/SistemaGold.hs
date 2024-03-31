@@ -69,7 +69,7 @@ questao01 heanes = do
     input <- getLine
     clearScreen
     if comparaString input "HASKELL" then do
-        let heanesMaisRico = modificaGold heanes 30
+        let heanesMaisRico = modificaGold heanes 50
         salvaPlayer heanesMaisRico
         putStrLn "Vending Machine: MUITO BEM, HUMANO! AINDA BEM QUE MEU PROGRAMADOR NÃO ME FEZ EM HASKELL... ECA!"
         putStrLn (parabenizaAcerto heanesMaisRico)
@@ -84,7 +84,7 @@ questao02 heanes = do
     input <- getLine
     clearScreen
     if trim input == "500" then do
-        let heanesMaisRico = modificaGold heanes 30
+        let heanesMaisRico = modificaGold heanes 50
         salvaPlayer heanesMaisRico
         putStrLn "\nVending Machine: MUITO BEM, HUMANO! SÃO 500 ANOS DE HISTÓRIA!"
         putStrLn (parabenizaAcerto heanesMaisRico)
@@ -108,7 +108,7 @@ questao03 heanes = do
     input <- getLine
     clearScreen
     if comparaString input "Galo" || comparaString input "Treze" then do
-        let heanesMaisRico = modificaGold heanes 30
+        let heanesMaisRico = modificaGold heanes 50
         salvaPlayer heanesMaisRico
         putStrLn  "\nVending Machine: MUITO BEM, HUMANO! UH É GALO DOIDO!"
         putStrLn (parabenizaAcerto heanesMaisRico)
@@ -123,7 +123,7 @@ questao04 heanes = do
     input <- getLine
     clearScreen
     if comparaString input "Prolog" || comparaString input "prolog" then do
-        let heanesMaisRico = modificaGold heanes 30
+        let heanesMaisRico = modificaGold heanes 50
         salvaPlayer heanesMaisRico
         
         putStrLn "\nVending Machine: MUITO BEM, HUMANO! O PARADIGMA LÓGICO VAI SER EXPLORADO NA DISCIPLINA!"
