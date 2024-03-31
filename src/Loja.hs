@@ -16,7 +16,10 @@ abreLojaItens = do
     putStrLn (textoFormatado "\nDeseja comprar algo?\n\n(1) Sim.\n(2) Não.\n")
     input <- getLine
     if trim input == "1" then compraItem lojaItens
-    else putStrLn "Não quer comprar hein...tudo bem."
+    else do
+        clearScreen
+        putStrLn (textoFormatado("Não quer comprar hein... Tudo bem.\n"))
+        esperandoEnter
 
 abreLojaPocoes:: IO()
 abreLojaPocoes = do
@@ -25,19 +28,28 @@ abreLojaPocoes = do
     putStrLn (textoFormatado "Olá herói! Aqui está uma lista de poções que você pode comprar caso tenha as moedas, claro:\n")
     arquivoPocao <- readFile' pocaoCaminho
     let lojaPocao = map (read::String->Pocao) (lines arquivoPocao)
+<<<<<<< HEAD
     putStrLn (toStringPocaoLoja lojaPocao)
     putStrLn (textoFormatado "\n Deseja comprar algo?\n\n(1) Sim.\n(2) Não.\n")
+=======
+    putStrLn(toStringPocaoLoja lojaPocao)
+    putStrLn (textoFormatado "\nDeseja comprar algo?\n\n(1) Sim.\n(2) Não.\n")
+>>>>>>> 775663d01aab740f5e8d0a57cfd3bbad16bbdaab
     input <- getLine
     if trim input == "1" then compraPocao lojaPocao
     else do
         clearScreen
+<<<<<<< HEAD
         putStrLn (textoFormatado ("Não quer comprar hein...tudo bem.\n"))
+=======
+        putStrLn (textoFormatado("Não quer comprar hein... Tudo bem.\n"))
+>>>>>>> 775663d01aab740f5e8d0a57cfd3bbad16bbdaab
         esperandoEnter
 
 compraItem::[Item]->IO()
 compraItem lojaItens = do
     heanesPre <- carregaPlayer
-    putStrLn $ "\nDigite o nome do item que você deseja comprar.\n" ++ "Esse é o seu Gold: " ++ show (getGold heanesPre) ++ "\n"
+    putStrLn $ "\nDigite o nome do item que você deseja comprar.\n\n" ++ "Esse é o seu Gold: " ++ show (getGold heanesPre) ++ "\n"
 
     input <- getLine
     let maybeItem = identificaItem input lojaItens
@@ -58,12 +70,14 @@ compraItem lojaItens = do
                 clearScreen
             else do
                 clearScreen
-                putStrLn "Está pobre, tente novamente"
+                putStrLn (textoFormatado("Está pobre, tente novamente\n"))
                 esperandoEnter
                 abreLojaItens
         Nothing -> do
-            putStrLn "Por favor tente novamente."
-            compraItem lojaItens
+            clearScreen
+            putStrLn (textoFormatado("Por favor tente novamente.\n"))
+            esperandoEnter
+            abreLojaItens
 
 
 compraPocao::[Pocao] -> IO()
@@ -90,13 +104,18 @@ compraPocao lojaPocao = do
                     let goldAtual = gold - precoPocao
                         heanesAdulto = heanesPre { gold = goldAtual, pocoes = pocoes heanesPre ++ [pocao] }
                     salvaPlayer heanesAdulto
-                    putStrLn "Compra realizada com sucesso."
+                    clearScreen
+                    putStrLn (textoFormatado("Compra realizada com sucesso.\n"))
+                    esperandoEnter
             else do
-                putStrLn "Está pobre"
+                clearScreen
+                putStrLn (textoFormatado("Está pobre\n"))
                 esperandoEnter
                 abreLojaPocoes
         Nothing -> do
-            putStrLn "Por favor tente novamente"
+            clearScreen
+            putStrLn (textoFormatado("Por favor tente novamente\n"))
+            esperandoEnter
             abreLojaPocoes
 
 verLoja::IO()

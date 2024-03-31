@@ -75,7 +75,7 @@ parseConquista :: String -> Conquista
 parseConquista texto = read texto :: Conquista
 
 fechaJogo :: String
-fechaJogo = "Então você decidiu dar uma pausa tudo bem...espero que você volte aqui não é o mesmo sem você."
+fechaJogo = "Então você decidiu dar uma pausa. Tudo bem... Espero que você volte. Aqui não é o mesmo sem você."
 
 esperandoEnter :: IO ()
 esperandoEnter = do

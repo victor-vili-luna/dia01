@@ -19,8 +19,9 @@ sistemaGold = do
         sistemaGoldPassivoAux 0
     else if trim input == "2"
         then sistemaGoldAtivoAux
-    else
-        putStrLn "Não quer trabalhar hein, tudo bem. Boa sorte!"
+    else do
+        putStrLn (textoFormatado("Não quer trabalhar hein, tudo bem. Boa sorte!\n"))
+        esperandoEnter
 
 sistemaGoldPassivoAux::Int->IO()
 sistemaGoldPassivoAux goldAntigo= do
@@ -32,7 +33,7 @@ sistemaGoldPassivoAux goldAntigo= do
         let heanes2 = modificaGold heanes (goldAntigo + 3)
         salvaPlayer heanes2
         clearScreen
-        putStrLn (textoFormatado("\nC.W.:Você se cansa rápido para um héroi...\n\n*Você olha para sua carteira de professor, e vê " ++ show (goldAntigo + 3) ++ " moedas de critais.*\n"))
+        putStrLn (textoFormatado("\nC.W.:Você se cansa rápido para um héroi...\n\n*Você olha para sua carteira de professor, e vê " ++ show (getGold heanes) ++ " moedas de critais.*\n"))
         esperandoEnter
         clearScreen
     else do
@@ -61,14 +62,13 @@ sistemaGoldAtivoAux = do
         3 -> ultimasPerguntas heanes
         _ -> return ()
     esperandoEnter
-    clearScreen
 
 questao01:: Player ->IO()
 questao01 heanes = do
     putStrLn (textoFormatado "Vending Machine: QUAL A MELHOR LINGUAGEM DE PROGRAMAÇÃO JÁ CRIADA?\n")
     input <- getLine
     clearScreen
-    if comparaString input "HASKELL" then do
+    if (uppercase input /= "HASKELL") then do
         let heanesMaisRico = modificaGold heanes 50
         salvaPlayer heanesMaisRico
         putStrLn "Vending Machine: MUITO BEM, HUMANO! AINDA BEM QUE MEU PROGRAMADOR NÃO ME FEZ EM HASKELL... ECA!"

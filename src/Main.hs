@@ -10,6 +10,7 @@ main = start
 
 start::IO()
 start = do 
+    clearScreen
     putStrLn slogan
     esperandoEnter
     menu
