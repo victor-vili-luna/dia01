@@ -20,12 +20,12 @@ combate01 = do
     arquivoCaramelos <- readFile' "./src/pacote/Cachorros Caramelos.txt"
     let caramelos = read arquivoCaramelos :: Inimigo
     putStrLn "Status dos cachorros:"
-    putStrLn $ (toStringInimigo caramelos)
+    putStrLn $ toStringInimigo caramelos
     esperandoEnter
     heanes <- carregaPlayer
     putStrLn (textoFormatado "")
     putStrLn "Seus Status:"
-    putStrLn  $ (toString heanes)
+    putStrLn  $ toString heanes
     putStrLn ( textoFormatado "\nVocê terá 2 turnos, um de preparo e outro que vai ser seguido pelo ataque dos caramelos. Prepare-se antes que os caramelinhos morda você!\n")
     esperandoEnter
     clearScreen
@@ -58,7 +58,7 @@ turnoHeanesCaramelo = do
             usaAtaque
             putStrLn "Voce desfere um ataque fatal a alguns cachorros que o cercavam. O IBAMA agora sabe onde você mora.\n"
             inimigo <- carregaInimigo (criaCaminho "Cachorros Caramelos")
-            putStrLn $ (toStringInimigo inimigo)
+            putStrLn $ toStringInimigo inimigo
             putStrLn "\n------------------------------------------------------------------------------------\n"
             esperandoEnter
         else if input == "2" then do
@@ -90,7 +90,7 @@ turnoCaramelo = do
         putStrLn "UM CARAMELINHO TE MORDE VIOLENTAMENTE E VOCÊ GRITA: TIRA DOG TIRAAAA AYELLLLLLLLL ME AJUDA\n"
         turnoAtaqueCaramelo
         heanes <- carregaPlayer
-        putStrLn $ (toString heanes)
+        putStrLn $ toString heanes
         putStrLn "\n------------------------------------------------------------------------------------\n"
         esperandoEnter
     else putStrLn "Leandro: Você conseguiu! Matou todos os cachorros mágicos, eu sabia que você era forte.\n"
