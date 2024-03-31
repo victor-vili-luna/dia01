@@ -86,8 +86,6 @@ compraPocao lojaPocao = do
                         heanesAdulto = heanesPre { gold = goldAtual, pocoes = listaPocoesAtualizada}
                     salvaPlayer heanesAdulto
                     putStrLn(textoFormatado("Compra realizada com sucesso.\n"))
-                    esperandoEnter
-                    clearScreen
                 else do
                     let goldAtual = gold - precoPocao
                         heanesAdulto = heanesPre { gold = goldAtual, pocoes = pocoes heanesPre ++ [pocao] }

@@ -61,7 +61,7 @@ turnoHeanesKanva = do
         input <- trim <$> getLine
         if input == "1" then do
             usaAtaqueKanva
-            putStrLn "Você desfere uma lapada de mão aberta."
+            putStrLn "Com sua espada fervorosa você fere o Kanva destruindo alguns de seus grandes tentáculos-pincéis."
         else if input == "2" then usaPocao
         else do
             putStrLn "Digite uma opção válida."
@@ -85,7 +85,7 @@ turnoKanva = do
     inimigo <- carregaInimigo (criaCaminho "Kanva")
     if not (verificaMortoInimigo inimigo) then do
         if Models.Inimigo.vida inimigo > 35 then do
-            ataqueEscolhido <- escolheAtaqueKanva ["Kanva desenha uma bola de fogo indo na sua direcao", "Repentinamente varias telas saltam sobre voce!! CUIDADO!", "Mais algum ataque do giga"]
+            ataqueEscolhido <- escolheAtaqueKanva ["Kanva desenha uma bola de fogo indo na sua direcao", "Repentinamente varias telas saltam sobre voce!! CUIDADO!", "Kanva joga varios pinceis enraivados contra voce!!"]
             print ataqueEscolhido
             turnoAtaqueKanva
         else do

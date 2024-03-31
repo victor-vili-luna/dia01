@@ -12,6 +12,7 @@ explicacaoCombate01 = textoFormatado "Você estará entrando em combate em breve
 
 combate01 :: IO()
 combate01 = do
+    corrigeMonster
     mapM_ printString [kanvaHistoria1, kanvaHistoria2 , kanvaHistoria3, kanvaHistoria4,kanvaHistoria5,kanvaHistoria6
         , kanvaHistoria7, caramelosKanva, explicacaoCombate01]
     clearScreen
@@ -32,6 +33,17 @@ combate01 = do
     turnoPreparacao
     clearScreen
     turnoAcao01
+
+corrigeMonster :: IO()
+corrigeMonster = do
+    heroi <- carregaPlayer
+    let maybePocao = identificaPocao "Monster" (Models.Player.pocoes heroi)
+    case maybePocao of
+        Just pocao -> do
+            let pocoesAtualizada = removePocaoAntiga "Monster" (Models.Player.pocoes heroi)
+                heanesMonster = heroi {Models.Player.pocoes = pocoesAtualizada}
+            salvaPlayer heanesMonster
+        Nothing -> putStrLn ""
 
 turnoAcao01 :: IO()
 turnoAcao01 = do

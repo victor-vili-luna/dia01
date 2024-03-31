@@ -10,7 +10,8 @@ module Models.Player where
         ataque::Int,
         equipamentos::[Item],
         pocoes::[Pocao],
-        progresso::Int
+        progresso::Int,
+        pocoesTomadas::Int
     } deriving (Show, Read)
 
 
@@ -38,7 +39,8 @@ module Models.Player where
         ataque = 5,
         equipamentos = equipamentos heanes,
         pocoes = pocoes heanes,
-        progresso = progresso heanes
+        progresso = progresso heanes,
+        pocoesTomadas = pocoesTomadas heanes
         }
 
     toString :: Player -> String

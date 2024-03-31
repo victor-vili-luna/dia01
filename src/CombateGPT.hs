@@ -17,6 +17,7 @@ combateGPT01 = do
     print heanes
 
     putStrLn "ConversaGPT te ataca vigorosamente, está será sua última batalha, USE TUDO."
+    turnoPreparacao
     turnoAcaoGPT
 
 turnoAcaoGPT :: IO()
@@ -108,8 +109,8 @@ combateGPT02 = do
     putStrLn "ConversaGPT: Que comece o verdadeiro combate!!"
     inimigo <- carregaInimigo (criaCaminho "ConversaGPT")
     let vidaAtualizada = 500
-    gptAtualizado = inimigo {Models.Player.vida = vidaAtualizada}
-    writeFile "./src/pacote/ConversaGPT.txt"
+        gptAtualizado = inimigo {Models.Inimigo.vida = vidaAtualizada}
+    writeFile "./src/pacote/ConversaGPT.txt" (show gptAtualizado)
     turnoAcaoGPT02 
 
 turnoAcaoGPT02 :: IO()
