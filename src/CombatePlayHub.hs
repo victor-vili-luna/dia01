@@ -39,7 +39,7 @@ turnoHeanesPlayHub = do
 
         if trim input == "1" then do
             usaAtaquePlayHub
-            putStrLn ""
+            putStrLn "Heanes desfere um ataque crítico e PlayHub perde algumas de suas vozes preferidas."
         else if trim input == "2" then usaPocao
         else do
             putStrLn "Digite uma opção válida."

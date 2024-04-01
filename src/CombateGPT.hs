@@ -16,6 +16,7 @@ combateGPT01 = do
 
     heanes <- carregaPlayer
     putStrLn $ toString heanes
+    esperandoEnter
     turnoPreparacao
     turnoAcaoGPT
 
@@ -25,7 +26,7 @@ turnoAcaoGPT = do
     turnoGPT
     heanes <- carregaPlayer
     if verificaMortoHeroi heanes then do
-        putStrLn "VOCÊ VAI MORRER HEANES!!! HAHAHAHA!! *voce lembra de algo sobre IAs, elas...*\nHeanes: Você, tem certeza disso?"
+        printString "VOCÊ VAI MORRER HEANES!!! HAHAHAHA!! *voce lembra de algo sobre IAs, elas...*\nHeanes: Você, tem certeza disso?"
         putStrLn "(1) Você aceita sua derrota e se rende?.\n(2) Não, não me curvo perante a IAs."
         escolha <- getLine
 
@@ -41,12 +42,12 @@ turnoHeanesGPT = do
 
         if trim input == "1" then do
             usaAtaqueGPT
-            putStrLn "Você faz a I.A. correr com o rabo entre as pernas, mas você é impiedoso e o mata pelas costas jogando o teorema do resto chinês nele."
+            printString "Você ataca e grita: TEM CERTEZA?"
         else if trim input == "2" then usaPocao
         else do
             putStrLn "Digite uma opção válida."
             turnoHeanesGPT
-    else putStrLn "Você conseguiu dog!!"
+    else putStrLn "Você conseguiu DOGUINHO JUNIOR!!"
 
 usaAtaqueGPT :: IO ()
 usaAtaqueGPT = do
@@ -65,14 +66,14 @@ turnoGPT = do
     inimigo <- carregaInimigo (criaCaminho "ConversaGPT")
     if not (verificaMortoInimigo inimigo) then do
         if Models.Inimigo.vida inimigo > 35 then do
-            ataqueEscolhido <- escolheAtaqueGPT ["ataque padrao 1", "ataque padrao 2", "ataque padrao 3"]
-            print ataqueEscolhido
+            ataqueEscolhido <- escolheAtaqueGPT ["Eu sei fazer o teorema do chines melhor que voce!!", "Linguagem perceptiva!!", "Algoritmo implacavel!!"]
+            printString ataqueEscolhido
             turnoAtaqueGPT
         else do
             putStrLn "GPT utiliza sua habilidade especial, repetir a mesma coisa!! O dano dele é aumentado!\n Não sei qual vai ser, mudem aqui."
             turnoVidaBaixaGPT
         heanes <- carregaPlayer
-        print heanes
+        putStrLn $ toString heanes
     else putStrLn "O GPT foi derrotado, PARABÉNS HERÓI!!!! A CIDADE COMEMORA POR VOCÊ."
 
 turnoAtaqueGPT :: IO()
@@ -106,10 +107,12 @@ turnoVidaBaixaGPT = do
 combateGPT02 :: IO ()
 combateGPT02 = do
     putStrLn "ConversaGPT: Que comece o verdadeiro combate!!"
+    heanes <- carregaPlayer 
     inimigo <- carregaInimigo (criaCaminho "ConversaGPT")
-    let vidaAtualizada = 500
-        gptAtualizado = inimigo {Models.Inimigo.vida = vidaAtualizada}
-    writeFile "./src/pacote/ConversaGPT.txt" (show gptAtualizado)
+    let gptAtualizado = inimigo {Models.Inimigo.vida = 500}
+        heanesAtualizado = heanes {Models.Player.vida = 300}
+    salvaInimigo gptAtualizado (criaCaminho "ConversaGPT")
+    salvaPlayer heanesAtualizado
     turnoAcaoGPT02 
 
 turnoAcaoGPT02 :: IO()
@@ -148,5 +151,6 @@ escolhaTreatmentGPT escolha vezes_negado = do
 vitoriaGPT :: IO()
 vitoriaGPT = do
     printString vitoriaGPTDialogo
+    desbloqueaConquista "Faixa Preta"
     clearScreen
     fimDeJogo

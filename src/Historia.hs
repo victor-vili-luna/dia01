@@ -153,7 +153,7 @@ historiaConversaGPT :: String
 historiaConversaGPT = textoFormatado "historia da investigacao do conversaGPT"
 
 vilaoGPT :: String
-vilaoGPT = textoFormatado "C.W: Enfim chegamos ao fim, está vendo aquele castelo nada chamativo em cima de uma montanha é lá onde o lider das IA's ConversaGPT vive, por favor Heanes nos ajude uma ultima vez.\nIndo em direção ao castelo dessa vez você não encontra ninguem apenas você atê que derrepente\nConversaGPT: Olha olha se não é Heanes a pessoa mais falada desse mundo, parece que você andou batendo nos meus amigos não é? infelizmente pelo bem do meu reinado vou ter que te eliminar não leve para o pessoal."
+vilaoGPT = textoFormatado "C.W: Enfim chegamos ao fim, está vendo aquele castelo nada chamativo em cima de uma montanha é lá onde o lider das IA's ConversaGPT vive, por favor Heanes nos ajude uma ultima vez.\nIndo em direção ao castelo dessa vez você não encontra ninguem apenas você até que de repente\nConversaGPT: Olha olha se não é Heanes a pessoa mais falada desse mundo, parece que você andou batendo nos meus amigos não é? infelizmente pelo bem do meu reinado vou ter que te eliminar não leve para o pessoal."
 
 vitoriaGPTDialogo :: String
 vitoriaGPTDialogo = textoFormatado "O Ultimo golpe, GPT que parecia invencivel cai, Heanes que lutou bravamente mal se aguenta em pé e logo quando ia cair sente alguem o segurando\nNão se sabe se foi mestre dos magos que chegou ou se o esperito de euclides veio te socorrer mas você ve que chegou em casa e já é um outro dia."

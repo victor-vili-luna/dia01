@@ -72,18 +72,23 @@ usaPocao = do
                 quantidadeAtualizada = Models.Pocao.quantidade pocaoInicial - 1
                 pocaoFinal = pocaoInicial {Models.Pocao.quantidade = quantidadeAtualizada}
                 pocoesTomadasFinal = Models.Player.pocoesTomadas heroi + 1
-
-            if quantidadeAtualizada == 0 then do
-                let listaPocoesAtualizada = removePocaoAntiga input (Models.Player.pocoes heroi)
-                    heanesAtualizado = heroi {Models.Player.ataque = ataqueAtualizado, Models.Player.defesa = defesaAtualizada, Models.Player.vida = vidaAtualizada, Models.Player.pocoes = listaPocoesAtualizada, Models.Player.pocoesTomadas = pocoesTomadasFinal}
+            if verificaInfarto pocoesTomadasFinal then do
+                let heanesAtualizado = heroi {Models.Player.vida = 0}
+                desbloqueaConquista "Se voce nao parar eu Paro"
                 salvaPlayer heanesAtualizado
-                putStrLn $ toString heanesAtualizado
+                putStrLn "Você...INFARTOU???"
             else do
-                let listaPocoesAtualizada = removePocaoAntiga input (Models.Player.pocoes heroi) ++ [pocaoFinal]
-                    heanesAtualizado = heroi {Models.Player.ataque = ataqueAtualizado, Models.Player.defesa = defesaAtualizada, Models.Player.vida = vidaAtualizada, Models.Player.pocoes = listaPocoesAtualizada, Models.Player.pocoesTomadas = pocoesTomadasFinal}
-                salvaPlayer heanesAtualizado
-                putStrLn $ toString heanesAtualizado
-            putStrLn "Pocao utilizada com sucesso."
+                if quantidadeAtualizada == 0 then do
+                    let listaPocoesAtualizada = removePocaoAntiga input (Models.Player.pocoes heroi)
+                        heanesAtualizado = heroi {Models.Player.ataque = ataqueAtualizado, Models.Player.defesa = defesaAtualizada, Models.Player.vida = vidaAtualizada, Models.Player.pocoes = listaPocoesAtualizada, Models.Player.pocoesTomadas = pocoesTomadasFinal}
+                    salvaPlayer heanesAtualizado
+                    putStrLn $ toString heanesAtualizado
+                else do
+                    let listaPocoesAtualizada = removePocaoAntiga input (Models.Player.pocoes heroi) ++ [pocaoFinal]
+                        heanesAtualizado = heroi {Models.Player.ataque = ataqueAtualizado, Models.Player.defesa = defesaAtualizada, Models.Player.vida = vidaAtualizada, Models.Player.pocoes = listaPocoesAtualizada, Models.Player.pocoesTomadas = pocoesTomadasFinal}
+                    salvaPlayer heanesAtualizado
+                    putStrLn $ toString heanesAtualizado
+                putStrLn "Pocao utilizada com sucesso." 
 
         Nothing -> do
             clearScreen
@@ -97,6 +102,11 @@ verificaMortoHeroi heanes = Models.Player.vida heanes <= 0
 
 verificaMortoInimigo :: Inimigo -> Bool
 verificaMortoInimigo inimigo = Models.Inimigo.vida inimigo <= 0
+
+verificaInfarto :: Int-> Bool
+verificaInfarto pocoesInfarto = do
+    if pocoesInfarto >=5 then True
+    else False
 
 morte:: IO()
 morte = do

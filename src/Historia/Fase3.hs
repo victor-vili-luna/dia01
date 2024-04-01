@@ -71,7 +71,7 @@ historiaPrincipal opcoes = do
         abreLojaItens
         historiaPrincipal opcoes
     else if opcaoJogador == "4" then
-        combateGPT01
+        vitoriaGPT
     else if opcaoJogador == "5" then
         voltaMenu
     else do 
